@@ -1,0 +1,50 @@
+.root{
+    /*Default colors*/
+    ce-red: #e74c3c;
+    ce-red-hover: #e53f2e;
+    ce-yellow: #f1c40f;
+    ce-yellow-hover: #ffcc00;
+    ce-white:#ecf0f1;
+    ce-black:#333;
+    ce-background:#ddd;
+    ce-text-color:#595959;
+    ce-border-color:#b1b1b1;
+    /*App fonts*/
+    -fx-font-family: Roboto;
+    -fx-font-weight: normal;
+    /*Highlighting color*/
+    -fx-accent: ce-yellow;
+}
+.jfx-button{
+    -fx-text-fill: ce-red;
+    -fx-font-weight: normal;
+}
+.jfx-text-field{
+    -fx-text-fill: ce-white;
+    -fx-fill-color: #fff;
+    -jfx-focus-color: ce-yellow-hover;
+    -jfx-unfocus-color: ce-yellow;
+    -fx-prompt-text-fill: ce-yellow;
+}
+.jfx-password-field{
+    -fx-text-fill: ce-white;
+    -fx-fill-color: #fff;
+    -jfx-focus-color: ce-yellow-hover;
+    -jfx-unfocus-color: ce-yellow;
+    -fx-prompt-text-fill: ce-yellow;
+}
+.jfx-rippler{
+    -fx-cursor: hand;
+    -fx-rippler-fill: ce-red-hover;
+    -fx-ripple-color: ce-red-hover;
+}
+.glyph-icon{
+    -fx-fill: ce-yellow;
+}
+.context-menu {
+  -fx-background-color: ce-white;
+  -fx-text-fill: ce-text-color;
+}
+.menu-item .label{
+    -fx-font-size: 13pt;
+}

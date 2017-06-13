@@ -1,0 +1,65 @@
+/*LOGIN-ROOT*/
+.root{
+    -fx-background-color: ce-red;
+}
+#login-pane-wrapper{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-background-radius: 10;
+}
+#login-pane{
+    -fx-background-color: ce-red;
+    -fx-background-radius: 2;
+}
+#login-title-pane{
+    -fx-font-size: 48pt;
+    -fx-font-weight: bold;
+}
+#login-logo-pane-casa{
+    -fx-fill: ce-white;
+}
+#login-logo-pane-elida{
+    -fx-fill: ce-yellow;
+}
+.app-link{
+    -fx-fill: ce-yellow;
+    -fx-cursor: hand;
+    -glyph-size: 25pt;
+}
+.desktop-version-text{
+    -fx-text-fill: ce-white;
+    -fx-font-size: 8.5pt;
+}
+#desktop-link-icon{
+    -fx-cursor: default;
+    -glyph-size: 38pt;
+}
+    /*AUTH-PANE*/
+    /*Includes username and password step verification*/
+    .auth-step-pane{
+        -fx-background-color: ce-red;
+    }
+    .auth-input-text{
+        -fx-font-size: 18pt;
+    }
+    .auth-pane-header-text{
+        -fx-text-fill: ce-white;
+        -fx-font-size: 22.5pt;
+    }
+    .auth-pane-subheader-text{
+        -fx-text-fill: ce-white;
+        -fx-font-size: 12.5pt;
+        -fx-fill: ce-white;
+        -fx-cursor: hand;
+        display: block;
+    }
+    .auth-pane-subheader-icon{
+        -fx-fill: ce-yellow;
+    }
+    .auth-pane-main-button{
+        -fx-font-size: 25pt;
+        -fx-background-color: ce-yellow;
+        -fx-fill: ce-red;
+    }
+    /*User Email Step*/
+
+    /*Password Step*/
