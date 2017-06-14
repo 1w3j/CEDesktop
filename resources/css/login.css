@@ -3,7 +3,6 @@
     -fx-background-color: ce-red;
 }
 #login-pane-wrapper{
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
     -fx-background-radius: 10;
 }
 #login-pane{

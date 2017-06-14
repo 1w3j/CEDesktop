@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
-
+<?import javafx.scene.layout.VBox?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="MAIN WINDOW" textFill="WHITE" />
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <JFXToolbar prefHeight="100.0" prefWidth="1920.0" style="-fx-background-color: ce-red-hover;" />
+               </children>
+            </VBox>
+         </top>
+      </BorderPane>
    </children>
 </StackPane>

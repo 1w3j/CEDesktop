@@ -12,7 +12,6 @@ import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.FlowActionHandler;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
-import java.util.logging.Level;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -24,6 +23,9 @@ import com.casaelida.desktop.utils.CEConstants.App.Main;
 import com.casaelida.desktop.utils.CEConstants.App.Animations;
 import com.casaelida.desktop.utils.CEConstants.App.Login.Steps;
 import com.casaelida.desktop.utils.CEConstants.App.Login.Steps.Password;
+import com.jfoenix.effects.JFXDepthManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,22 +46,32 @@ public class LoginPasswordStepController {
     @ViewNode(Password.TXT_PASSWORD) private JFXPasswordField txtPassword;
     @ViewNode(Password.LBL_USERNAME) private Label lblUserName;
     
-    @PostConstruct private void start() {
+    @PostConstruct private void start() throws Exception {
         this.authStepsActionHandler = (FlowActionHandler)this.loginFlowContext.getRegisteredObject(Steps.Flow.ACTION_HANDLER);
         this.casaElidaFlowHandler = (FlowHandler)this.loginFlowContext.getApplicationContext().getRegisteredObject(App.Flow.FLOW_HANDLER);
-        CEFunctions.requestFocus(txtPassword, 400);
-        this.btnChangeUser.setOnMouseClicked(e->{
-            try {
-                this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_BACK);
-                this.authStepsActionHandler.navigate(LoginUserEmailStepController.class);
-            } catch (VetoException | FlowException ex) {
-                Password.LOGGER.log(Level.SEVERE, null, ex);
-            }
-        });
+        initComponents();
     }
     
     @ActionMethod(Password.Flow.VALIDATE) private void validateUserPassword() throws VetoException, FlowException{
         this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.MAIN_START);
         this.casaElidaFlowHandler.navigateTo(Main.CLASS);
+    }
+    
+    private void changeUser() throws FlowException, VetoException{
+        this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_BACK);
+        this.authStepsActionHandler.navigate(LoginUserEmailStepController.class);
+    }
+
+    private void initComponents() throws Exception {
+        CEFunctions.requestFocus(txtPassword, 400);
+        JFXDepthManager.setDepth(this.btnLogin, 1);
+        this.btnChangeUser.setOnMouseClicked(e->{
+            try {
+                changeUser();
+            } catch (FlowException | VetoException ex) {
+                Password.LOGGER.log(Level.SEVERE, null, ex);
+            }
+        });
+        //CEFunctions.createValidateOnFocusHandler(txtPassword, "Ingrese su contraseña");
     }
 }

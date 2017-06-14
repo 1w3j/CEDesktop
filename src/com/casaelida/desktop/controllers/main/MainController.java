@@ -6,7 +6,7 @@ import io.datafx.controller.ViewController;
  *
  * @author iqbal
  */
-@ViewController(value="/fxml/main/main.fxml", title = "Casa Elida Desktop App - Main")
+@ViewController(value="/fxml/main/main.fxml")
 public class MainController {
     
 }

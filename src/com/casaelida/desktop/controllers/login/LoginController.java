@@ -19,6 +19,9 @@ import com.casaelida.desktop.utils.CEAnimatedFlowContainer;
 import com.casaelida.desktop.utils.CEConstants.App;
 import com.casaelida.desktop.utils.CEConstants.Meta;
 import com.casaelida.desktop.utils.CEConstants.App.Login;
+import com.casaelida.desktop.utils.CEFunctions;
+import com.jfoenix.effects.JFXDepthManager;
+import com.jfoenix.responsive.JFXResponsiveHandler;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import javafx.scene.control.Tooltip;
@@ -64,6 +67,7 @@ public class LoginController {
     }
     
     private void initComponents(){
+        JFXDepthManager.setDepth(this.paneWrapper, 5);
         //Fix the white left border that appears at the moment of the swipe animation
         this.authPane.setClip(new Rectangle(510, 520));
         //Open the Casa Elida Web App
@@ -78,10 +82,7 @@ public class LoginController {
                 return null;
             }
         }));
-        Tooltip androidLinkTooltip = new Tooltip("Próximamente en Dispositivos Móviles...");
-        androidLinkTooltip.setFont(Font.font("Roboto", FontWeight.NORMAL, 15));
-        Tooltip.install(this.androidLinkIcon, androidLinkTooltip);
-        //Tooltip.install(this.titlePane, new Tooltip("Próximamente en Dispositivos Móviles..."));
+        Tooltip.install(this.androidLinkIcon, CEFunctions.createTooltip("Próximamente en Dispositivos Móviles..."));
     }
     
 }

@@ -19,6 +19,7 @@ import com.casaelida.desktop.utils.CEFunctions;
 import com.casaelida.desktop.utils.CEConstants.App.Animations;
 import com.casaelida.desktop.utils.CEConstants.App.Login.Steps;
 import com.casaelida.desktop.utils.CEConstants.App.Login.Steps.UserEmail;
+import com.jfoenix.effects.JFXDepthManager;
 
 /**
  *
@@ -35,14 +36,23 @@ public class LoginUserEmailStepController{
     @ViewNode(UserEmail.TXT_USEREMAIL) private JFXTextField txtUserEmail;
     @ViewNode(UserEmail.BTN_NEXT) @ActionTrigger(UserEmail.Flow.VALIDATE) private JFXButton btnNext;
     
-    @PostConstruct private void start(){
+    @PostConstruct private void start() throws Exception{
         this.loginFlowContext.register(Steps.Flow.ACTION_HANDLER, this.authStepsActionHandler);
         
-        CEFunctions.requestFocus(this.txtUserEmail, 550);
+        initComponents();
     }
     
     @ActionMethod(UserEmail.Flow.VALIDATE) private void validateUserEmail() throws FlowException, VetoException{
-        this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_NEXT);
-        this.authStepsActionHandler.navigate(LoginPasswordStepController.class);
+        System.out.println(txtUserEmail.getUserData());
+        if((boolean)txtUserEmail.getUserData()){
+            this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_NEXT);
+            this.authStepsActionHandler.navigate(LoginPasswordStepController.class);
+        }
+    }
+
+    private void initComponents() throws Exception {
+        CEFunctions.requestFocus(this.txtUserEmail, 550);
+        JFXDepthManager.setDepth(this.btnNext, 1);
+        CEFunctions.createValidateOnFocusHandler(txtUserEmail, "Ingrese un correo electrónico");
     }
 }
