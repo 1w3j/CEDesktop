@@ -27,6 +27,7 @@ public interface CEConstants {
         public static interface Flow{
             public static final String FLOW = "CASAELIDA_FLOW";
             public static final String FLOW_HANDLER = "CASAELIDA_FLOWHANDLER";
+            public static final String USEREMAIL_ISVALID = "USEREMAIL_ISVALID";
         }
         public static interface Login{
             public static final Class<?> CLASS = LoginController.class;

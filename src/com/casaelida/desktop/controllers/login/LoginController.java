@@ -21,14 +21,11 @@ import com.casaelida.desktop.utils.CEConstants.Meta;
 import com.casaelida.desktop.utils.CEConstants.App.Login;
 import com.casaelida.desktop.utils.CEFunctions;
 import com.jfoenix.effects.JFXDepthManager;
-import com.jfoenix.responsive.JFXResponsiveHandler;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 /**
@@ -43,12 +40,12 @@ public class LoginController {
     private FlowHandler loginFlowHandler;//new flow handler instance for login flow, allowing the steps navigate between them
     //@ViewNode("my_id") uses the 'id' attribute in the fxml document if there are no 'id's then it takes the 'fx:id' value
     @ViewNode(Login.PANE_WRAPPER) private StackPane paneWrapper;
-    @ViewNode(Login.PANE) private BorderPane pane;
-    @ViewNode(Login.TITLE_PANE) private HBox titlePane;
-    @ViewNode(Login.LOGO_PANE) private HBox logoPane;
-    @ViewNode(Login.LOGO_PANE_CASA) private Text logoPaneCasa;
-    @ViewNode(Login.LOGO_PANE_ELIDA) private Text logoPaneElida;
-    @ViewNode(Login.APP_LINKS_PANE) private HBox appLinksPane;
+    @ViewNode(Login.PANE) private BorderPane loginPane;
+    @ViewNode(Login.TITLE_PANE) private HBox loginTitlePane;
+    @ViewNode(Login.LOGO_PANE) private HBox loginLogoPane;
+    @ViewNode(Login.LOGO_PANE_CASA) private Text loginLogoPaneCasa;
+    @ViewNode(Login.LOGO_PANE_ELIDA) private Text loginLogoPaneElida;
+    @ViewNode(Login.APP_LINKS_PANE) private HBox loginAppLinksPane;
     @ViewNode(Login.ANDROID_LINK_ICON) private MaterialDesignIconView androidLinkIcon;
     @ViewNode(Login.WEB_LINK_ICON) private Icons525View webLinkIcon;
     @ViewNode(Login.DESKTOP_LINK_ICON) private MaterialIconView desktopLinkIcon;
@@ -60,6 +57,7 @@ public class LoginController {
         this.loginFlowContext.register(Login.AUTH_PANE, this.authPane);
         this.loginFlowHandler = authFlow.createHandler(this.loginFlowContext);
         this.loginFlowContext.register(Login.Flow.FLOW_HANDLER, this.loginFlowHandler);
+        this.loginFlowContext.register(Login.PANE, this.loginPane);
         
         StackPane rootAuthPane = this.loginFlowHandler.start(new CEAnimatedFlowContainer());
         this.authPane.getChildren().setAll(rootAuthPane);
