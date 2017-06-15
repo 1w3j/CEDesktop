@@ -70,6 +70,7 @@ public class LoginUserEmailStepController{
         if(isValid){
             this.loginPane.setOpacity(0.8d);
             this.userEmailStepPane.setDisable(true);
+            //Simulate Web-Based login data checking
             CEFunctions.runAfterDelay(()->{
                 this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_NEXT);
                 try {
