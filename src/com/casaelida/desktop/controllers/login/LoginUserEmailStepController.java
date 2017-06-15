@@ -61,9 +61,7 @@ public class LoginUserEmailStepController{
     @ActionMethod(UserEmail.Flow.VALIDATE) private void validateUserEmail(){
         this.startedValidating = true;
         boolean isValid = this.txtUserEmail.validate();
-        if(!isValid && this.txtUserEmail.isFocused()) {
-            this.txtUserEmail.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
-        }
+        if(!isValid && this.txtUserEmail.isFocused()) this.txtUserEmail.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
         else {
             this.txtUserEmail.setStyle("-fx-prompt-text-fill: ce-yellow;-jfx-focus-color: ce-yellow-hover;-jfx-unfocus-color: ce-yellow;");
             this.txtUserEmail.lookup(".input-line").setStyle("-fx-background-color:ce-yellow;");
@@ -100,9 +98,8 @@ public class LoginUserEmailStepController{
             if(this.startedValidating){
                 boolean isValid = false;
                 if(!isFocusedNow) isValid = this.txtUserEmail.validate();
-                if(!isValid && !wasFocused) {
-                    this.txtUserEmail.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
-                }else {
+                if(!isValid && !wasFocused)  this.txtUserEmail.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
+                else {
                     this.txtUserEmail.setStyle("-fx-prompt-text-fill: ce-yellow;-jfx-focus-color: ce-yellow-hover;-jfx-unfocus-color: ce-yellow;");
                     this.txtUserEmail.lookup(".input-line").setStyle("-fx-background-color:ce-yellow;");
                 }
