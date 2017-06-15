@@ -59,6 +59,7 @@ public class LoginUserEmailStepController{
     }
     
     @ActionMethod(UserEmail.Flow.VALIDATE) private void validateUserEmail(){
+        //Email validation -- actual validation
         this.startedValidating = true;
         boolean isValid = this.txtUserEmail.validate();
         if(!isValid && this.txtUserEmail.isFocused()) this.txtUserEmail.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
@@ -79,14 +80,14 @@ public class LoginUserEmailStepController{
                 } catch (VetoException | FlowException ex) {
                     UserEmail.LOGGER.log(Level.SEVERE, null, ex);
                 }
-            }, 5000);
+            }, 2000);
         }
     }
 
     private void initComponents() throws Exception {
         CEFunctions.requestFocus(this.txtUserEmail, 550);
         JFXDepthManager.setDepth(this.btnNext, 1);
-        //Email validation
+        //Email validation -- styling purposes only
         RequiredFieldValidator emailRequiredValidator = new RequiredFieldValidator();
         emailRequiredValidator.setMessage(this.REQUIRED_EMAIL_MESSAGE);
         emailRequiredValidator.setIcon(this.warningIcon);
