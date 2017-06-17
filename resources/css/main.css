@@ -1,9 +1,3 @@
-
-.jfx-rippler *{
-    -fx-text-fill: ce-red;
-    
-    -fx-background-color: white;
-    
-    -fx-border-color: rgba(0,0,0,0.25);
-    -fx-border-radius: 10;
+#main-toolbar{
+    -fx-background-color: ce-red-hover;
 }

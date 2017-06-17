@@ -5,6 +5,8 @@ import com.casaelida.desktop.controllers.login.LoginController;
 import com.casaelida.desktop.controllers.login.LoginPasswordStepController;
 import com.casaelida.desktop.controllers.login.LoginUserEmailStepController;
 import com.casaelida.desktop.controllers.main.MainController;
+import de.jensd.fx.glyphs.materialicons.MaterialIcon;
+import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import io.datafx.core.concurrent.ObservableExecutor;
 import java.io.InputStream;
 import java.net.URI;
@@ -24,6 +26,7 @@ public interface CEConstants {
         public static final Class<?> CLASS = CasaElidaDesktopApp.class;
         public static final Logger LOGGER = Logger.getLogger(CLASS.getName());
         public static final String STAGE = "CASAELIDA_STAGE";
+        public static void l(String s){System.out.println(s);}
         public static interface Flow{
             public static final String FLOW = "CASAELIDA_FLOW";
             public static final String FLOW_HANDLER = "CASAELIDA_FLOWHANDLER";
@@ -57,6 +60,9 @@ public interface CEConstants {
                     public static final String PANE_HEADER = "auth-useremail-step-pane-header";
                     public static final String TXT_USEREMAIL = "txt-useremail";
                     public static final String BTN_NEXT = "btn-next";
+                    public static final String REQUIRED_EMAIL_MESSAGE = "Ingrese su Correo Electrónico";
+                    public static String INVALID_EMAIL_MESSAGE = "Ingrese un Correo Electrónico Válido";
+                    public static MaterialIconView WARNING_ICON = new MaterialIconView(MaterialIcon.WARNING, "22.5");
                     public static interface Flow{
                         public static final String VALIDATE = "VALIDATE_USEREMAIL";
                     }

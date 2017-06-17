@@ -85,7 +85,7 @@ public class LoginPasswordStepController {
                 } catch (VetoException | FlowException ex) {
                     Password.LOGGER.log(Level.SEVERE, null, ex);
                 }
-            }, 2000);
+            }, 500);
         }
     }
     

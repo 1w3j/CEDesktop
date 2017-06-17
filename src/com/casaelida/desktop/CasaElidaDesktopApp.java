@@ -43,6 +43,8 @@ public class CasaElidaDesktopApp extends Application{
         this.root = casaElidaFlowHandler.start(new CEAnimatedFlowContainer());
         
         this.casaElidaStage = casaElidaStage;
+        this.casaElidaStage.setMinWidth(600d);
+        this.casaElidaStage.setMinHeight(700d);
         this.casaElidaStage.setTitle("Casa Elida - Versión de Escritorio");
         this.window = new JFXDecorator(casaElidaStage, this.root);
         this.window.setCustomMaximize(true);
@@ -51,7 +53,6 @@ public class CasaElidaDesktopApp extends Application{
 
         this.casaElidaStage.setScene(this.scene);
         this.casaElidaStage.setMaximized(true);
-        JFXResponsiveHandler resp = new JFXResponsiveHandler(this.casaElidaStage, JFXResponsiveHandler.PSEUDO_CLASS_LARGE);
         this.casaElidaStage.show();
     }
     
@@ -60,8 +61,10 @@ public class CasaElidaDesktopApp extends Application{
     }
 
     private void loadMetadata() {
-        this.window.getStylesheets().addAll(Meta.Stylesheets.VARIABLES_STYLESHEET, 
-                Meta.Stylesheets.LOGIN_STYLESHEET
+        this.window.getStylesheets().addAll(
+                Meta.Stylesheets.VARIABLES_STYLESHEET, 
+                Meta.Stylesheets.LOGIN_STYLESHEET,
+                Meta.Stylesheets.MAIN_STYLESHEET
         );
         Font.loadFont(Meta.Fonts.ROBOTO_BLACK_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_BOLD_ITALIC_STREAM, 22);

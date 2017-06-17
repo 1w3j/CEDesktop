@@ -1,20 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
 <?import com.jfoenix.controls.JFXToolbar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXRippler?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
-         <top>
-            <VBox BorderPane.alignment="CENTER">
-               <children>
-                  <JFXToolbar prefHeight="100.0" prefWidth="1920.0" style="-fx-background-color: ce-red-hover;" />
-               </children>
-            </VBox>
-         </top>
-      </BorderPane>
-   </children>
+    <children>
+        <BorderPane>
+            <top>
+                <VBox BorderPane.alignment="CENTER">
+                    <children>
+                        <JFXToolbar id="main-toolbar">
+                            <leftItems>
+                                <JFXRippler maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
+                                    <StackPane id="titleBurgerContainer">
+                                        <JFXHamburger id="titleBurger">
+                                            <HamburgerBackArrowBasicTransition/>
+                                        </JFXHamburger>
+                                    </StackPane>
+                                </JFXRippler>
+                                <Label>Material Design</Label>
+                            </leftItems>
+                            <rightItems>
+                                <JFXRippler id="optionsRippler" maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
+                                    <StackPane id="optionsBurger">
+                                        <JFXHamburger styleClass="jfx-options-burger">
+                                        </JFXHamburger>
+                                    </StackPane>
+                                </JFXRippler>
+                            </rightItems>    
+                        </JFXToolbar>
+                    </children>
+                </VBox>
+            </top>
+            <center>
+                <JFXDrawer id="drawer" styleClass="body" defaultDrawerSize="350" direction="LEFT">
+                    
+                </JFXDrawer>
+            </center>
+        </BorderPane>
+    </children>
 </StackPane>
