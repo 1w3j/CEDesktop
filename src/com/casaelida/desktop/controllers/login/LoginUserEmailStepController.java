@@ -49,7 +49,7 @@ public class LoginUserEmailStepController{
     
     @PostConstruct private void start() throws Exception{
         this.loginFlowContext.register(Steps.Flow.ACTION_HANDLER, this.authStepsActionHandler);
-        loginPane = (BorderPane)this.loginFlowContext.getRegisteredObject(Login.PANE);
+        loginPane = (BorderPane)    this.loginFlowContext.getRegisteredObject(Login.PANE);
         initComponents();
     }
     

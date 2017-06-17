@@ -25,8 +25,6 @@ import com.casaelida.desktop.utils.CEConstants.App.Login.Steps;
 import com.casaelida.desktop.utils.CEConstants.App.Login.Steps.Password;
 import com.jfoenix.effects.JFXDepthManager;
 import com.jfoenix.validation.RequiredFieldValidator;
-import de.jensd.fx.glyphs.materialicons.MaterialIcon;
-import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import java.util.logging.Level;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -39,8 +37,6 @@ import javafx.scene.layout.BorderPane;
 @ViewController("/fxml/login/password-step.fxml")
 public class LoginPasswordStepController {
     
-    private final String REQUIRED_PASSWORD_MESSAGE = "Ingrese su Contraseña";
-    private final MaterialIconView warningIcon = new MaterialIconView(MaterialIcon.WARNING, "22.5");
     private boolean startedValidating = false;
     
     @FXMLViewFlowContext private ViewFlowContext loginFlowContext;//taken from LoginController
@@ -59,7 +55,7 @@ public class LoginPasswordStepController {
     @PostConstruct private void start() throws Exception {
         this.authStepsActionHandler = (FlowActionHandler)this.loginFlowContext.getRegisteredObject(Steps.Flow.ACTION_HANDLER);
         this.casaElidaFlowHandler = (FlowHandler)this.loginFlowContext.getApplicationContext().getRegisteredObject(App.Flow.FLOW_HANDLER);
-        loginPane = (BorderPane)this.loginFlowContext.getRegisteredObject(App.Login.PANE);
+        loginPane = (BorderPane) this.loginFlowContext.getRegisteredObject(App.Login.PANE);
         initComponents();
     }
     
@@ -67,12 +63,7 @@ public class LoginPasswordStepController {
         //Password validation -- actual validation
         this.startedValidating = true;
         boolean isValid = this.txtPassword.validate();
-        if(!isValid && this.txtPassword.isFocused()) this.txtPassword.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
-        else {
-            this.txtPassword.setStyle("-fx-prompt-text-fill: ce-yellow;-jfx-focus-color: ce-yellow-hover;-jfx-unfocus-color: ce-yellow;");
-            this.txtPassword.lookup(".input-line").setStyle("-fx-background-color:ce-yellow;");
-        }
-        if(!isValid && !this.txtPassword.isFocused()) this.txtPassword.lookup(".input-line").setStyle("-fx-background-color:ce-white;");
+        initUnfocusValidationStyling(isValid);
         if(isValid){
             this.loginPane.setOpacity(0.8d);
             this.passwordStepPane.setDisable(true);
@@ -106,10 +97,13 @@ public class LoginPasswordStepController {
         });
         //Password validation -- styling purposes only
         RequiredFieldValidator passwordRequiredValidator = new RequiredFieldValidator();
-        passwordRequiredValidator.setMessage(this.REQUIRED_PASSWORD_MESSAGE);
-        passwordRequiredValidator.setIcon(this.warningIcon);
+        passwordRequiredValidator.setMessage(Password.REQUIRED_PASSWORD_MESSAGE);
+        passwordRequiredValidator.setIcon(Password.WARNING_ICON);
         this.txtPassword.setValidators(passwordRequiredValidator);
-        
+        initFocusValidationStyling();
+    }
+    
+    private void initFocusValidationStyling(){
         this.txtPassword.focusedProperty().addListener((ChangeListener<Boolean>) (ObservableValue<? extends Boolean> obs, Boolean wasFocused, Boolean isFocusedNow) -> {
             if(this.startedValidating){
                 boolean isValid = false;
@@ -122,5 +116,14 @@ public class LoginPasswordStepController {
                 if(!isValid && !isFocusedNow) this.txtPassword.lookup(".input-line").setStyle("-fx-background-color:ce-white;");
             }
         });
+    }
+    
+    private void initUnfocusValidationStyling(boolean isValid){
+        if(!isValid && this.txtPassword.isFocused()) this.txtPassword.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
+        else {
+            this.txtPassword.setStyle("-fx-prompt-text-fill: ce-yellow;-jfx-focus-color: ce-yellow-hover;-jfx-unfocus-color: ce-yellow;");
+            this.txtPassword.lookup(".input-line").setStyle("-fx-background-color:ce-yellow;");
+        }
+        if(!isValid && !this.txtPassword.isFocused()) this.txtPassword.lookup(".input-line").setStyle("-fx-background-color:ce-white;");
     }
 }

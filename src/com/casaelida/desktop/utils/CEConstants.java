@@ -61,8 +61,8 @@ public interface CEConstants {
                     public static final String TXT_USEREMAIL = "txt-useremail";
                     public static final String BTN_NEXT = "btn-next";
                     public static final String REQUIRED_EMAIL_MESSAGE = "Ingrese su Correo Electrónico";
-                    public static String INVALID_EMAIL_MESSAGE = "Ingrese un Correo Electrónico Válido";
-                    public static MaterialIconView WARNING_ICON = new MaterialIconView(MaterialIcon.WARNING, "22.5");
+                    public static final String INVALID_EMAIL_MESSAGE = "Ingrese un Correo Electrónico Válido";
+                    public static final MaterialIconView WARNING_ICON = new MaterialIconView(MaterialIcon.WARNING, "22.5");
                     public static interface Flow{
                         public static final String VALIDATE = "VALIDATE_USEREMAIL";
                     }
@@ -77,6 +77,8 @@ public interface CEConstants {
                     public static final String BTN_LOGIN = "btn-login";
                     public static final String TXT_PASSWORD = "txt-password";
                     public static final String LBL_USERNAME = "lbl-username";
+                    public static final String REQUIRED_PASSWORD_MESSAGE = "Ingrese su Contraseña";
+                    public static final MaterialIconView WARNING_ICON = new MaterialIconView(MaterialIcon.WARNING, "22.5");
                     public static interface Flow{
                         public static final String VALIDATE = "VALIDATE_USER_PASSWORD";
                     }
