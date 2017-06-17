@@ -1,17 +1,8 @@
 package com.casaelida.desktop.utils;
 
 import com.jfoenix.concurrency.JFXUtilities;
-import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.validation.RequiredFieldValidator;
-import de.jensd.fx.glyphs.materialicons.MaterialIcon;
-import de.jensd.fx.glyphs.materialicons.MaterialIconView;
-import java.awt.event.ActionListener;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import java.util.Collection;
 import javafx.scene.Node;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -31,9 +22,9 @@ public final class CEFunctions {
         timer.setRepeats(false);
         timer.start();
     }
-    
+
     public static final void requestFocus(Node node, int delay) {
-        runAfterDelay(()->node.requestFocus(), delay);
+        CEFunctions.runAfterDelay(() -> node.requestFocus(), delay);
     }
 
     public static final Color hex2Rgb(String colorHexString, double opacity) {
@@ -44,11 +35,14 @@ public final class CEFunctions {
                 opacity
         );
     }
-    
-    public static final Tooltip createTooltip(String message){
+
+    public static final Tooltip createTooltip(String message) {
         Tooltip tooltip = new Tooltip(message);
         tooltip.setFont(Font.font("Roboto", FontWeight.NORMAL, 15));
         return tooltip;
     }
-    
+
+    public static boolean isEmpty(final Collection<?> coll) {
+        return coll == null || coll.isEmpty();
+    }
 }

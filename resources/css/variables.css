@@ -37,7 +37,7 @@
     -fx-ripple-color: ce-red-hover;
 }
 .glyph-icon{
-    -fx-fill: ce-yellow;
+    -fx-fill: ce-yellow-hover;
 }
 .context-menu {
   -fx-background-color: ce-white;

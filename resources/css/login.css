@@ -20,7 +20,6 @@
     -fx-fill: ce-yellow;
 }
 .app-link{
-    -fx-fill: ce-yellow;
     -fx-cursor: hand;
     -glyph-size: 25pt;
 }
@@ -50,9 +49,6 @@
         -fx-fill: ce-white;
         -fx-cursor: hand;
         display: block;
-    }
-    .auth-pane-subheader-icon{
-        -fx-fill: ce-yellow;
     }
     .auth-pane-main-button{
         -fx-font-size: 25pt;

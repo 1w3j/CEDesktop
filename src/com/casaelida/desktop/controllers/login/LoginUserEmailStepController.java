@@ -22,7 +22,7 @@ import com.casaelida.desktop.utils.CEConstants.App.Animations;
 import com.casaelida.desktop.utils.CEConstants.App.Login;
 import com.casaelida.desktop.utils.CEConstants.App.Login.Steps;
 import com.casaelida.desktop.utils.CEConstants.App.Login.Steps.UserEmail;
-import com.casaelida.desktop.utils.ValidEmailValidator;
+import com.casaelida.desktop.utils.CEValidEmailValidator;
 import java.util.logging.Level;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -81,7 +81,7 @@ public class LoginUserEmailStepController{
         RequiredFieldValidator emailRequiredValidator = new RequiredFieldValidator();
         emailRequiredValidator.setMessage(UserEmail.REQUIRED_EMAIL_MESSAGE);
         emailRequiredValidator.setIcon(UserEmail.WARNING_ICON);
-        ValidEmailValidator emailValidValidator = new ValidEmailValidator();
+        CEValidEmailValidator emailValidValidator = new CEValidEmailValidator();
         emailValidValidator.setMessage(UserEmail.INVALID_EMAIL_MESSAGE);
         emailValidValidator.setIcon(UserEmail.WARNING_ICON);
         this.txtUserEmail.setValidators(emailRequiredValidator, emailValidValidator);

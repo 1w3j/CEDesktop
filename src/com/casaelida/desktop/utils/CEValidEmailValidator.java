@@ -9,7 +9,7 @@ import javafx.scene.control.TextInputControl;
  *
  * @author iqbal
  */
-public class ValidEmailValidator extends ValidatorBase {
+public class CEValidEmailValidator extends ValidatorBase {
 
     private final String emailPatternString = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
     

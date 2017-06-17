@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXRippler?>
 <?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
 <?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
-<?import com.jfoenix.controls.JFXRippler?>
-
+<!-- If you want to style the FXMLs in your Scene Builder : Preview->Scene Style Sheets->Add A Style Sheet... and select all CSS files under /resources/css/* -->
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <BorderPane>
             <top>
                 <VBox BorderPane.alignment="CENTER">
                     <children>
-                        <JFXToolbar id="main-toolbar">
+                        <JFXToolbar id="toolbar">
                             <leftItems>
-                                <JFXRippler maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
-                                    <StackPane id="titleBurgerContainer">
-                                        <JFXHamburger id="titleBurger">
-                                            <HamburgerBackArrowBasicTransition/>
-                                        </JFXHamburger>
+                                <JFXRippler id="optionsRippler" maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
+                                    <StackPane id="optionsBurger">
+                                        <JFXRippler maskType="CIRCLE" ripplerFill="#f1c40f">
+                                            <StackPane id="btn-toolbar-options-burger">
+                                                <MaterialIconView glyphName="MENU" size="49.5" textAlignment="CENTER" StackPane.alignment="CENTER" />
+                                                <padding>
+                                                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                </padding>
+                                            </StackPane>
+                                        </JFXRippler>
                                     </StackPane>
                                 </JFXRippler>
                                 <Label>Material Design</Label>
@@ -31,8 +37,14 @@
                             <rightItems>
                                 <JFXRippler id="optionsRippler" maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
                                     <StackPane id="optionsBurger">
-                                        <JFXHamburger styleClass="jfx-options-burger">
-                                        </JFXHamburger>
+                                        <JFXRippler maskType="CIRCLE" ripplerFill="#f1c40f">
+                                            <StackPane id="btn-toolbar-options-burger">
+                                                <MaterialIconView glyphName="MORE_VERT" size="49.5" textAlignment="CENTER" StackPane.alignment="CENTER" />
+                                                <padding>
+                                                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                                </padding>
+                                            </StackPane>
+                                        </JFXRippler>
                                     </StackPane>
                                 </JFXRippler>
                             </rightItems>    

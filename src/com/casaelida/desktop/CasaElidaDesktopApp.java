@@ -15,7 +15,9 @@ import com.casaelida.desktop.utils.CEConstants.App;
 import com.casaelida.desktop.utils.CEConstants.Meta;
 import com.casaelida.desktop.utils.CEConstants.App.Animations;
 import com.casaelida.desktop.utils.CEConstants.App.Login;
+import com.casaelida.desktop.utils.CEWindowDecorator;
 import com.jfoenix.responsive.JFXResponsiveHandler;
+import javafx.stage.Screen;
 
 /**
  * @version 0.0.1
@@ -46,14 +48,14 @@ public class CasaElidaDesktopApp extends Application{
         this.casaElidaStage.setMinWidth(600d);
         this.casaElidaStage.setMinHeight(700d);
         this.casaElidaStage.setTitle("Casa Elida - Versión de Escritorio");
-        this.window = new JFXDecorator(casaElidaStage, this.root);
-        this.window.setCustomMaximize(true);
+        this.window = new CEWindowDecorator(casaElidaStage, this.root, true, true, true);
         this.scene = new Scene(this.window);
         loadMetadata();
 
         this.casaElidaStage.setScene(this.scene);
         this.casaElidaStage.setMaximized(true);
         this.casaElidaStage.show();
+        new JFXResponsiveHandler(this.casaElidaStage, JFXResponsiveHandler.PSEUDO_CLASS_LARGE);
     }
     
     public static void main(String[] args) {
