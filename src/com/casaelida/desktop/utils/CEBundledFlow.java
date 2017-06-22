@@ -1,6 +1,5 @@
 package com.casaelida.desktop.utils;
 
-import io.datafx.controller.ViewConfiguration;
 import io.datafx.controller.flow.Flow;
 import io.datafx.controller.flow.FlowHandler;
 import io.datafx.controller.flow.context.ViewFlowContext;

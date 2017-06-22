@@ -18,7 +18,6 @@ import com.casaelida.desktop.utils.CEWindowDecorator;
 import com.jfoenix.responsive.JFXResponsiveHandler;
 import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.context.ViewFlowContext;
-import java.util.Locale;
 
 /**
  * @version 0.0.1
