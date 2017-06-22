@@ -17,7 +17,14 @@
 }
 .jfx-button{
     -fx-text-fill: ce-red;
+    -fx-fill: ce-red;
     -fx-font-weight: normal;
+    -fx-graphic-text-gap: 15;
+    -fx-content-display: right;
+}
+.jfx-button .glyph-icon{
+    -fx-text-fill: ce-red;
+    -fx-fill: ce-red;
 }
 .jfx-text-field{
     -fx-text-fill: ce-white;

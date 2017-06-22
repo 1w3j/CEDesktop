@@ -3,7 +3,6 @@ package com.casaelida.desktop;
 import com.jfoenix.controls.JFXDecorator;
 import io.datafx.controller.context.ApplicationContext;
 import io.datafx.controller.context.FXMLApplicationContext;
-import io.datafx.controller.flow.Flow;
 import io.datafx.controller.flow.FlowHandler;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -11,17 +10,18 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import com.casaelida.desktop.utils.CEAnimatedFlowContainer;
-import com.casaelida.desktop.utils.CEConstants.App;
+import com.casaelida.desktop.utils.CEBundledFlow;
+import com.casaelida.desktop.utils.CEConstants.CasaElida;
+import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 import com.casaelida.desktop.utils.CEConstants.Meta;
-import com.casaelida.desktop.utils.CEConstants.App.Animations;
-import com.casaelida.desktop.utils.CEConstants.App.Login;
 import com.casaelida.desktop.utils.CEWindowDecorator;
 import com.jfoenix.responsive.JFXResponsiveHandler;
-import javafx.stage.Screen;
+import io.datafx.controller.flow.FlowException;
+import io.datafx.controller.flow.context.ViewFlowContext;
+import java.util.Locale;
 
 /**
  * @version 0.0.1
- * TODO: implement a omni-root container for all views (or controllers) preferably with an action bar on the top
  * 
  * @author iqbal
  */
@@ -34,28 +34,26 @@ public class CasaElidaDesktopApp extends Application{
     private JFXDecorator window;
     private StackPane root;
 
-    @Override public void start(Stage casaElidaStage) throws Exception {
-        Flow casaElidaFlow = new Flow(Login.CLASS);
-        FlowHandler casaElidaFlowHandler = casaElidaFlow.createHandler();
+    @Override public void start(Stage casaElidaStage) throws FlowException {
+        //Locale.setDefault(Locale.forLanguageTag("es"));
         this.casaElidaFlowContext = ApplicationContext.getInstance();
-        this.casaElidaFlowContext.register(App.Flow.FLOW, casaElidaFlow);
-        this.casaElidaFlowContext.register(App.Flow.FLOW_HANDLER, casaElidaFlowHandler);
-        this.casaElidaFlowContext.register(App.STAGE, casaElidaStage);
-        this.casaElidaFlowContext.register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_NEXT);
-        this.root = casaElidaFlowHandler.start(new CEAnimatedFlowContainer());
+        this.casaElidaFlowContext.register(CasaElida.STAGE, casaElidaStage);
         
+        CEBundledFlow casaElidaFlow = new CEBundledFlow(App.CLASS, App.Strings.BUNDLE);
+        FlowHandler casaElidaFlowHandler = casaElidaFlow.createHandler(new ViewFlowContext());//ViewFlowContext not really used
+        this.root = casaElidaFlowHandler.start(new CEAnimatedFlowContainer());
         this.casaElidaStage = casaElidaStage;
-        this.casaElidaStage.setMinWidth(600d);
-        this.casaElidaStage.setMinHeight(700d);
-        this.casaElidaStage.setTitle("Casa Elida - Versión de Escritorio");
-        this.window = new CEWindowDecorator(casaElidaStage, this.root, true, true, true);
+        this.casaElidaStage.setMinWidth(CasaElida.MIN_WIDTH);
+        this.casaElidaStage.setMinHeight(CasaElida.MIN_HEIGHT + App.TOOLBAR_HEIGHT);
+        this.casaElidaStage.setTitle(App.Strings.WINDOW_TITLE);
+        this.window = new CEWindowDecorator(casaElidaStage, this.root);
+        this.window.setMaximized(true);
+        this.window.setPrefSize(CasaElida.MIN_WIDTH, CasaElida.MIN_HEIGHT);
         this.scene = new Scene(this.window);
-        loadMetadata();
-
         this.casaElidaStage.setScene(this.scene);
-        this.casaElidaStage.setMaximized(true);
-        this.casaElidaStage.show();
         new JFXResponsiveHandler(this.casaElidaStage, JFXResponsiveHandler.PSEUDO_CLASS_LARGE);
+        loadMetadata();
+        this.casaElidaStage.show();
     }
     
     public static void main(String[] args) {
@@ -63,17 +61,18 @@ public class CasaElidaDesktopApp extends Application{
     }
 
     private void loadMetadata() {
-        this.window.getStylesheets().addAll(
-                Meta.Stylesheets.VARIABLES_STYLESHEET, 
-                Meta.Stylesheets.LOGIN_STYLESHEET,
-                Meta.Stylesheets.MAIN_STYLESHEET
-        );
         Font.loadFont(Meta.Fonts.ROBOTO_BLACK_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_BOLD_ITALIC_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_BOLD_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_LIGHT_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_MEDIUM_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_REGULAR_STREAM, 22);
+        this.window.getStylesheets().addAll(
+                Meta.Stylesheets.VARIABLES_STYLESHEET,
+                Meta.Stylesheets.APP_STYLESHEET,
+                Meta.Stylesheets.LOGIN_STYLESHEET,
+                Meta.Stylesheets.MAIN_STYLESHEET
+        );
         this.casaElidaStage.getIcons().addAll(Meta.Icons.ICON256X256, 
                 Meta.Icons.ICON128X128, 
                 Meta.Icons.ICON64X64, 

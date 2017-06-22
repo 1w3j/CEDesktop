@@ -23,11 +23,11 @@
     <children>
         <VBox id="auth-useremail-step-pane-header" prefHeight="89.0" prefWidth="256.0">
             <children>
-                <Label styleClass="auth-pane-header-text" text="Log In" focusTraversable="false" />
-                <Label styleClass="auth-pane-subheader-text" text="para continuar al Sistema" focusTraversable="false" />
+                <Label styleClass="auth-pane-header-text" text="%useremail-pane-header-login" focusTraversable="false" />
+                <Label styleClass="auth-pane-subheader-text" text="%useremail-pane-subheader-tocontinue" focusTraversable="false" />
             </children>
         </VBox>
-        <JFXTextField id="txt-useremail" styleClass="auth-input-text" labelFloat="true" prefHeight="41.0" prefWidth="174.0" promptText="Correo Electrónico" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
-        <JFXButton id="btn-next" styleClass="auth-pane-main-button" text="SIGUIENTE" buttonType="RAISED" defaultButton="true" maxWidth="450.0" prefHeight="75.0" prefWidth="441.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+        <JFXTextField id="txt-useremail" styleClass="auth-input-text" promptText="%txt-useremail-prompt-text" labelFloat="true" prefHeight="41.0" prefWidth="174.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+        <JFXButton id="btn-next" styleClass="auth-pane-main-button" text="%btn-next" buttonType="RAISED" defaultButton="true" maxWidth="250.0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
     </children>
 </GridPane>

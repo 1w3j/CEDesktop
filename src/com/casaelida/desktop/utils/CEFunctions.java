@@ -1,7 +1,9 @@
 package com.casaelida.desktop.utils;
 
 import com.jfoenix.concurrency.JFXUtilities;
+import io.datafx.controller.ViewConfiguration;
 import java.util.Collection;
+import java.util.ResourceBundle;
 import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
 import javafx.scene.paint.Color;
@@ -41,8 +43,18 @@ public final class CEFunctions {
         tooltip.setFont(Font.font("Roboto", FontWeight.NORMAL, 15));
         return tooltip;
     }
+    
+    public static final Tooltip createTooltip() {
+        return createTooltip("");
+    }
 
     public static boolean isEmpty(final Collection<?> coll) {
         return coll == null || coll.isEmpty();
+    }
+    
+    public static ViewConfiguration newBundledConfig(ResourceBundle bundle){
+        ViewConfiguration viewConfig = new ViewConfiguration();
+        viewConfig.setResources(bundle);
+        return viewConfig;
     }
 }

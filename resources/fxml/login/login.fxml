@@ -22,8 +22,8 @@
                             <children>
                                 <HBox id="login-logo-pane" alignment="CENTER_LEFT" spacing="10.0">
                                     <children>
-                                        <Text id="login-logo-pane-casa" strokeType="OUTSIDE" strokeWidth="0.0" text="Casa" textAlignment="CENTER" />
-                                        <Text id="login-logo-pane-elida" strokeType="OUTSIDE" strokeWidth="0.0" text="Elida" textAlignment="CENTER" />
+                                        <Text id="login-logo-pane-casa" text="%login-logo-pane-casa" strokeType="OUTSIDE" strokeWidth="0.0"  textAlignment="CENTER" />
+                                        <Text id="login-logo-pane-elida" text="%login-logo-pane-elida" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
                                     </children>
                                 </HBox>
                                 <Region prefHeight="75.0" prefWidth="66.0" HBox.hgrow="ALWAYS" />
@@ -34,12 +34,12 @@
                                         <VBox alignment="TOP_CENTER">
                                             <children>
                                                 <MaterialIconView id="desktop-link-icon" glyphName="DESKTOP_WINDOWS" styleClass="app-link" />
-                                                <Label styleClass="desktop-version-text" text="Desktop">
+                                                <Label styleClass="desktop-version-text" text="%desktop-version-text-first">
                                                     <VBox.margin>
                                                         <Insets top="1.0" />
                                                     </VBox.margin>
                                                 </Label>
-                                                <Label styleClass="desktop-version-text" text="Version" />
+                                                <Label styleClass="desktop-version-text" text="%desktop-version-text-second" />
                                             </children>
                                         </VBox>
                                     </children>

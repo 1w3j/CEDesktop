@@ -8,7 +8,7 @@ import java.util.function.Function;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.util.Duration;
-import com.casaelida.desktop.utils.CEConstants.App;
+import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 
 /**
  *

@@ -1,6 +1,6 @@
 package com.casaelida.desktop.utils;
 
-import com.casaelida.desktop.utils.CEConstants.App.Animations;
+import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 import io.datafx.controller.context.ViewContext;
 import io.datafx.controller.flow.FlowContainer;
 import io.datafx.controller.flow.container.AnimatedFlowContainer;
@@ -33,20 +33,20 @@ public class CEAnimatedFlowContainer extends AnimatedFlowContainer implements Fl
 
     public CEAnimatedFlowContainer() {
         this.view = new StackPane();
-        this.duration = Animations.MaterialDesign.DURATION;
+        this.duration = App.Animations.MaterialDesign.DURATION;
         this.animationProducer = null;
         this.placeholder = new ImageView();
         this.placeholder.setPreserveRatio(true);
         this.placeholder.setSmooth(true);
     }
 
-    public void changeAnimation(CEContainerAnimations animation) {
+    private void changeAnimation(CEContainerAnimations animation) {
         this.animationProducer = animation.getAnimationProducer();
     }
 
     @Override
     public <U> void setViewContext(ViewContext<U> context) {
-        switch((CEConstants.App.Animations)context.getApplicationContext().getRegisteredObject(Animations.Flow.NEXT_ANIMATION)){
+        switch((App.Animations)context.getApplicationContext().getRegisteredObject(App.Animations.Flow.NEXT_ANIMATION)){
             case APP_START:
                 changeAnimation(CEContainerAnimations.ZOOM_IN);
                 break;

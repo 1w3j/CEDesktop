@@ -18,38 +18,39 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javax.annotation.PostConstruct;
 import com.casaelida.desktop.utils.CEFunctions;
-import com.casaelida.desktop.utils.CEConstants.App.Animations;
-import com.casaelida.desktop.utils.CEConstants.App.Login;
-import com.casaelida.desktop.utils.CEConstants.App.Login.Steps;
-import com.casaelida.desktop.utils.CEConstants.App.Login.Steps.UserEmail;
+import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Animations;
+import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Login;
+import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Login.Steps.UserEmail;
 import com.casaelida.desktop.utils.CEValidEmailValidator;
 import java.util.logging.Level;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
+import javafx.util.StringConverter;
 
 /**
  *
  * @author iqbal
  */
-@ViewController(value="/fxml/login/useremail-step.fxml")
+@ViewController(value="/fxml/login/useremail-step.fxml")//defines a view
 public class LoginUserEmailStepController{
-    
-    private boolean startedValidating = false;
-    
-    @FXMLViewFlowContext private ViewFlowContext loginFlowContext;//taken from LoginController
-    @ActionHandler private FlowActionHandler authStepsActionHandler;//taken from 
-    
+    //Current View Features
+    private boolean startedValidating = false;//boolean that is true every time user clicks the 'Login Button', used for styling purposes only
+    //DataFX Framework
+    @FXMLViewFlowContext private ViewFlowContext loginFlowContext;//instance is taken from LoginController
+    @ActionHandler private FlowActionHandler authStepsActionHandler;//taken from the injection of this view, created to be used anywhere 'in the steps'
+    //Current View Components
     @ViewNode(UserEmail.PANE) private GridPane userEmailStepPane;
     @ViewNode(UserEmail.PANE_HEADER) private VBox userEmailStepPaneHeader;
     @ViewNode(UserEmail.TXT_USEREMAIL) private JFXTextField txtUserEmail;
     @ViewNode(UserEmail.BTN_NEXT) @ActionTrigger(UserEmail.Flow.VALIDATE) private JFXButton btnNext;
     private BorderPane loginPane;
     
-    
-    @PostConstruct private void start() throws Exception{
-        this.loginFlowContext.register(Steps.Flow.ACTION_HANDLER, this.authStepsActionHandler);
-        loginPane = (BorderPane)    this.loginFlowContext.getRegisteredObject(Login.PANE);
+    @PostConstruct private void start() {
+        this.loginFlowContext.register(Login.Flow.ACTION_HANDLER, this.authStepsActionHandler);
+        this.loginPane = (BorderPane) this.loginFlowContext.getRegisteredObject(Login.PANE);
+        
         initComponents();
     }
     
@@ -57,11 +58,11 @@ public class LoginUserEmailStepController{
         //Email validation
         this.startedValidating = true;
         boolean isValid = this.txtUserEmail.validate();
-        initUnfocusValidationStyling(isValid);
+        unfocusedValidationStyling(isValid);
         if(isValid){
             this.loginPane.setOpacity(0.8d);
             this.userEmailStepPane.setDisable(true);
-            //Simulate Web-Based login data checking
+            //Simulate Web-Based login data verification
             CEFunctions.runAfterDelay(()->{
                 this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_NEXT);
                 try {
@@ -74,20 +75,34 @@ public class LoginUserEmailStepController{
         }
     }
 
-    private void initComponents() throws Exception {
-        CEFunctions.requestFocus(this.txtUserEmail, 550);
+    private void initComponents() {
+        //Decorations & Animations
+        CEFunctions.requestFocus(this.txtUserEmail, 450);
         JFXDepthManager.setDepth(this.btnNext, 1);
-        //Email validation
+        //Email validators
         RequiredFieldValidator emailRequiredValidator = new RequiredFieldValidator();
-        emailRequiredValidator.setMessage(UserEmail.REQUIRED_EMAIL_MESSAGE);
+        emailRequiredValidator.setMessage(UserEmail.Strings.REQUIRED_EMAIL_MESSAGE);
         emailRequiredValidator.setIcon(UserEmail.WARNING_ICON);
         CEValidEmailValidator emailValidValidator = new CEValidEmailValidator();
-        emailValidValidator.setMessage(UserEmail.INVALID_EMAIL_MESSAGE);
+        emailValidValidator.setMessage(UserEmail.Strings.INVALID_EMAIL_MESSAGE);
         emailValidValidator.setIcon(UserEmail.WARNING_ICON);
         this.txtUserEmail.setValidators(emailRequiredValidator, emailValidValidator);
         initFocusValidationStyling();
+        //Tooltips
+        Tooltip userEmailTooltip = CEFunctions.createTooltip();
+        userEmailTooltip.textProperty().bindBidirectional(this.txtUserEmail.textProperty(), new StringConverter<String>() {
+            @Override
+            public String toString(String objectProvided) {
+                return objectProvided.isEmpty() ? UserEmail.Strings.USEREMAIL_TOOLTIP_EMPTY : UserEmail.Strings.USEREMAIL_TOOLTIP_NONEMPTY + objectProvided;
+            }
+            @Override
+            public String fromString(String stringProvided) {
+                return stringProvided;
+            }
+        });
+        Tooltip.install(this.btnNext, userEmailTooltip);
     }
-    
+    //Initialize Listener for any time the user clicks on the text field (or TAB...)
     private void initFocusValidationStyling(){
         this.txtUserEmail.focusedProperty().addListener((ChangeListener<Boolean>) (ObservableValue<? extends Boolean> obs, Boolean wasFocused, Boolean isFocusedNow) -> {
             if(this.startedValidating){
@@ -102,8 +117,8 @@ public class LoginUserEmailStepController{
             }
         });
     }
-    
-    private void initUnfocusValidationStyling(boolean isValid){
+    //Used when the user clicks the 'next button'
+    private void unfocusedValidationStyling(boolean isValid){
         if(!isValid && this.txtUserEmail.isFocused()) this.txtUserEmail.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
         else {
             this.txtUserEmail.setStyle("-fx-prompt-text-fill: ce-yellow;-jfx-focus-color: ce-yellow-hover;-jfx-unfocus-color: ce-yellow;");

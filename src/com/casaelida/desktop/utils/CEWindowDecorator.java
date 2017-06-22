@@ -30,27 +30,19 @@ public class CEWindowDecorator extends JFXDecorator {
 
     public CEWindowDecorator(Stage stage, Node node, boolean fullScreen, boolean max, boolean min) {
         super(stage, node, fullScreen, max, min);
-        Optional<Node> btnContainerOpt = this.getChildren().stream()
-                .filter(child -> {
-                    return child.getStyleClass().contains("jfx-decorator-buttons-container");
-                }).findFirst();
+        Optional<Node> btnContainerOpt = super.getChildren().stream().filter(child -> {
+            return child.getStyleClass().contains("jfx-decorator-buttons-container");
+        }).findFirst();
         if (btnContainerOpt.isPresent()) {
             final HBox buttonsContainer = (HBox) btnContainerOpt.get();
-
             ObservableList<Node> buttons = buttonsContainer.getChildren();
             int btnMaxIdx = 0;
-            if (fullScreen) {
-                btnMaxIdx++;
-            }
-            if (min) {
-                btnMaxIdx++;
-            }
+            if (fullScreen) btnMaxIdx++;
+            if (min) btnMaxIdx++;
             if (buttons.size() >= btnMaxIdx) {
                 final JFXButton btnMax = (JFXButton) buttons.get(btnMaxIdx);
                 buttonsContainer.setOnMouseClicked(event -> {
-                    if (event.getClickCount() == 2) {
-                        btnMax.fire();
-                    }
+                    if (event.getClickCount() == 2) btnMax.fire();
                 });
             }
 
@@ -76,7 +68,7 @@ public class CEWindowDecorator extends JFXDecorator {
                         imageView.setClip(rect);
                         imageView.setFitWidth(20);
                         imageView.setFitHeight(20);
-                        imageView.setImage(icons.get(icons.size()-1));
+                        imageView.setImage(icons.get(icons.size() - 1));
                         iconBox.getChildren().add(imageView);
                     }
                 }
