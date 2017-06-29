@@ -12,49 +12,44 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<StackPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <StackPane id="login-pane-wrapper" maxHeight="700.0" maxWidth="600.0">
-            <children> <!-- Since the 'children' property is a 'default property' (@DefaultProperty). This <children> tag can be omitted !-->
-                <BorderPane id="login-pane" maxHeight="700.0" maxWidth="600.0" StackPane.alignment="CENTER">
-                    <top>
-                        <HBox id="login-title-pane" alignment="CENTER" maxWidth="500.0" prefHeight="34.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-                            <children>
-                                <HBox id="login-logo-pane" alignment="CENTER_LEFT" spacing="10.0">
-                                    <children>
-                                        <Text id="login-logo-pane-casa" text="%login-logo-pane-casa" strokeType="OUTSIDE" strokeWidth="0.0"  textAlignment="CENTER" />
-                                        <Text id="login-logo-pane-elida" text="%login-logo-pane-elida" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" />
-                                    </children>
-                                </HBox>
-                                <Region prefHeight="75.0" prefWidth="66.0" HBox.hgrow="ALWAYS" />
-                                <HBox id="login-app-links-pane" alignment="TOP_RIGHT" spacing="5.0">
-                                    <children>
-                                        <MaterialDesignIconView id="android-link-icon" pickOnBounds="true" styleClass="app-link" />
-                                        <Icons525View id="web-link-icon" glyphName="GLOBE_2" pickOnBounds="true" styleClass="app-link" />
-                                        <VBox alignment="TOP_CENTER">
-                                            <children>
-                                                <MaterialIconView id="desktop-link-icon" glyphName="DESKTOP_WINDOWS" styleClass="app-link" />
-                                                <Label styleClass="desktop-version-text" text="%desktop-version-text-first">
-                                                    <VBox.margin>
-                                                        <Insets top="1.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label styleClass="desktop-version-text" text="%desktop-version-text-second" />
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </HBox>
-                            </children>
-                            <BorderPane.margin>
-                                <Insets top="80.0" />
-                            </BorderPane.margin>
-                        </HBox>
-                    </top>
-                    <center>
-                        <StackPane id="auth-pane" maxWidth="500.0" BorderPane.alignment="CENTER" />
-                    </center>
-                </BorderPane>
-            </children>
-        </StackPane>
-    </children>
+<StackPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111"
+>
+    <StackPane id="login-pane-wrapper" maxHeight="700.0" maxWidth="600.0">
+        <!-- Since the 'children' property is a 'default property' (@DefaultProperty). This <children> tag can be omitted !-->
+        <BorderPane id="login-pane" maxHeight="700.0" maxWidth="600.0" StackPane.alignment="CENTER">
+            <top>
+                <HBox id="login-title-pane" alignment="CENTER" maxWidth="500.0" prefHeight="34.0" prefWidth="500.0"
+                      BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets top="80.0"/>
+                    </BorderPane.margin>
+                    <HBox id="login-logo-pane" alignment="CENTER_LEFT" spacing="10.0">
+                        <Text id="login-logo-pane-casa" text="%login-logo-pane-casa" strokeType="OUTSIDE"
+                              strokeWidth="0.0" textAlignment="CENTER"/>
+                        <Text id="login-logo-pane-elida" text="%login-logo-pane-elida" strokeType="OUTSIDE"
+                              strokeWidth="0.0" textAlignment="CENTER"/>
+                    </HBox>
+                    <Region prefHeight="75.0" prefWidth="66.0" HBox.hgrow="ALWAYS"/>
+                    <HBox id="login-app-links-pane" alignment="TOP_RIGHT" spacing="5.0">
+                        <MaterialDesignIconView id="android-link-icon" styleClass="app-link"/>
+                        <Icons525View id="web-link-icon" glyphName="GLOBE_2" styleClass="app-link"/>
+                        <VBox alignment="TOP_CENTER">
+                            <MaterialIconView id="desktop-link-icon" glyphName="DESKTOP_WINDOWS"
+                                              styleClass="app-link"/>
+                            <Label styleClass="desktop-version-text" text="%desktop-version-text-first">
+                                <VBox.margin>
+                                    <Insets top="1.0"/>
+                                </VBox.margin>
+                            </Label>
+                            <Label styleClass="desktop-version-text"
+                                   text="%desktop-version-text-second"/>
+                        </VBox>
+                    </HBox>
+                </HBox>
+            </top>
+            <center>
+                <StackPane id="auth-pane" maxWidth="500.0" BorderPane.alignment="CENTER"/>
+            </center>
+        </BorderPane>
+    </StackPane>
 </StackPane>

@@ -4,6 +4,9 @@ import com.jfoenix.controls.JFXDecorator;
 import io.datafx.controller.context.ApplicationContext;
 import io.datafx.controller.context.FXMLApplicationContext;
 import io.datafx.controller.flow.FlowHandler;
+import io.datafx.core.DataFXConfiguration;
+import io.datafx.core.DataFXUtils;
+import io.datafx.core.concurrent.DataFxTask;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
@@ -37,7 +40,7 @@ public class CasaElidaDesktopApp extends Application{
         //Locale.setDefault(Locale.forLanguageTag("es"));
         this.casaElidaFlowContext = ApplicationContext.getInstance();
         this.casaElidaFlowContext.register(CasaElida.STAGE, casaElidaStage);
-        
+
         CEBundledFlow casaElidaFlow = new CEBundledFlow(App.CLASS, App.Strings.BUNDLE);
         FlowHandler casaElidaFlowHandler = casaElidaFlow.createHandler(new ViewFlowContext());//ViewFlowContext not really used
         this.root = casaElidaFlowHandler.start(new CEAnimatedFlowContainer());
@@ -73,10 +76,10 @@ public class CasaElidaDesktopApp extends Application{
                 Meta.Stylesheets.MAIN_STYLESHEET
         );
         this.casaElidaStage.getIcons().addAll(Meta.Icons.ICON256X256, 
-                Meta.Icons.ICON128X128, 
-                Meta.Icons.ICON64X64, 
-                Meta.Icons.ICON56X56, 
-                Meta.Icons.ICON28X28, 
+                Meta.Icons.ICON128X128,
+                Meta.Icons.ICON64X64,
+                Meta.Icons.ICON56X56,
+                Meta.Icons.ICON28X28,
                 Meta.Icons.ICON16X16
         );
     }

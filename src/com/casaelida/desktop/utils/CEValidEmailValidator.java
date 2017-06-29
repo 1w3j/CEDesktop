@@ -11,8 +11,6 @@ import javafx.scene.control.TextInputControl;
  */
 public class CEValidEmailValidator extends ValidatorBase {
 
-    private final String emailPatternString = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-    
     @Override
     protected void eval() {
         evalValidEmailAddress();
@@ -20,6 +18,7 @@ public class CEValidEmailValidator extends ValidatorBase {
 
     private void evalValidEmailAddress() {
         TextInputControl textField = (TextInputControl) super.srcControl.get();
+        String emailPatternString = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         Pattern emailPattern = Pattern.compile(emailPatternString);
         Matcher emailMatcher = emailPattern.matcher(textField.getText());
         if (!emailMatcher.matches()) {

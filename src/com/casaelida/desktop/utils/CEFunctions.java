@@ -17,42 +17,31 @@ import javax.swing.Timer;
  */
 public final class CEFunctions {
 
-    public static final void runAfterDelay(Runnable task, int delay) {
-        Timer timer = new Timer(delay, e -> {
-            JFXUtilities.runInFX(task);
-        });
+    public static void runAfterDelay(Runnable task, int delay) {
+        Timer timer = new Timer(delay, e -> JFXUtilities.runInFX(task));
         timer.setRepeats(false);
         timer.start();
     }
 
-    public static final void requestFocus(Node node, int delay) {
-        CEFunctions.runAfterDelay(() -> node.requestFocus(), delay);
+    public static void requestFocus(Node node, int delay) {
+        CEFunctions.runAfterDelay(node::requestFocus, delay);
     }
 
-    public static final Color hex2Rgb(String colorHexString, double opacity) {
-        return Color.rgb(
-                Integer.valueOf(colorHexString.substring(1, 3), 16),
-                Integer.valueOf(colorHexString.substring(3, 5), 16),
-                Integer.valueOf(colorHexString.substring(5, 7), 16),
-                opacity
-        );
-    }
-
-    public static final Tooltip createTooltip(String message) {
+    public static Tooltip createTooltip(String message) {
         Tooltip tooltip = new Tooltip(message);
         tooltip.setFont(Font.font("Roboto", FontWeight.NORMAL, 15));
         return tooltip;
     }
-    
-    public static final Tooltip createTooltip() {
+
+    public static Tooltip createTooltip() {
         return createTooltip("");
     }
 
-    public static boolean isEmpty(final Collection<?> coll) {
+    static boolean isEmpty(final Collection<?> coll) {
         return coll == null || coll.isEmpty();
     }
-    
-    public static ViewConfiguration newBundledConfig(ResourceBundle bundle){
+
+    static ViewConfiguration newBundledConfig(ResourceBundle bundle){
         ViewConfiguration viewConfig = new ViewConfiguration();
         viewConfig.setResources(bundle);
         return viewConfig;

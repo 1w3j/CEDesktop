@@ -11,36 +11,37 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111">
     <top>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-            <children>
-                <JFXToolbar id="toolbar" VBox.vgrow="ALWAYS">
-                    <leftItems>
-                        <JFXRippler maskType="CIRCLE" ripplerFill="#f1c40f">
-                            <StackPane id="btn-toolbar-sidemenu-burger">
-                                <MaterialIconView glyphName="MENU" size="40" textAlignment="CENTER" StackPane.alignment="CENTER" />
-                                <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                </padding>
-                            </StackPane>
-                        </JFXRippler>
-                        <HBox alignment="CENTER">
-                            <Label id="lbl-toolbar" styleClass="toolbar-text" text="[lblToolbar]" alignment="CENTER" textAlignment="CENTER" />
-                        </HBox>
-                    </leftItems>
-                    <rightItems>
-                        <JFXRippler maskType="CIRCLE" ripplerFill="#f1c40f">
-                            <StackPane id="btn-toolbar-options-burger">
-                                <MaterialIconView glyphName="MORE_VERT" size="40" textAlignment="CENTER" StackPane.alignment="CENTER" />
-                                <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                </padding>
-                            </StackPane>
-                        </JFXRippler>
-                    </rightItems>    
-                </JFXToolbar>
-            </children>
+            <JFXToolbar id="toolbar" VBox.vgrow="ALWAYS">
+                <leftItems>
+                    <JFXRippler maskType="CIRCLE" ripplerFill="#f1c40f">
+                        <StackPane id="btn-toolbar-sidemenu-burger">
+                            <MaterialIconView glyphName="MENU" size="40" textAlignment="CENTER"
+                                              StackPane.alignment="CENTER"/>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </StackPane>
+                    </JFXRippler>
+                    <HBox alignment="CENTER">
+                        <Label id="lbl-toolbar" styleClass="toolbar-text" text="[lblToolbar]" alignment="CENTER"
+                               textAlignment="CENTER"/>
+                    </HBox>
+                </leftItems>
+                <rightItems>
+                    <JFXRippler maskType="CIRCLE" ripplerFill="#f1c40f">
+                        <StackPane id="btn-toolbar-options-burger">
+                            <MaterialIconView glyphName="MORE_VERT" size="40" textAlignment="CENTER"
+                                              StackPane.alignment="CENTER"/>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </StackPane>
+                    </JFXRippler>
+                </rightItems>
+            </JFXToolbar>
         </VBox>
     </top>
     <center>
