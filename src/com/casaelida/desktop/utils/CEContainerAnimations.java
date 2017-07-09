@@ -182,7 +182,7 @@ public enum CEContainerAnimations {
 
     private final Function<AnimatedFlowContainer, List<KeyFrame>> animationProducer;
 
-    private CEContainerAnimations(Function<AnimatedFlowContainer, List<KeyFrame>> animationProducer) {
+    CEContainerAnimations (Function<AnimatedFlowContainer, List<KeyFrame>> animationProducer) {
         this.animationProducer = animationProducer;
     }
 
