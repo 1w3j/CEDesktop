@@ -24,9 +24,9 @@
                         <Insets top="80.0"/>
                     </BorderPane.margin>
                     <HBox id="login-logo-pane" alignment="CENTER_LEFT" spacing="10.0">
-                        <Text id="login-logo-pane-casa" text="%login-logo-pane-casa" strokeType="OUTSIDE"
+                        <Text id="login-logo-pane-casa" text="%casa" strokeType="OUTSIDE"
                               strokeWidth="0.0" textAlignment="CENTER"/>
-                        <Text id="login-logo-pane-elida" text="%login-logo-pane-elida" strokeType="OUTSIDE"
+                        <Text id="login-logo-pane-elida" text="%elida" strokeType="OUTSIDE"
                               strokeWidth="0.0" textAlignment="CENTER"/>
                     </HBox>
                     <Region prefHeight="75.0" prefWidth="66.0" HBox.hgrow="ALWAYS"/>
@@ -36,13 +36,13 @@
                         <VBox alignment="TOP_CENTER">
                             <MaterialIconView id="desktop-link-icon" glyphName="DESKTOP_WINDOWS"
                                               styleClass="app-link"/>
-                            <Label styleClass="desktop-version-text" text="%desktop-version-text-first">
+                            <Label styleClass="desktop-version-text" text="%desktop-first">
                                 <VBox.margin>
                                     <Insets top="1.0"/>
                                 </VBox.margin>
                             </Label>
                             <Label styleClass="desktop-version-text"
-                                   text="%desktop-version-text-second"/>
+                                   text="%desktop-second"/>
                         </VBox>
                     </HBox>
                 </HBox>

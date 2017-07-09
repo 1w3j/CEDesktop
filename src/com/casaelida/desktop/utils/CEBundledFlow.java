@@ -1,7 +1,6 @@
 package com.casaelida.desktop.utils;
 
 import io.datafx.controller.flow.Flow;
-import io.datafx.controller.flow.FlowHandler;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import java.util.ResourceBundle;
 
@@ -15,9 +14,12 @@ public class CEBundledFlow extends Flow {
         super(startViewControllerClass, CEFunctions.newBundledConfig(bundle));
     }
 
-    @Override
-    public FlowHandler createHandler(ViewFlowContext flowContext) {
-        return new FlowHandler(this, flowContext, this.getViewConfiguration());
+    @Override public CEFlowHandler createHandler(ViewFlowContext flowContext) {
+    return new CEFlowHandler(this, flowContext, this.getViewConfiguration());
+    }
+
+    @Override public CEFlowHandler createHandler(){
+        return new CEFlowHandler(this, new ViewFlowContext(), this.getViewConfiguration());
     }
 
 }

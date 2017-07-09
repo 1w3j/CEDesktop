@@ -1,5 +1,6 @@
 package com.casaelida.desktop.controllers.login;
 
+import com.casaelida.desktop.utils.CEController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.effects.JFXDepthManager;
@@ -34,23 +35,28 @@ import javafx.util.StringConverter;
  * @author iqbal
  */
 @ViewController(value="/fxml/login/useremail-step.fxml")//defines a view
-public class LoginUserEmailStepController{
+public class LoginUserEmailStepController extends CEController{
     //Current View Features
-    private boolean startedValidating = false;//boolean that is true every time user clicks the 'Login Button', used for styling purposes only
+    //boolean that is true every time user clicks the 'Login Button', used for styling purposes only
+    private boolean startedValidating = false;
+    //Taken from LoginController through its context
+    private BorderPane loginPane;
     //DataFX Framework
-    @FXMLViewFlowContext private ViewFlowContext loginFlowContext;//instance is taken from LoginController
-    @ActionHandler private FlowActionHandler authStepsActionHandler;//taken from the injection of this view, created to be used anywhere 'in the steps'
+    //instance is taken from LoginController
+    @FXMLViewFlowContext private ViewFlowContext loginFlowContext;
+    //taken from the injection of this view, created to be used anywhere 'in the steps'
+    @ActionHandler private FlowActionHandler authStepsActionHandler;
     //Current View Components
     @ViewNode(UserEmail.PANE) private GridPane userEmailStepPane;
     @ViewNode(UserEmail.PANE_HEADER) private VBox userEmailStepPaneHeader;
     @ViewNode(UserEmail.TXT_USEREMAIL) private JFXTextField txtUserEmail;
     @ViewNode(UserEmail.BTN_NEXT) @ActionTrigger(UserEmail.Flow.VALIDATE) private JFXButton btnNext;
-    private BorderPane loginPane;
-    
+
     @PostConstruct private void start() {
-        this.loginFlowContext.register(Login.Flow.ACTION_HANDLER, this.authStepsActionHandler);
         this.loginPane = (BorderPane) this.loginFlowContext.getRegisteredObject(Login.PANE);
-        
+
+        this.loginFlowContext.register(Login.Flow.ACTION_HANDLER, this.authStepsActionHandler);
+
         initComponents();
     }
     
@@ -75,7 +81,7 @@ public class LoginUserEmailStepController{
         }
     }
 
-    private void initComponents() {
+    @Override protected void initComponents () {
         //Decorations & Animations
         CEFunctions.requestFocus(this.txtUserEmail, 450);
         JFXDepthManager.setDepth(this.btnNext, 1);
@@ -91,12 +97,10 @@ public class LoginUserEmailStepController{
         //Tooltips
         Tooltip userEmailTooltip = CEFunctions.createTooltip();
         userEmailTooltip.textProperty().bindBidirectional(this.txtUserEmail.textProperty(), new StringConverter<String>() {
-            @Override
-            public String toString(String objectProvided) {
+            @Override public String toString(String objectProvided) {
                 return objectProvided.isEmpty() ? UserEmail.Strings.USEREMAIL_TOOLTIP_EMPTY : UserEmail.Strings.USEREMAIL_TOOLTIP_NONEMPTY + objectProvided;
             }
-            @Override
-            public String fromString(String stringProvided) {
+            @Override public String fromString(String stringProvided) {
                 return stringProvided;
             }
         });
@@ -104,7 +108,7 @@ public class LoginUserEmailStepController{
     }
     //Initialize Listener for any time the user clicks on the text field (or TAB...)
     private void initFocusValidationStyling(){
-        this.txtUserEmail.focusedProperty().addListener((ChangeListener<Boolean>) (ObservableValue<? extends Boolean> obs, Boolean wasFocused, Boolean isFocusedNow) -> {
+        this.txtUserEmail.focusedProperty().addListener((ObservableValue<? extends Boolean> obs, Boolean wasFocused, Boolean isFocusedNow) -> {
             if(this.startedValidating){
                 boolean isValid = false;
                 if(!isFocusedNow) isValid = this.txtUserEmail.validate();

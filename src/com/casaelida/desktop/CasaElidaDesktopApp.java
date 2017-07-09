@@ -1,31 +1,30 @@
 package com.casaelida.desktop;
 
-import com.jfoenix.controls.JFXDecorator;
-import io.datafx.controller.context.ApplicationContext;
-import io.datafx.controller.context.FXMLApplicationContext;
-import io.datafx.controller.flow.FlowHandler;
-import io.datafx.core.DataFXConfiguration;
-import io.datafx.core.DataFXUtils;
-import io.datafx.core.concurrent.DataFxTask;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import com.casaelida.desktop.utils.CEAnimatedFlowContainer;
 import com.casaelida.desktop.utils.CEBundledFlow;
 import com.casaelida.desktop.utils.CEConstants.CasaElida;
 import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 import com.casaelida.desktop.utils.CEConstants.Meta;
 import com.casaelida.desktop.utils.CEWindowDecorator;
-import com.jfoenix.responsive.JFXResponsiveHandler;
+import com.jfoenix.controls.JFXDecorator;
+import io.datafx.controller.context.ApplicationContext;
+import io.datafx.controller.context.FXMLApplicationContext;
 import io.datafx.controller.flow.FlowException;
+import io.datafx.controller.flow.FlowHandler;
 import io.datafx.controller.flow.context.ViewFlowContext;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+
+import java.util.Locale;
 
 /**
  * @version 0.0.1
  * 
  * @author iqbal
+ * TODO: Add responsiveness
  */
 public class CasaElidaDesktopApp extends Application{
     //Always register context objects BEFORE calling the flowHandler.start() method
@@ -37,12 +36,13 @@ public class CasaElidaDesktopApp extends Application{
     private StackPane root;
 
     @Override public void start(Stage casaElidaStage) throws FlowException {
-        //Locale.setDefault(Locale.forLanguageTag("es"));
+        Locale.setDefault(Locale.forLanguageTag("en"));
         this.casaElidaFlowContext = ApplicationContext.getInstance();
         this.casaElidaFlowContext.register(CasaElida.STAGE, casaElidaStage);
-
+        //Initial and main flow in the application
         CEBundledFlow casaElidaFlow = new CEBundledFlow(App.CLASS, App.Strings.BUNDLE);
-        FlowHandler casaElidaFlowHandler = casaElidaFlow.createHandler(new ViewFlowContext());//ViewFlowContext not really used
+        //ViewFlowContext here not really used
+        FlowHandler casaElidaFlowHandler = casaElidaFlow.createHandler(new ViewFlowContext());
         this.root = casaElidaFlowHandler.start(new CEAnimatedFlowContainer());
         this.casaElidaStage = casaElidaStage;
         this.casaElidaStage.setMinWidth(CasaElida.MIN_WIDTH);
@@ -53,7 +53,7 @@ public class CasaElidaDesktopApp extends Application{
         this.window.setPrefSize(CasaElida.MIN_WIDTH, CasaElida.MIN_HEIGHT);
         this.scene = new Scene(this.window);
         this.casaElidaStage.setScene(this.scene);
-        new JFXResponsiveHandler(this.casaElidaStage, JFXResponsiveHandler.PSEUDO_CLASS_LARGE);
+        //new JFXResponsiveHandler(this.casaElidaStage, JFXResponsiveHandler.PSEUDO_CLASS_LARGE);
         loadMetadata();
         this.casaElidaStage.show();
     }

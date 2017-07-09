@@ -27,13 +27,13 @@
                         vgrow="SOMETIMES"/>
     </rowConstraints>
     <VBox id="auth-useremail-step-pane-header" prefHeight="89.0" prefWidth="256.0">
-        <Label styleClass="auth-pane-header-text" text="%useremail-pane-header-login"/>
-        <Label styleClass="auth-pane-subheader-text" text="%useremail-pane-subheader-tocontinue"/>
+        <Label styleClass="auth-pane-header-text" text="%ue-pane-header-login"/>
+        <Label styleClass="auth-pane-subheader-text" text="%ue-pane-subheader-tocontinue"/>
     </VBox>
-    <JFXTextField id="txt-useremail" styleClass="auth-input-text" promptText="%txt-useremail-prompt-text"
+    <JFXTextField id="txt-useremail" styleClass="auth-input-text" promptText="%ue-txt-useremail-prompt-text"
                   labelFloat="true" prefHeight="41.0" prefWidth="174.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS"
                   GridPane.rowIndex="1" GridPane.vgrow="NEVER"/>
-    <JFXButton id="btn-next" styleClass="auth-pane-main-button" text="%btn-next" buttonType="RAISED"
+    <JFXButton id="btn-next" styleClass="auth-pane-main-button" text="%ue-btn-next" buttonType="RAISED"
                defaultButton="true" maxWidth="250.0" GridPane.columnSpan="2" GridPane.halignment="RIGHT"
                GridPane.rowIndex="3" GridPane.valignment="CENTER"/>
 </GridPane>

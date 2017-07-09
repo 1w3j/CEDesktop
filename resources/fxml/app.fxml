@@ -45,7 +45,7 @@
         </VBox>
     </top>
     <center>
-        <JFXDrawer id="app-drawer" defaultDrawerSize="350" direction="LEFT" BorderPane.alignment="CENTER">
+        <JFXDrawer id="app-drawer" defaultDrawerSize="350" direction="LEFT">
         </JFXDrawer>
     </center>
 </BorderPane>

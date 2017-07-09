@@ -2,6 +2,7 @@ package com.casaelida.desktop.controllers.main;
 
 import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Main;
+import com.casaelida.desktop.utils.CEController;
 import io.datafx.controller.ViewController;
 import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.ViewFlowContext;
@@ -13,7 +14,7 @@ import javax.annotation.PostConstruct;
  * @author iqbal
  */
 @ViewController(value="/fxml/main/main.fxml")
-public class MainController {
+public class MainController extends CEController{
     @FXMLViewFlowContext private ViewFlowContext appFlowContext;
     
     private Label lblToolbar;
@@ -24,7 +25,7 @@ public class MainController {
         initComponents();
     }
 
-    private void initComponents() {
+    @Override protected void initComponents() {
         this.lblToolbar.setText(Main.Strings.TITLE);
     }
 }

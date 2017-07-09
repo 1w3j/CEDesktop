@@ -1,5 +1,6 @@
 package com.casaelida.desktop.controllers.login;
 
+import com.casaelida.desktop.utils.CEController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import io.datafx.controller.ViewController;
@@ -35,13 +36,19 @@ import javafx.scene.layout.BorderPane;
  * @author iqbal
  */
 @ViewController("/fxml/login/password-step.fxml")
-public class LoginPasswordStepController {
+public class LoginPasswordStepController extends CEController{
     //Current View Features
+    //boolean that is true every time user clicks the 'Login Button', used for styling purposes only
     private boolean startedValidating = false;
+    //Taken from LoginController through its context
+    private BorderPane loginPane;
     //DataFX Framework
-    @FXMLViewFlowContext private ViewFlowContext loginFlowContext;//taken from LoginController
-    private FlowActionHandler authStepsActionHandler;//taken from LoginController through loginFlowContext
-    private FlowActionHandler appActionHandler;//taken from CasaElidaDesktopApp throught Application Context
+    //instance is taken from LoginController
+    @FXMLViewFlowContext private ViewFlowContext loginFlowContext;
+    //taken from LoginController through loginFlowContext
+    private FlowActionHandler authStepsActionHandler;
+    //taken from CasaElidaDesktopApp throught Application Context
+    private FlowActionHandler appActionHandler;
     //Current View Components
     @ViewNode(Password.PANE) private GridPane passwordStepPane;
     @ViewNode(Password.PANE_HEADER) private VBox passwordStepPaneHeader;
@@ -50,10 +57,11 @@ public class LoginPasswordStepController {
     @ViewNode(Password.BTN_LOGIN) @ActionTrigger(Password.Flow.VALIDATE) private JFXButton btnLogin;
     @ViewNode(Password.TXT_PASSWORD) private JFXPasswordField txtPassword;
     @ViewNode(Password.LBL_USERNAME) private Label lblUserName;
-    private BorderPane loginPane;
-    
+
     @PostConstruct private void start() {
-        this.authStepsActionHandler = (FlowActionHandler)this.loginFlowContext.getRegisteredObject(Login.Flow.ACTION_HANDLER);
+        //instance was created in LoginUserEmailStepController since it is the first View that appears in the Login's Flow (better called Auth's Flow) and it is used to navigate to MainController
+        this.authStepsActionHandler = (FlowActionHandler) this.loginFlowContext.getRegisteredObject(Login.Flow.ACTION_HANDLER);
+        //instance was created in AppController and it is used to navigate to MainController
         this.appActionHandler = (FlowActionHandler)this.loginFlowContext.getRegisteredObject(App.Flow.ACTION_HANDLER);
         this.loginPane = (BorderPane) this.loginFlowContext.getRegisteredObject(App.Login.PANE);
         
@@ -80,13 +88,8 @@ public class LoginPasswordStepController {
             }, 500);
         }
     }
-    
-    private void changeUser() throws FlowException, VetoException{
-        this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_BACK);
-        this.authStepsActionHandler.navigate(LoginUserEmailStepController.class);
-    }
 
-    private void initComponents() {
+    @Override protected void initComponents() {
         //Decorations & Animations
         CEFunctions.requestFocus(this.txtPassword, 325);
         JFXDepthManager.setDepth(this.btnLogin, 1);
@@ -107,9 +110,14 @@ public class LoginPasswordStepController {
         Tooltip.install(this.btnChangeUser, CEFunctions.createTooltip(Password.Strings.BTN_CHANGE_USER_TOOLTIP));
         Tooltip.install(this.btnLogin, CEFunctions.createTooltip(Password.Strings.BTN_LOGIN));
     }
+    //User clicks the arrow down button
+    private void changeUser() throws FlowException, VetoException{
+        this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_BACK);
+        this.authStepsActionHandler.navigate(LoginUserEmailStepController.class);
+    }
     //Initialize Listener for any time the user clicks on the password field (or TAB...)
     private void initFocusValidationStyling(){
-        this.txtPassword.focusedProperty().addListener((ChangeListener<Boolean>) (ObservableValue<? extends Boolean> obs, Boolean wasFocused, Boolean isFocusedNow) -> {
+        this.txtPassword.focusedProperty().addListener((ObservableValue<? extends Boolean> obs, Boolean wasFocused, Boolean isFocusedNow) -> {
             if(this.startedValidating){
                 boolean isValid = false;
                 if(!isFocusedNow) isValid = this.txtPassword.validate();
