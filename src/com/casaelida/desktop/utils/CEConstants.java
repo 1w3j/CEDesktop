@@ -4,8 +4,10 @@ import com.casaelida.desktop.CasaElidaDesktopApp;
 import com.casaelida.desktop.controllers.AppController;
 import com.casaelida.desktop.controllers.login.LoginController;
 import com.casaelida.desktop.controllers.login.LoginPasswordStepController;
+import com.casaelida.desktop.controllers.login.LoginSideMenuController;
 import com.casaelida.desktop.controllers.login.LoginUserEmailStepController;
 import com.casaelida.desktop.controllers.main.MainController;
+import com.casaelida.desktop.controllers.main.MainSideMenuController;
 import de.jensd.fx.glyphs.materialicons.MaterialIcon;
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import io.datafx.core.concurrent.ObservableExecutor;
@@ -17,6 +19,7 @@ import javafx.animation.Interpolator;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import sun.rmi.runtime.Log;
 
 /**
  *
@@ -35,6 +38,7 @@ public interface CEConstants {
             Class<?> CLASS = AppController.class;
             Logger LOGGER = Logger.getLogger(CLASS.getName());
             Double TOOLBAR_HEIGHT = 62.5d;
+            Double SIDEMENU_SIZE = 350d;
             String TOOLBAR = "toolbar";
             String BTN_TOOLBAR_SIDEMENU_BURGER = "btn-toolbar-sidemenu-burger";
             String LBL_TOOLBAR = "lbl-toolbar";
@@ -128,6 +132,18 @@ public interface CEConstants {
                         }
                     }
                 }
+                interface SideMenu{
+                    Class<?> CLASS = LoginSideMenuController.class;
+                    Logger LOGGER = Logger.getLogger(CLASS.getName());
+                    String ITEM_EXIT = "item-exit";
+                    interface Flow{
+                        String EXIT = "EXIT_APPLICATION";
+                    }
+                    interface Strings{
+                        String BUNDLE_BASE_NAME = "strings.login.sidemenu";
+                        ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
+                    }
+                }
             }
             interface Main{
                 Class<?> CLASS = MainController.class;
@@ -140,9 +156,21 @@ public interface CEConstants {
                     ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
                     String TITLE = BUNDLE.getString("title");
                 }
+                interface SideMenu{
+                    Class<?> CLASS = MainSideMenuController.class;
+                    Logger LOGGER = Logger.getLogger(CLASS.getName());
+                    String ITEM_LOG_OUT = "item-log-out";
+                    interface Flow{
+                        String LOG_OUT = "logout";
+                    }
+                    interface Strings{
+                        String BUNDLE_BASE_NAME = "strings.main.sidemenu";
+                        ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
+                    }
+                }
             }
             enum Animations{
-                APP_START, LOGIN_NEXT, LOGIN_BACK, MAIN_START;
+                APP_START, LOGIN_NEXT, LOGIN_BACK, MAIN_START, SIDEMENU_OPEN, LOG_OUT;
                 public interface Flow{
                     String NEXT_ANIMATION = "NEXT_ANIMATION";
                 }
@@ -188,6 +216,7 @@ public interface CEConstants {
             String STYLESHEETS_PATH = "/css/";
             String VARIABLES_STYLESHEET = STYLESHEETS_PATH + "variables.css";
             String APP_STYLESHEET = STYLESHEETS_PATH + "app.css";
+            String SIDEMENU_STYLESHEET = STYLESHEETS_PATH + "sidemenu.css";
             String LOGIN_STYLESHEET = STYLESHEETS_PATH + "login.css";
             String MAIN_STYLESHEET = STYLESHEETS_PATH + "main.css";
         }

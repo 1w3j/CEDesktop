@@ -1,0 +1,18 @@
+.sidemenu{
+    -fx-background-color: ce-red;
+}
+.sidemenu-item{
+    -fx-background-color: ce-red;
+    -fx-fill: ce-white;
+    -fx-text-fill: ce-white;
+    -fx-content-display: LEFT;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 1.5em;
+    -fx-graphic-text-gap: 2.2em;
+    -fx-padding: 1em 1.5em;
+}
+.sidemenu-item .glyph-icon{
+    -fx-text-fill: ce-yellow;
+    -fx-fill: ce-yellow;
+    -glyph-size: 30;
+}

@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * @coauthor iqbal
+ * @author iqbal
  * 
  * A {@link FlowContainer} that supports animation for the view change of the Casa Elida Desktop App.
  */
@@ -27,9 +27,9 @@ public class CEAnimatedFlowContainer extends AnimatedFlowContainer implements Fl
 
     private final StackPane view;
     private final Duration duration;
+    private final ImageView placeholder;
     private Function<AnimatedFlowContainer, List<KeyFrame>> animationProducer;
     private Timeline animation;
-    private final ImageView placeholder;
 
     public CEAnimatedFlowContainer() {
         this.view = new StackPane();
@@ -58,6 +58,12 @@ public class CEAnimatedFlowContainer extends AnimatedFlowContainer implements Fl
                 break;
             case MAIN_START:
                 changeAnimation(CEContainerAnimations.FADE);
+                break;
+            case SIDEMENU_OPEN:
+                changeAnimation(CEContainerAnimations.SWIPE_RIGHT);
+                break;
+            case LOG_OUT:
+                changeAnimation(CEContainerAnimations.ZOOM_OUT);//error here, never ZOOMs OUT
                 break;
             default: changeAnimation(CEContainerAnimations.ZOOM_OUT);
         }

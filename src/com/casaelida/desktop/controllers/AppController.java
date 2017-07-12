@@ -6,6 +6,7 @@ import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 import com.casaelida.desktop.utils.CEController;
 import com.casaelida.desktop.utils.CEFlowHandler;
 import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXToolbar;
 import io.datafx.controller.ViewController;
 import io.datafx.controller.ViewNode;
@@ -31,6 +32,7 @@ public class AppController extends CEController {
     @ViewNode(App.LBL_TOOLBAR) private Label lblToolbar;
     @ViewNode(App.BTN_TOOLBAR_OPTIONS_BURGER) private StackPane btnToolbarOptionsBurger;
     @ViewNode(App.DRAWER) private JFXDrawer appDrawer;
+    @ViewNode("btn-test") private JFXRippler btnTest;
     
     @PostConstruct public void start() throws FlowException{
         //creating a new flow
@@ -38,6 +40,7 @@ public class AppController extends CEController {
         this.appFlowHandler = appFlow.createHandler();
         this.appFlowHandler.registerInApplicationContext(App.BTN_TOOLBAR_OPTIONS_BURGER, this.btnToolbarOptionsBurger);
         this.appFlowHandler.registerInApplicationContext(App.BTN_TOOLBAR_SIDEMENU_BURGER, this.btnToolbarSidemenuBurger);
+        this.appFlowHandler.registerInApplicationContext(App.DRAWER, this.appDrawer);
         this.appFlowHandler.registerInFlowContext(App.Animations.Flow.NEXT_ANIMATION, App.Animations.LOGIN_NEXT);
         this.appFlowHandler.registerInFlowContext(App.LBL_TOOLBAR, this.lblToolbar);
 

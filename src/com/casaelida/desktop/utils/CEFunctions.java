@@ -1,11 +1,15 @@
 package com.casaelida.desktop.utils;
 
 import com.jfoenix.concurrency.JFXUtilities;
+import com.jfoenix.controls.JFXDrawer;
 import io.datafx.controller.ViewConfiguration;
 import java.util.Collection;
 import java.util.ResourceBundle;
+
+import io.datafx.controller.flow.FlowException;
 import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -37,7 +41,7 @@ public final class CEFunctions {
         return createTooltip("");
     }
 
-    static boolean isEmpty(final Collection<?> coll) {
+    static boolean isEmpty (final Collection<?> coll) {
         return coll == null || coll.isEmpty();
     }
 
@@ -45,5 +49,16 @@ public final class CEFunctions {
         ViewConfiguration viewConfig = new ViewConfiguration();
         viewConfig.setResources(bundle);
         return viewConfig;
+    }
+
+    public static void initDrawer(JFXDrawer drawer, Node sidemenuButton){
+        drawer.setDefaultDrawerSize(CEConstants.CasaElida.App.SIDEMENU_SIZE);
+        sidemenuButton.setOnMouseClicked(e->{
+            if(drawer.isHidden() || drawer.isHidding()){
+                drawer.open();
+            }else{
+                drawer.close();
+            }
+        });
     }
 }

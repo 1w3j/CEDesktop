@@ -62,7 +62,7 @@ public class LoginPasswordStepController extends CEController{
         //instance was created in LoginUserEmailStepController since it is the first View that appears in the Login's Flow (better called Auth's Flow) and it is used to navigate to MainController
         this.authStepsActionHandler = (FlowActionHandler) this.loginFlowContext.getRegisteredObject(Login.Flow.ACTION_HANDLER);
         //instance was created in AppController and it is used to navigate to MainController
-        this.appActionHandler = (FlowActionHandler)this.loginFlowContext.getRegisteredObject(App.Flow.ACTION_HANDLER);
+        this.appActionHandler = (FlowActionHandler)this.loginFlowContext.getApplicationContext().getRegisteredObject(App.Flow.ACTION_HANDLER);
         this.loginPane = (BorderPane) this.loginFlowContext.getRegisteredObject(App.Login.PANE);
         
         initComponents();
@@ -113,7 +113,7 @@ public class LoginPasswordStepController extends CEController{
     //User clicks the arrow down button
     private void changeUser() throws FlowException, VetoException{
         this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_BACK);
-        this.authStepsActionHandler.navigate(LoginUserEmailStepController.class);
+        this.authStepsActionHandler.navigate(Login.Steps.UserEmail.CLASS);
     }
     //Initialize Listener for any time the user clicks on the password field (or TAB...)
     private void initFocusValidationStyling(){

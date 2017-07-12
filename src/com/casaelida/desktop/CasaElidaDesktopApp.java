@@ -72,6 +72,7 @@ public class CasaElidaDesktopApp extends Application{
         this.window.getStylesheets().addAll(
                 Meta.Stylesheets.VARIABLES_STYLESHEET,
                 Meta.Stylesheets.APP_STYLESHEET,
+                Meta.Stylesheets.SIDEMENU_STYLESHEET,
                 Meta.Stylesheets.LOGIN_STYLESHEET,
                 Meta.Stylesheets.MAIN_STYLESHEET
         );
