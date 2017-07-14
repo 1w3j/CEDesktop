@@ -39,7 +39,7 @@ public class AppController extends CEController {
 
     @PostConstruct
     public void start () throws FlowException {
-        //creating a new flow
+        //creating the "main/global" flow
         CEBundledFlow appFlow = new CEBundledFlow(App.Login.CLASS, App.Login.Strings.BUNDLE);
         this.appFlowHandler = appFlow.createHandler();
         this.appFlowHandler.registerInApplicationContext(App.BTN_TOOLBAR_OPTIONS_BURGER, this.btnToolbarOptionsBurger);
@@ -50,7 +50,7 @@ public class AppController extends CEController {
 
         StackPane rootLoginPane = this.appFlowHandler.start(new CEAnimatedFlowContainer());
 
-        rootLoginPane.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN), ()-> CEFunctions.toggleDrawer(this.appDrawer));
+ //       rootLoginPane.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN), ()-> CEFunctions.toggleDrawer(this.appDrawer));
 
         this.appDrawer.setContent(rootLoginPane);
         initComponents();
