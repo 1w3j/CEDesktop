@@ -16,3 +16,6 @@
     -fx-fill: ce-yellow;
     -glyph-size: 30;
 }
+.sidemenu-item .jfx-rippler{
+    -jfx-rippler-fill: ce-yellow;
+}

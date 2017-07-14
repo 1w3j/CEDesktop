@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
-
-<BorderPane maxWidth="350.0" minWidth="350.0" prefWidth="350.0" styleClass="sidemenu" xmlns="http://javafx.com/javafx/8.0.131">
-   <center>
-       <VBox BorderPane.alignment="CENTER">
-           <AnchorPane maxHeight="50.0">
-               <JFXButton id="item-log-out" styleClass="sidemenu-item" text="Log out" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                   <graphic>
-                      <MaterialIconView glyphName="EXIT_TO_APP" />
-                   </graphic>
-               </JFXButton>
-           </AnchorPane>
-           <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="50.0">
-               <JFXButton id="item-logout" styleClass="sidemenu-item" text="Log out" AnchorPane.bottomAnchor="0.0"
-                          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                   <graphic>
-                       <MaterialIconView glyphName="EXIT_TO_APP"/>
-                   </graphic>
-               </JFXButton>
-           </AnchorPane>
-       </VBox>
-   </center>
+<?import javafx.scene.layout.*?>
+<BorderPane maxWidth="350.0" minWidth="350.0" prefWidth="350.0" styleClass="sidemenu"
+            xmlns="http://javafx.com/javafx/8.0.131">
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="50.0">
+                <JFXButton id="item-log-out" styleClass="sidemenu-item" text="Log out" AnchorPane.bottomAnchor="0.0"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <MaterialIconView glyphName="EXIT_TO_APP"/>
+                    </graphic>
+                </JFXButton>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="50.0">
+                <JFXButton id="item-logout" styleClass="sidemenu-item" text="Log out" AnchorPane.bottomAnchor="0.0"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <MaterialIconView glyphName="EXIT_TO_APP"/>
+                    </graphic>
+                </JFXButton>
+            </AnchorPane>
+        </VBox>
+    </center>
 </BorderPane>

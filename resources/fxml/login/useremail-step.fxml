@@ -3,12 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.layout.*?>
 <GridPane id="auth-useremail-step-pane" styleClass="auth-step-pane" alignment="CENTER" maxHeight="440.0"
           maxWidth="500.0" prefHeight="504.0" prefWidth="500.0" BorderPane.alignment="CENTER"
           xmlns="http://javafx.com/javafx/8.0.111">

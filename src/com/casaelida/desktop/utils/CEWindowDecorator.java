@@ -2,7 +2,6 @@ package com.casaelida.desktop.utils;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDecorator;
-import java.util.Optional;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -18,21 +17,20 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.util.Optional;
+
 /**
- *
  * @author iqbal
  */
 public class CEWindowDecorator extends JFXDecorator {
 
-    public CEWindowDecorator(Stage stage, Node node) {
+    public CEWindowDecorator (Stage stage, Node node) {
         this(stage, node, true, true, true);
     }
 
-    public CEWindowDecorator(Stage stage, Node node, boolean fullScreen, boolean max, boolean min) {
+    private CEWindowDecorator (Stage stage, Node node, boolean fullScreen, boolean max, boolean min) {
         super(stage, node, fullScreen, max, min);
-        Optional<Node> btnContainerOpt = super.getChildren().stream().filter(child -> {
-            return child.getStyleClass().contains("jfx-decorator-buttons-container");
-        }).findFirst();
+        Optional<Node> btnContainerOpt = super.getChildren().stream().filter(child -> child.getStyleClass().contains("jfx-decorator-buttons-container")).findFirst();
         if (btnContainerOpt.isPresent()) {
             final HBox buttonsContainer = (HBox) btnContainerOpt.get();
             ObservableList<Node> buttons = buttonsContainer.getChildren();

@@ -11,30 +11,33 @@ import com.casaelida.desktop.controllers.main.MainSideMenuController;
 import de.jensd.fx.glyphs.materialicons.MaterialIcon;
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import io.datafx.core.concurrent.ObservableExecutor;
-import java.io.InputStream;
-import java.net.URI;
-import java.util.ResourceBundle;
-import java.util.logging.Logger;
 import javafx.animation.Interpolator;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import sun.rmi.runtime.Log;
+
+import java.io.InputStream;
+import java.net.URI;
+import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 /**
- *
  * @author iqbal
  */
 public interface CEConstants {
-    interface CasaElida{
+    interface CasaElida {
         ObservableExecutor POOL = ObservableExecutor.getDefaultInstance();
         Class<?> CLASS = CasaElidaDesktopApp.class;
         Logger LOGGER = Logger.getLogger(CLASS.getName());
         String STAGE = "CASAELIDA_STAGE";
         Double MIN_WIDTH = 600d;
         Double MIN_HEIGHT = 700d;
-        static void l(String s){System.out.println(s);}
-        interface App{
+
+        static void l (String s) {
+            System.out.println(s);
+        }
+
+        interface App {
             Class<?> CLASS = AppController.class;
             Logger LOGGER = Logger.getLogger(CLASS.getName());
             Double TOOLBAR_HEIGHT = 62.5d;
@@ -44,15 +47,31 @@ public interface CEConstants {
             String LBL_TOOLBAR = "lbl-toolbar";
             String BTN_TOOLBAR_OPTIONS_BURGER = "btn-toolbar-options-burger";
             String DRAWER = "app-drawer";
-            interface Flow{
+
+            enum Animations {
+                APP_START, LOGIN_NEXT, LOGIN_BACK, MAIN_START, SIDEMENU_OPEN, LOG_OUT;
+
+                public interface Flow {
+                    String NEXT_ANIMATION = "NEXT_ANIMATION";
+                }
+
+                public interface MaterialDesign {
+                    Interpolator INTERPOLATOR = Interpolator.SPLINE(0.4, 0.0, 0.2, 1);
+                    Duration DURATION = Duration.millis(270);
+                }
+            }
+
+            interface Flow {
                 String ACTION_HANDLER = "APP_ACTION_HANDLER";
             }
-            interface Strings{
+
+            interface Strings {
                 String BUNDLE_BASE_NAME = "strings.app";
                 ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
                 String WINDOW_TITLE = BUNDLE.getString("window-title");
             }
-            interface Login{
+
+            interface Login {
                 Class<?> CLASS = LoginController.class;
                 Logger LOGGER = Logger.getLogger(CLASS.getName());
                 String PANE_WRAPPER = "login-pane-wrapper";
@@ -66,11 +85,13 @@ public interface CEConstants {
                 String WEB_LINK_ICON = "web-link-icon";
                 String DESKTOP_LINK_ICON = "desktop-link-icon";
                 String AUTH_PANE = "auth-pane";
-                interface Flow{
+
+                interface Flow {
                     String HANDLER = "LOGIN_FLOWHANDLER";
                     String ACTION_HANDLER = "LOGIN_ACTION_HANDLER";
                 }
-                interface Strings{
+
+                interface Strings {
                     String BUNDLE_BASE_NAME = "strings.login.login";
                     ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
                     String TITLE = BUNDLE.getString("title");
@@ -82,8 +103,9 @@ public interface CEConstants {
                     String DESKTOP_VERSION_TEXT_FIRST = BUNDLE.getString("desktop-first");
                     String DESKTOP_VERSION_TEXT_SECOND = BUNDLE.getString("desktop-second");
                 }
-                interface Steps{
-                    interface UserEmail{
+
+                interface Steps {
+                    interface UserEmail {
                         Class<?> CLASS = LoginUserEmailStepController.class;
                         Logger LOGGER = Logger.getLogger(CLASS.getName());
                         String PANE = "auth-useremail-step-pane";
@@ -91,10 +113,12 @@ public interface CEConstants {
                         String TXT_USEREMAIL = "txt-useremail";
                         String BTN_NEXT = "btn-next";
                         MaterialIconView WARNING_ICON = new MaterialIconView(MaterialIcon.WARNING, "22.5");
-                        interface Flow{
+
+                        interface Flow {
                             String VALIDATE = "VALIDATE_USEREMAIL";
                         }
-                        interface Strings{
+
+                        interface Strings {
                             String BUNDLE_BASE_NAME = "strings.login.steps";
                             ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
                             String USEREMAIL_TOOLTIP_EMPTY = BUNDLE.getString("ue-tooltip-empty");
@@ -107,7 +131,8 @@ public interface CEConstants {
                             String BTN_NEXT = BUNDLE.getString("ue-btn-next");
                         }
                     }
-                    interface Password{
+
+                    interface Password {
                         Class<?> CLASS = LoginPasswordStepController.class;
                         Logger LOGGER = Logger.getLogger(CLASS.getName());
                         String PANE = "auth-password-step-pane";
@@ -118,10 +143,12 @@ public interface CEConstants {
                         String TXT_PASSWORD = "txt-password";
                         String LBL_USERNAME = "lbl-username";
                         MaterialIconView WARNING_ICON = new MaterialIconView(MaterialIcon.WARNING, "22.5");
-                        interface Flow{
+
+                        interface Flow {
                             String VALIDATE = "VALIDATE_USER_PASSWORD";
                         }
-                        interface Strings{
+
+                        interface Strings {
                             String BUNDLE_BASE_NAME = "strings.login.steps";
                             ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
                             String BTN_CHANGE_USER_TOOLTIP = BUNDLE.getString("pw-btn-change-user-tooltip");
@@ -132,56 +159,56 @@ public interface CEConstants {
                         }
                     }
                 }
-                interface SideMenu{
+
+                interface SideMenu {
                     Class<?> CLASS = LoginSideMenuController.class;
                     Logger LOGGER = Logger.getLogger(CLASS.getName());
                     String ITEM_EXIT = "item-exit";
-                    interface Flow{
+
+                    interface Flow {
                         String EXIT = "EXIT_APPLICATION";
                     }
-                    interface Strings{
+
+                    interface Strings {
                         String BUNDLE_BASE_NAME = "strings.login.sidemenu";
                         ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
                     }
                 }
             }
-            interface Main{
+
+            interface Main {
                 Class<?> CLASS = MainController.class;
                 Logger LOGGER = Logger.getLogger(CLASS.getName());
-                interface Flow{
+
+                interface Flow {
 
                 }
-                interface Strings{
+
+                interface Strings {
                     String BUNDLE_BASE_NAME = "strings.main.main";
                     ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
                     String TITLE = BUNDLE.getString("title");
                 }
-                interface SideMenu{
+
+                interface SideMenu {
                     Class<?> CLASS = MainSideMenuController.class;
                     Logger LOGGER = Logger.getLogger(CLASS.getName());
                     String ITEM_LOG_OUT = "item-log-out";
-                    interface Flow{
+
+                    interface Flow {
                         String LOG_OUT = "logout";
                     }
-                    interface Strings{
+
+                    interface Strings {
                         String BUNDLE_BASE_NAME = "strings.main.sidemenu";
                         ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
                     }
                 }
             }
-            enum Animations{
-                APP_START, LOGIN_NEXT, LOGIN_BACK, MAIN_START, SIDEMENU_OPEN, LOG_OUT;
-                public interface Flow{
-                    String NEXT_ANIMATION = "NEXT_ANIMATION";
-                }
-                public interface MaterialDesign{
-                    Interpolator INTERPOLATOR = Interpolator.SPLINE(0.4, 0.0, 0.2, 1);
-                    Duration DURATION = Duration.millis(270);
-                }
-            }
         }
     }
-    interface Database{
+
+    interface Database {
         String HOST = "localhost";
         int PORT = 3306;
         String NAME = "casaelida";
@@ -189,8 +216,9 @@ public interface CEConstants {
         String USER = "root";
         String PASSWORD = "12345678";
     }
-    interface Meta{
-        interface Icons{
+
+    interface Meta {
+        interface Icons {
             Image ICON16X16 = new Image("/images/logo-16x16.png");
             Image ICON28X28 = new Image("/images/logo-28x28.png");
             Image ICON56X56 = new Image("/images/logo-56x56.png");
@@ -198,10 +226,12 @@ public interface CEConstants {
             Image ICON128X128 = new Image("/images/logo-128x128.png");
             Image ICON256X256 = new Image("/images/logo-128x128.png");
         }
-        interface Links{
+
+        interface Links {
             URI WEBAPP_URI = URI.create("http://iqbal98.netne.net");
         }
-        interface Colors{
+
+        interface Colors {
             Color RED = Color.web("#e74c3c");
             Color RED_HOVER = Color.web("#e53f2e");
             Color YELLOW = Color.web("#f1c40f");
@@ -212,7 +242,8 @@ public interface CEConstants {
             Color TEXT_COLOR = Color.web("#595959");
             Color BORDER_COLOR = Color.web("#b1b1b1");
         }
-        interface Stylesheets{
+
+        interface Stylesheets {
             String STYLESHEETS_PATH = "/css/";
             String VARIABLES_STYLESHEET = STYLESHEETS_PATH + "variables.css";
             String APP_STYLESHEET = STYLESHEETS_PATH + "app.css";
@@ -220,7 +251,8 @@ public interface CEConstants {
             String LOGIN_STYLESHEET = STYLESHEETS_PATH + "login.css";
             String MAIN_STYLESHEET = STYLESHEETS_PATH + "main.css";
         }
-        interface Fonts{
+
+        interface Fonts {
             String FONTS_PATH = "/fonts/";
             String ROBOTO_BOLD = FONTS_PATH + "Roboto-Bold.ttf";
             String ROBOTO_BLACK = FONTS_PATH + "Roboto-Black.ttf";

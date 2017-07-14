@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-
 
 <!-- If you want to style the FXMLs in your Scene Builder : Preview->Scene Style Sheets->Add A Style Sheet... and select all CSS files under /resources/css/* -->
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
 <BorderPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111">
     <center>
-        <Label text="MAIN WINDOW" />
+        <Label text="MAIN WINDOW"/>
     </center>
 </BorderPane>

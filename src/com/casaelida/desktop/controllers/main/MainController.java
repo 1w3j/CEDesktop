@@ -1,10 +1,10 @@
 package com.casaelida.desktop.controllers.main;
 
-import com.casaelida.desktop.utils.CEBundledFlow;
 import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Main;
 import com.casaelida.desktop.utils.CEController;
-import com.casaelida.desktop.utils.CEFlowHandler;
+import com.casaelida.desktop.utils.datafx.CEBundledFlow;
+import com.casaelida.desktop.utils.datafx.CEFlowHandler;
 import com.jfoenix.controls.JFXDrawer;
 import io.datafx.controller.ViewController;
 import io.datafx.controller.flow.FlowException;
@@ -16,11 +16,10 @@ import javafx.scene.layout.StackPane;
 import javax.annotation.PostConstruct;
 
 /**
- *
  * @author iqbal
  */
-@ViewController(value="/fxml/main/main.fxml")
-public class MainController extends CEController{
+@ViewController (value = "/fxml/main/main.fxml")
+public class MainController extends CEController {
     @FXMLViewFlowContext private ViewFlowContext appFlowContext;
     private CEFlowHandler sidemenuFlowHandler;
 
@@ -28,7 +27,7 @@ public class MainController extends CEController{
     private Label lblToolbar;
     private StackPane btnToolbarOptionsBurger;
 
-    @PostConstruct private void start() throws FlowException {
+    @PostConstruct private void start () throws FlowException {
         this.appDrawer = (JFXDrawer) this.appFlowContext.getApplicationContext().getRegisteredObject(App.DRAWER);
         this.btnToolbarOptionsBurger = (StackPane) this.appFlowContext.getApplicationContext().getRegisteredObject(App.BTN_TOOLBAR_OPTIONS_BURGER);
         this.lblToolbar = (Label) this.appFlowContext.getRegisteredObject(App.LBL_TOOLBAR);
@@ -40,7 +39,7 @@ public class MainController extends CEController{
         initComponents();
     }
 
-    @Override protected void initComponents() {
+    @Override protected void initComponents () {
         this.btnToolbarOptionsBurger.getParent().setVisible(true);
         this.lblToolbar.setText(Main.Strings.TITLE);
     }

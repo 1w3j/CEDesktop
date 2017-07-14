@@ -1,4 +1,4 @@
-package com.casaelida.desktop.utils;
+package com.casaelida.desktop.utils.datafx;
 
 import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 import io.datafx.controller.context.ViewContext;
@@ -20,7 +20,7 @@ import java.util.function.Function;
 
 /**
  * @author iqbal
- * 
+ * <p>
  * A {@link FlowContainer} that supports animation for the view change of the Casa Elida Desktop App.
  */
 public class CEAnimatedFlowContainer extends AnimatedFlowContainer implements FlowContainer<StackPane> {
@@ -28,10 +28,10 @@ public class CEAnimatedFlowContainer extends AnimatedFlowContainer implements Fl
     private final StackPane view;
     private final Duration duration;
     private final ImageView placeholder;
-    private Function<AnimatedFlowContainer, List<KeyFrame>> animationProducer;
+    private Function<CEAnimatedFlowContainer, List<KeyFrame>> animationProducer;
     private Timeline animation;
 
-    public CEAnimatedFlowContainer() {
+    public CEAnimatedFlowContainer () {
         this.view = new StackPane();
         this.duration = App.Animations.MaterialDesign.DURATION;
         this.animationProducer = null;
@@ -40,13 +40,12 @@ public class CEAnimatedFlowContainer extends AnimatedFlowContainer implements Fl
         this.placeholder.setSmooth(true);
     }
 
-    private void changeAnimation(CEContainerAnimations animation) {
+    private void changeAnimation (CEContainerAnimations animation) {
         this.animationProducer = animation.getAnimationProducer();
     }
 
-    @Override
-    public <U> void setViewContext(ViewContext<U> context) {
-        switch((App.Animations)context.getApplicationContext().getRegisteredObject(App.Animations.Flow.NEXT_ANIMATION)){
+    @Override public <U> void setViewContext (ViewContext<U> context) {
+        switch ((App.Animations) context.getApplicationContext().getRegisteredObject(App.Animations.Flow.NEXT_ANIMATION)) {
             case APP_START:
                 changeAnimation(CEContainerAnimations.ZOOM_IN);
                 break;
@@ -63,9 +62,10 @@ public class CEAnimatedFlowContainer extends AnimatedFlowContainer implements Fl
                 changeAnimation(CEContainerAnimations.SWIPE_RIGHT);
                 break;
             case LOG_OUT:
-                changeAnimation(CEContainerAnimations.ZOOM_OUT);//error here, never ZOOMs OUT
+                changeAnimation(CEContainerAnimations.SWIPE_LEFT);//error here, never ZOOMs OUT
                 break;
-            default: changeAnimation(CEContainerAnimations.ZOOM_OUT);
+            default:
+                changeAnimation(CEContainerAnimations.ZOOM_OUT);
         }
         updatePlaceholder(context.getRootNode());
         if (this.animation != null) {
@@ -77,26 +77,23 @@ public class CEAnimatedFlowContainer extends AnimatedFlowContainer implements Fl
         this.animation.play();
     }
 
-    @Override
-    public ImageView getPlaceholder() {
+    @Override public ImageView getPlaceholder () {
         return this.placeholder;
     }
 
-    @Override
-    public Duration getDuration() {
+    @Override public Duration getDuration () {
         return this.duration;
     }
 
-    @Override
-    public StackPane getView() {
+    @Override public StackPane getView () {
         return this.view;
     }
 
-    private void clearPlaceholder() {
+    private void clearPlaceholder () {
         this.view.getChildren().remove(this.placeholder);
     }
 
-    private void updatePlaceholder(Node newView) {
+    private void updatePlaceholder (Node newView) {
         if (this.view.getWidth() > 0 && this.view.getHeight() > 0) {
             SnapshotParameters parameters = new SnapshotParameters();
             parameters.setFill(Color.TRANSPARENT);

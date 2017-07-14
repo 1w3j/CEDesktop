@@ -1,11 +1,11 @@
 package com.casaelida.desktop;
 
-import com.casaelida.desktop.utils.CEAnimatedFlowContainer;
-import com.casaelida.desktop.utils.CEBundledFlow;
 import com.casaelida.desktop.utils.CEConstants.CasaElida;
 import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 import com.casaelida.desktop.utils.CEConstants.Meta;
 import com.casaelida.desktop.utils.CEWindowDecorator;
+import com.casaelida.desktop.utils.datafx.CEAnimatedFlowContainer;
+import com.casaelida.desktop.utils.datafx.CEBundledFlow;
 import com.jfoenix.controls.JFXDecorator;
 import io.datafx.controller.context.ApplicationContext;
 import io.datafx.controller.context.FXMLApplicationContext;
@@ -21,21 +21,24 @@ import javafx.stage.Stage;
 import java.util.Locale;
 
 /**
- * @version 0.0.1
- * 
  * @author iqbal
  * TODO: Add responsiveness
+ * @version 0.0.1
  */
-public class CasaElidaDesktopApp extends Application{
+public class CasaElidaDesktopApp extends Application {
     //Always register context objects BEFORE calling the flowHandler.start() method
     @FXMLApplicationContext private ApplicationContext casaElidaFlowContext;
-    
+
     private Scene scene;
     private Stage casaElidaStage;
     private JFXDecorator window;
     private StackPane root;
 
-    @Override public void start(Stage casaElidaStage) throws FlowException {
+    public static void main (String[] args) {
+        CasaElidaDesktopApp.launch(args);
+    }
+
+    @Override public void start (Stage casaElidaStage) throws FlowException {
         Locale.setDefault(Locale.forLanguageTag("en"));
         this.casaElidaFlowContext = ApplicationContext.getInstance();
         this.casaElidaFlowContext.register(CasaElida.STAGE, casaElidaStage);
@@ -57,12 +60,8 @@ public class CasaElidaDesktopApp extends Application{
         loadMetadata();
         this.casaElidaStage.show();
     }
-    
-    public static void main(String[] args) {
-        CasaElidaDesktopApp.launch(args);
-    }
 
-    private void loadMetadata() {
+    private void loadMetadata () {
         Font.loadFont(Meta.Fonts.ROBOTO_BLACK_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_BOLD_ITALIC_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_BOLD_STREAM, 22);
@@ -76,7 +75,7 @@ public class CasaElidaDesktopApp extends Application{
                 Meta.Stylesheets.LOGIN_STYLESHEET,
                 Meta.Stylesheets.MAIN_STYLESHEET
         );
-        this.casaElidaStage.getIcons().addAll(Meta.Icons.ICON256X256, 
+        this.casaElidaStage.getIcons().addAll(Meta.Icons.ICON256X256,
                 Meta.Icons.ICON128X128,
                 Meta.Icons.ICON64X64,
                 Meta.Icons.ICON56X56,
