@@ -19,3 +19,7 @@
 .sidemenu-item .jfx-rippler{
     -jfx-rippler-fill: ce-yellow;
 }
+.separator{
+  -fx-background-color: ce-yellow;
+  -fx-opacity: .55;
+}

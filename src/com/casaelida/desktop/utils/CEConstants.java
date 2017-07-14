@@ -164,7 +164,6 @@ public interface CEConstants {
                     Class<?> CLASS = LoginSideMenuController.class;
                     Logger LOGGER = Logger.getLogger(CLASS.getName());
                     String ITEM_EXIT = "item-exit";
-
                     interface Flow {
                         String EXIT = "EXIT_APPLICATION";
                     }
@@ -172,6 +171,7 @@ public interface CEConstants {
                     interface Strings {
                         String BUNDLE_BASE_NAME = "strings.login.sidemenu";
                         ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
+                        String ITEM_EXIT = "item-exit";
                     }
                 }
             }
@@ -193,8 +193,13 @@ public interface CEConstants {
                 interface SideMenu {
                     Class<?> CLASS = MainSideMenuController.class;
                     Logger LOGGER = Logger.getLogger(CLASS.getName());
+                    String ITEM_HOME = "item-home";
+                    String ITEM_SALES = "item-sales";
+                    String ITEM_PURCHASING = "item-purchasing";
+                    String ITEM_INVENTORY = "item-inventory";
+                    String ITEM_REPORTS = "item-reports";
+                    String ITEM_SETINGS = "item-settings";
                     String ITEM_LOG_OUT = "item-log-out";
-
                     interface Flow {
                         String LOG_OUT = "logout";
                     }
@@ -202,6 +207,13 @@ public interface CEConstants {
                     interface Strings {
                         String BUNDLE_BASE_NAME = "strings.main.sidemenu";
                         ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
+                        String ITEM_HOME = "item-home";
+                        String ITEM_SALES = "item-sales";
+                        String ITEM_PURCHASING = "item-purchasing";
+                        String ITEM_INVENTORY = "item-inventory";
+                        String ITEM_REPORTS = "item-reports";
+                        String ITEM_SETINGS = "item-settings";
+                        String ITEM_LOG_OUT = "item-log-out";
                     }
                 }
             }

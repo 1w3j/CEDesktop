@@ -1,25 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
-<?import javafx.scene.layout.*?>
-<BorderPane maxWidth="350.0" minWidth="350.0" prefWidth="350.0" styleClass="sidemenu"
-            xmlns="http://javafx.com/javafx/8.0.131">
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxWidth="350.0" minWidth="350.0" prefWidth="350.0" styleClass="sidemenu" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
     <center>
         <VBox BorderPane.alignment="CENTER">
             <AnchorPane maxHeight="50.0">
-                <JFXButton id="item-log-out" styleClass="sidemenu-item" text="Log out" AnchorPane.bottomAnchor="0.0"
-                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <JFXButton id="item-home" styleClass="sidemenu-item" text="%item-home" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <graphic>
-                        <MaterialIconView glyphName="EXIT_TO_APP"/>
+                        <MaterialIconView glyphName="HOME" />
                     </graphic>
                 </JFXButton>
             </AnchorPane>
-            <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="50.0">
-                <JFXButton id="item-logout" styleClass="sidemenu-item" text="Log out" AnchorPane.bottomAnchor="0.0"
-                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane maxHeight="50.0">
+                <JFXButton id="item-sales" styleClass="sidemenu-item" text="%item-sales" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <graphic>
-                        <MaterialIconView glyphName="EXIT_TO_APP"/>
+                        <MaterialIconView glyphName="SHOPPING_CART" />
+                    </graphic>
+                </JFXButton>
+            </AnchorPane>
+            <AnchorPane maxHeight="50.0">
+                <JFXButton id="item-purchasing" styleClass="sidemenu-item" text="%item-purchasing" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <MaterialIconView glyphName="LOCAL_SHIPPING" />
+                    </graphic>
+                </JFXButton>
+            </AnchorPane>
+            <AnchorPane maxHeight="50.0">
+                <JFXButton id="item-dashboard" styleClass="sidemenu-item" text="%item-reports" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <graphic>
+                  <FontAwesomeIconView glyphName="AREA_CHART" />
+               </graphic>
+                </JFXButton>
+            </AnchorPane>
+            <AnchorPane maxHeight="50.0">
+                <JFXButton id="item-dashboard" styleClass="sidemenu-item" text="%item-inventory" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <OctIconView glyphName="PACKAGE" />
+                    </graphic>
+                </JFXButton>
+            </AnchorPane>
+            <AnchorPane maxHeight="50.0">
+                <JFXButton id="item-settings" styleClass="sidemenu-item" text="%item-settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <OctIconView glyphName="SETTINGS" />
+                    </graphic>
+                </JFXButton>
+            </AnchorPane>
+         <Region maxHeight="2.0" prefHeight="2.0" prefWidth="350.0" styleClass="separator" />
+            <AnchorPane maxHeight="50.0">
+                <JFXButton id="item-log-out" styleClass="sidemenu-item" text="%item-log-out" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <MaterialIconView glyphName="EXIT_TO_APP" />
                     </graphic>
                 </JFXButton>
             </AnchorPane>
