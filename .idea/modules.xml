@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CE-Desktop.iml" filepath="$PROJECT_DIR$/CE-Desktop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CE-Desktop.iml" filepath="$PROJECT_DIR$/CE-Desktop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CEDesktop.iml" filepath="$PROJECT_DIR$/CEDesktop.iml" />
     </modules>
   </component>
 </project>

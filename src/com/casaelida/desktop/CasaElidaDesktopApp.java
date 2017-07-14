@@ -39,7 +39,7 @@ public class CasaElidaDesktopApp extends Application {
     }
 
     @Override public void start (Stage casaElidaStage) throws FlowException {
-        Locale.setDefault(Locale.forLanguageTag("en"));
+        Locale.setDefault(Locale.forLanguageTag("es"));
         this.casaElidaFlowContext = ApplicationContext.getInstance();
         this.casaElidaFlowContext.register(CasaElida.STAGE, casaElidaStage);
         //Initial and main flow in the application
