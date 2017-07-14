@@ -2,6 +2,7 @@ package com.casaelida.desktop.controllers;
 
 import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
 import com.casaelida.desktop.utils.CEController;
+import com.casaelida.desktop.utils.CEFunctions;
 import com.casaelida.desktop.utils.datafx.CEAnimatedFlowContainer;
 import com.casaelida.desktop.utils.datafx.CEBundledFlow;
 import com.casaelida.desktop.utils.datafx.CEFlowHandler;
@@ -12,6 +13,9 @@ import io.datafx.controller.ViewController;
 import io.datafx.controller.ViewNode;
 import io.datafx.controller.flow.FlowException;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.StackPane;
 
 import javax.annotation.PostConstruct;
@@ -23,7 +27,8 @@ import javax.annotation.PostConstruct;
 @ViewController (value = "/fxml/app.fxml")
 public class AppController extends CEController {
     //DataFX Framework
-    private CEFlowHandler appFlowHandler;//new flow handler
+    //new flow handler
+    private CEFlowHandler appFlowHandler;
     //Current View Components
     @ViewNode (App.TOOLBAR) private JFXToolbar toolbar;
     @ViewNode (App.BTN_TOOLBAR_SIDEMENU_BURGER) private StackPane btnToolbarSidemenuBurger;
@@ -45,7 +50,7 @@ public class AppController extends CEController {
 
         StackPane rootLoginPane = this.appFlowHandler.start(new CEAnimatedFlowContainer());
 
-//        rootLoginPane.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN), ()-> CEFunctions.toggleDrawer(this.appDrawer));
+        rootLoginPane.getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.M, KeyCombination.SHORTCUT_DOWN), ()-> CEFunctions.toggleDrawer(this.appDrawer));
 
         this.appDrawer.setContent(rootLoginPane);
         initComponents();
