@@ -1,4 +1,4 @@
-# Casa-Elida-Desktop
+# CE-Desktop
 Description: JavaFX Material Design Enterprise Desktop Application
 
 Features:
