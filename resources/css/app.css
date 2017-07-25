@@ -3,3 +3,21 @@
     -fx-font-size: 20.5pt;
     -fx-font-weight: bold;
 }
+#app-drawer{
+    -fx-pref-height: 1080;
+    -fx-pref-width: 1920;
+}
+#toolbar-wrapper{
+    -fx-alignment: CENTER;
+}
+.toolbar-button{
+    -jfx-mask-type: CIRCLE;
+    -jfx-rippler-fill: ce-yellow-hover;
+}
+.toolbar-button StackPane{
+    -fx-padding: 10;
+}
+.toolbar-button StackPane .glyph-icon{
+    -glyph-size: 40;
+    -fx-text-alignment: CENTER;
+}

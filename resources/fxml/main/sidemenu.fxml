@@ -1,67 +1,422 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<!-- Using xlmns:fx (fx:id, etc...) because it seems that @ViewNode does not inject the instance
+    of the respective controls when they are inside a 'JFX' parent controller (in this case JFXScrollPane) -->
+<?import com.jfoenix.controls.*?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
-<?import de.jensd.fx.glyphs.octicons.OctIconView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.VBox?>
-
-<BorderPane maxWidth="350.0" minWidth="350.0" prefWidth="350.0" styleClass="sidemenu" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
+<?import de.jensd.fx.glyphs.icons525.Icons525View?>
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import de.jensd.fx.glyphs.octicons.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane styleClass="sidemenu" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">
     <center>
-        <VBox BorderPane.alignment="CENTER">
-            <AnchorPane maxHeight="50.0">
-                <JFXButton id="item-home" styleClass="sidemenu-item" text="%item-home" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <graphic>
-                        <MaterialIconView glyphName="HOME" />
-                    </graphic>
-                </JFXButton>
-            </AnchorPane>
-            <AnchorPane maxHeight="50.0">
-                <JFXButton id="item-sales" styleClass="sidemenu-item" text="%item-sales" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <graphic>
-                        <MaterialIconView glyphName="SHOPPING_CART" />
-                    </graphic>
-                </JFXButton>
-            </AnchorPane>
-            <AnchorPane maxHeight="50.0">
-                <JFXButton id="item-purchasing" styleClass="sidemenu-item" text="%item-purchasing" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <graphic>
-                        <MaterialIconView glyphName="LOCAL_SHIPPING" />
-                    </graphic>
-                </JFXButton>
-            </AnchorPane>
-            <AnchorPane maxHeight="50.0">
-                <JFXButton id="item-dashboard" styleClass="sidemenu-item" text="%item-reports" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <graphic>
-                  <FontAwesomeIconView glyphName="AREA_CHART" />
-               </graphic>
-                </JFXButton>
-            </AnchorPane>
-            <AnchorPane maxHeight="50.0">
-                <JFXButton id="item-dashboard" styleClass="sidemenu-item" text="%item-inventory" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <graphic>
-                        <OctIconView glyphName="PACKAGE" />
-                    </graphic>
-                </JFXButton>
-            </AnchorPane>
-         <Region maxHeight="2.0" minHeight="2.0" prefHeight="2.0" styleClass="separator" />
-            <AnchorPane maxHeight="50.0">
-                <JFXButton id="item-settings" styleClass="sidemenu-item" text="%item-settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <graphic>
-                        <OctIconView glyphName="SETTINGS" />
-                    </graphic>
-                </JFXButton>
-            </AnchorPane>
-            <AnchorPane maxHeight="50.0">
-                <JFXButton id="item-log-out" styleClass="sidemenu-item" text="%item-log-out" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <graphic>
-                        <MaterialIconView glyphName="EXIT_TO_APP" />
-                    </graphic>
-                </JFXButton>
-            </AnchorPane>
-        </VBox>
+        <JFXScrollPane fx:id="mainSideMenuPane" id="main-sidemenu-pane" styleClass="sidemenu-pane" BorderPane.alignment="CENTER">
+            <midBar>
+                <children>
+                    <GridPane id="main-sidemenu-user-pane">
+                        <MaterialIconView fx:id="iconUser" id="main-sidemenu-user-icon" glyphName="ACCOUNT_CIRCLE"/>
+                        <VBox GridPane.rowIndex="1">
+                            <Label fx:id="lblUserName" id="main-sidemenu-user-name" styleClass="main-sidemenu-user-pane-text" text="[lblUserName]"/>
+                            <Label fx:id="lblUserEmail" id="main-sidemenu-user-email" styleClass="main-sidemenu-user-pane-text" text="[lblUserEmail]"/>
+                        </VBox>
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="100.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints percentHeight="70.0"/>
+                            <RowConstraints percentHeight="30.0"/>
+                        </rowConstraints>
+                    </GridPane>
+                </children>
+            </midBar>
+            <VBox>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemHome" id="item-home" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <MaterialIconView glyphName="HOME"/>
+                                </HBox>
+                                <Label text="%item-home" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemSales" id="item-sales" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <MaterialIconView glyphName="SHOPPING_CART"/>
+                                </HBox>
+                                <Label text="%item-sales" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemPurchasing" id="item-purchasing" prefHeight="55.0" prefWidth="350.0" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <MaterialIconView glyphName="LOCAL_SHIPPING"/>
+                                </HBox>
+                                <Label text="%item-purchasing" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemInventory" id="item-inventory" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <OctIconView glyphName="PACKAGE"/>
+                                </HBox>
+                                <Label text="%item-inventory" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemCashboxMode" id="item-cashbox-mode" styleClass="sidemenu-item-highlighted" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <MaterialIconView glyphName="ATTACH_MONEY"/>
+                                </HBox>
+                                <Label text="%item-cashbox-mode" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemInventoryMode" id="item-inventory-mode" styleClass="sidemenu-item-highlighted" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <OctIconView glyphName="CHECKLIST"/>
+                                </HBox>
+                                <Label text="%item-inventory-mode" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemCategories" id="item-categories" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <FontAwesomeIconView glyphName="TAG"/>
+                                </HBox>
+                                <Label text="%item-categories" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemDiscounts" id="item-discounts" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <MaterialIconView glyphName="MONEY_OFF"/>
+                                </HBox>
+                                <Label text="%item-discounts" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemReports" id="item-reports" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <FontAwesomeIconView glyphName="AREA_CHART"/>
+                                </HBox>
+                                <Label text="%item-reports" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <Region styleClass="separator" maxHeight="2.0" minHeight="2.0" prefHeight="2.0"/>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemClients" id="item-clients" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="combined-icon" GridPane.columnIndex="0">
+                                    <MaterialIconView glyphName="PERSON"/>
+                                    <MaterialIconView glyphName="PUBLIC" styleClass="secondary-icon" />
+                                </HBox>
+                                <Label text="%item-clients" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemPosts" id="item-posts" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="combined-icon" GridPane.columnIndex="0">
+                                    <Icons525View glyphName="NEWSPAPER"/>
+                                    <MaterialIconView glyphName="PUBLIC" styleClass="secondary-icon" />
+                                </HBox>
+                                <Label text="%item-posts" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemKeywords" id="item-keywords" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="combined-icon" GridPane.columnIndex="0">
+                                    <FontAwesomeIconView glyphName="TAGS"/>
+                                    <MaterialIconView glyphName="PUBLIC" styleClass="secondary-icon" />
+                                </HBox>
+                                <Label text="%item-keywords" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemComments" id="item-comments" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="combined-icon" GridPane.columnIndex="0">
+                                    <MaterialIconView glyphName="COMMENT"/>
+                                    <MaterialIconView glyphName="PUBLIC" styleClass="secondary-icon" />
+                                </HBox>
+                                <Label text="%item-comments" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <Region styleClass="separator" maxHeight="2.0" minHeight="2.0" prefHeight="2.0"/>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemAdministration" id="item-administration" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <MaterialIconView glyphName="BUSINESS_CENTER"/>
+                                </HBox>
+                                <Label text="%item-administration" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemWebSettings" id="item-web-settings" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="combined-icon" GridPane.columnIndex="0">
+                                    <OctIconView glyphName="SETTINGS"/>
+                                    <MaterialIconView glyphName="PUBLIC" styleClass="secondary-icon" />
+                                </HBox>
+                                <Label text="%item-web-settings" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemSettings" id="item-settings" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <OctIconView glyphName="SETTINGS"/>
+                                </HBox>
+                                <Label text="%item-settings" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemAbout" id="item-about" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <OctIconView glyphName="INFO"/>
+                                </HBox>
+                                <Label text="%item-about" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+                <AnchorPane styleClass="sidemenu-item-container">
+                    <JFXButton fx:id="itemLogOut" id="item-log-out" styleClass="sidemenu-item" text=" "
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                               AnchorPane.topAnchor="0.0">
+                        <graphic>
+                            <GridPane>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="15.0"/>
+                                    <ColumnConstraints percentWidth="85.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints/>
+                                </rowConstraints>
+                                <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                    <MaterialIconView glyphName="EXIT_TO_APP"/>
+                                </HBox>
+                                <Label text="%item-log-out" GridPane.columnIndex="1"/>
+                            </GridPane>
+                        </graphic>
+                    </JFXButton>
+                </AnchorPane>
+            </VBox>
+        </JFXScrollPane>
     </center>
 </BorderPane>

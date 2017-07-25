@@ -56,9 +56,11 @@ public class CasaElidaDesktopApp extends Application {
         this.window.setPrefSize(CasaElida.MIN_WIDTH, CasaElida.MIN_HEIGHT);
         this.scene = new Scene(this.window);
         this.casaElidaStage.setScene(this.scene);
+        this.casaElidaFlowContext.register(CasaElida.SCENE, this.scene);
         //new JFXResponsiveHandler(this.casaElidaStage, JFXResponsiveHandler.PSEUDO_CLASS_LARGE);
         loadMetadata();
         this.casaElidaStage.show();
+        //org.scenicview.ScenicView.show(this.scene);
     }
 
     private void loadMetadata () {

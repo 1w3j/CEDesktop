@@ -30,6 +30,7 @@ public interface CEConstants {
         Class<?> CLASS = CasaElidaDesktopApp.class;
         Logger LOGGER = Logger.getLogger(CLASS.getName());
         String STAGE = "CASAELIDA_STAGE";
+        String SCENE = "CASAELIDA_SCENE";
         Double MIN_WIDTH = 600d;
         Double MIN_HEIGHT = 700d;
 
@@ -41,12 +42,14 @@ public interface CEConstants {
             Class<?> CLASS = AppController.class;
             Logger LOGGER = Logger.getLogger(CLASS.getName());
             Double TOOLBAR_HEIGHT = 62.5d;
-            Double SIDEMENU_SIZE = 350d;
+            Double SIDEMENU_SIZE = 360d;
+            String DRAWER = "app-drawer";
+            String CONTAINER = "app-container";
             String TOOLBAR = "toolbar";
             String BTN_TOOLBAR_SIDEMENU_BURGER = "btn-toolbar-sidemenu-burger";
             String LBL_TOOLBAR = "lbl-toolbar";
             String BTN_TOOLBAR_OPTIONS_BURGER = "btn-toolbar-options-burger";
-            String DRAWER = "app-drawer";
+            String ROOT = "app-root";
 
             enum Animations {
                 APP_START, LOGIN_NEXT, LOGIN_BACK, MAIN_START, SIDEMENU_OPEN, LOG_OUT;
@@ -193,15 +196,28 @@ public interface CEConstants {
                 interface SideMenu {
                     Class<?> CLASS = MainSideMenuController.class;
                     Logger LOGGER = Logger.getLogger(CLASS.getName());
+                    String PANE = "main-sidemenu-pane";
+                    /* Seems like we are going to use 'fx:id's */
+                    String USER_PANE = "main-sidemenu-user-pane";
+                    String USER_ICON = "main-sidemenu-user-icon";
+                    String USER_NAME = "main-sidemenu-user-name";
+                    String USER_EMAIL = "main-sidemenu-user-email";
                     String ITEM_HOME = "item-home";
+                    String ITEM_CASHBOX_MODE = "item-cashbox-mode";
                     String ITEM_SALES = "item-sales";
                     String ITEM_PURCHASING = "item-purchasing";
-                    String ITEM_INVENTORY = "item-inventory";
                     String ITEM_REPORTS = "item-reports";
-                    String ITEM_SETINGS = "item-settings";
+                    String ITEM_INVENTORY = "item-inventory";
+                    String ITEM_CLIENTS = "item-clients";
+                    String ITEM_POSTS = "item-posts";
+                    String ITEM_COMMENTS = "item-comments";
+                    String ITEM_ADMINISTRATION = "item-administration";
+                    String ITEM_WEB_SETTINGS = "item-web-settings";
+                    String ITEM_SETTINGS = "item-settings";
+                    String ITEM_ABOUT = "item-about";
                     String ITEM_LOG_OUT = "item-log-out";
                     interface Flow {
-                        String LOG_OUT = "logout";
+                        String LOG_OUT = "LOG_OUT";
                     }
 
                     interface Strings {
@@ -231,12 +247,12 @@ public interface CEConstants {
 
     interface Meta {
         interface Icons {
-            Image ICON16X16 = new Image("/images/logo-16x16.png");
-            Image ICON28X28 = new Image("/images/logo-28x28.png");
-            Image ICON56X56 = new Image("/images/logo-56x56.png");
-            Image ICON64X64 = new Image("/images/logo-64x64.png");
-            Image ICON128X128 = new Image("/images/logo-128x128.png");
-            Image ICON256X256 = new Image("/images/logo-128x128.png");
+            Image ICON16X16 = new Image("/images/logos/logo-16x16.png");
+            Image ICON28X28 = new Image("/images/logos/logo-28x28.png");
+            Image ICON56X56 = new Image("/images/logos/logo-56x56.png");
+            Image ICON64X64 = new Image("/images/logos/logo-64x64.png");
+            Image ICON128X128 = new Image("/images/logos/logo-128x128.png");
+            Image ICON256X256 = new Image("/images/logos/logo-128x128.png");
         }
 
         interface Links {
