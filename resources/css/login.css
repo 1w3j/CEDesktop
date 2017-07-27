@@ -30,10 +30,10 @@
 #login-logo-pane Text{
     -fx-text-alignment: CENTER;
 }
-#login-logo-pane-casa{
+#login-logo-text-casa{
     -fx-fill: ce-white;
 }
-#login-logo-pane-elida{
+#login-logo-text-elida{
     -fx-fill: ce-yellow;
 }
 #login-app-links-pane{
@@ -122,6 +122,9 @@
 }
 #auth-password-step-pane-header > HBox .jfx-rippler{
     -jfx-rippler-fill: ce-yellow-hover;
+}
+#btn-change-user{
+    -fx-padding: 15;
 }
 #btn-change-user .glyph-icon{
     -glyph-size: 49.5;

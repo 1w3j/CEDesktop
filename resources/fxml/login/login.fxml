@@ -17,8 +17,8 @@
                         <Insets top="80.0" />
                     </BorderPane.margin>
                     <HBox id="login-logo-pane">
-                        <Text id="login-logo-pane-casa" text="%casa"  />
-                        <Text id="login-logo-pane-elida" text="%elida" />
+                        <Text id="login-logo-text-casa" text="%logo-text-casa"  />
+                        <Text id="login-logo-text-elida" text="%logo-text-elida" />
                     </HBox>
                     <Region HBox.hgrow="ALWAYS" />
                     <HBox id="login-app-links-pane">
@@ -26,12 +26,12 @@
                         <Icons525View id="web-link-icon" glyphName="GLOBE_2" styleClass="app-link" />
                         <VBox>
                             <MaterialIconView id="desktop-link-icon" glyphName="DESKTOP_WINDOWS" styleClass="app-link" />
-                            <Label styleClass="desktop-version-text" text="%desktop-first">
+                            <Label styleClass="desktop-version-text" text="%desktop-version-text-first">
                                 <VBox.margin>
                                     <Insets top="1.0" />
                                 </VBox.margin>
                             </Label>
-                            <Label styleClass="desktop-version-text" text="%desktop-second" />
+                            <Label styleClass="desktop-version-text" text="%desktop-version-text-second" />
                         </VBox>
                     </HBox>
                 </HBox>

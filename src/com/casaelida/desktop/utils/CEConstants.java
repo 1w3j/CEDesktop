@@ -81,8 +81,8 @@ public interface CEConstants {
                 String PANE = "login-pane";
                 String TITLE_PANE = "login-title-pane";
                 String LOGO_PANE = "login-logo-pane";
-                String LOGO_PANE_CASA = "casa";
-                String LOGO_PANE_ELIDA = "elida";
+                String LOGO_TEXT_CASA = "logo-text-casa";
+                String LOGO_TEXT_ELIDA = "logo-text-elida";
                 String APP_LINKS_PANE = "login-app-links-pane";
                 String ANDROID_LINK_ICON = "android-link-icon";
                 String WEB_LINK_ICON = "web-link-icon";
@@ -98,13 +98,13 @@ public interface CEConstants {
                     String BUNDLE_BASE_NAME = "strings.login.login";
                     ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
                     String TITLE = BUNDLE.getString("title");
-                    String ANDROID_LINK_ICON_TOOLTIP = BUNDLE.getString("android-link-icon-tooltip");
-                    String WEB_LINK_ICON_TOOLTIP = BUNDLE.getString("web-link-icon-tooltip");
-                    String DESKTOP_LINK_ICON_TOOLTIP = BUNDLE.getString("desktop-link-icon-tooltip");
-                    String LOGIN_LOGO_PANE_CASA = BUNDLE.getString("casa");
-                    String LOGIN_LOGO_PANE_ELIDA = BUNDLE.getString("elida");
-                    String DESKTOP_VERSION_TEXT_FIRST = BUNDLE.getString("desktop-first");
-                    String DESKTOP_VERSION_TEXT_SECOND = BUNDLE.getString("desktop-second");
+                    String ICON_TOOLTIP_ANDROID_LINK = BUNDLE.getString("icon-tooltip-android-link");
+                    String ICON_TOOLTIP_WEB_LINK = BUNDLE.getString("icon-tooltip-web-link");
+                    String ICON_TOOLTIP_DESKTOP_LINK = BUNDLE.getString("icon-tooltip-desktop-link");
+                    String LOGO_TEXT_CASA = BUNDLE.getString("logo-text-casa");
+                    String LOGO_TEXT_ELIDA = BUNDLE.getString("logo-text-elida");
+                    String DESKTOP_VERSION_TEXT_FIRST = BUNDLE.getString("desktop-version-text-first");
+                    String DESKTOP_VERSION_TEXT_SECOND = BUNDLE.getString("desktop-version-text-second");
                 }
 
                 interface Steps {
@@ -124,12 +124,12 @@ public interface CEConstants {
                         interface Strings {
                             String BUNDLE_BASE_NAME = "strings.login.steps";
                             ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
-                            String USEREMAIL_TOOLTIP_EMPTY = BUNDLE.getString("ue-tooltip-empty");
-                            String USEREMAIL_TOOLTIP_NONEMPTY = BUNDLE.getString("ue-tooltip-nonempty");
-                            String REQUIRED_EMAIL_MESSAGE = BUNDLE.getString("ue-required-message");
-                            String INVALID_EMAIL_MESSAGE = BUNDLE.getString("ue-invalid-message");
-                            String USEREMAIL_PANE_HEADER_LOGIN = BUNDLE.getString("ue-pane-header-login");
-                            String USEREMAIL_PANE_SUBHEADER_TOCONTINUE = BUNDLE.getString("ue-pane-subheader-tocontinue");
+                            String TOOLTIP_EMPTY = BUNDLE.getString("ue-tooltip-empty");
+                            String TOOLTIP_NONEMPTY = BUNDLE.getString("ue-tooltip-nonempty");
+                            String ERROR_REQUIRED = BUNDLE.getString("ue-error-required");
+                            String ERROR_INVALID = BUNDLE.getString("ue-error-invalid");
+                            String PANE_HEADER = BUNDLE.getString("ue-pane-header");
+                            String PANE_SUBHEADER = BUNDLE.getString("ue-pane-subheader");
                             String TXT_USEREMAIL_PROMPT_TEXT = BUNDLE.getString("ue-txt-useremail-prompt-text");
                             String BTN_NEXT = BUNDLE.getString("ue-btn-next");
                         }
@@ -154,11 +154,11 @@ public interface CEConstants {
                         interface Strings {
                             String BUNDLE_BASE_NAME = "strings.login.steps";
                             ResourceBundle BUNDLE = ResourceBundle.getBundle(BUNDLE_BASE_NAME);
-                            String BTN_CHANGE_USER_TOOLTIP = BUNDLE.getString("pw-btn-change-user-tooltip");
+                            String TOOLTIP_CHANGE_USER = BUNDLE.getString("pw-tooltip-change-user");
                             String BTN_LOGIN = BUNDLE.getString("pw-btn-login");
-                            String REQUIRED_PASSWORD_MESSAGE = BUNDLE.getString("pw-required-password-message");
+                            String ERROR_REQUIRED = BUNDLE.getString("pw-error-required");
                             String TXT_PASSWORD_PROMPT_TEXT = BUNDLE.getString("pw-txt-password-prompt-text");
-                            String PASSWORD_PANE_HEADER_WELCOME = BUNDLE.getString("pw-password-pane-header-welcome");
+                            String PASSWORD_PANE_HEADER_WELCOME = BUNDLE.getString("pw-pane-header");
                         }
                     }
                 }

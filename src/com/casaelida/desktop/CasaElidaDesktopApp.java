@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.fxmisc.cssfx.CSSFX;
 
 import java.util.Locale;
 
@@ -61,6 +62,7 @@ public class CasaElidaDesktopApp extends Application {
         loadMetadata();
         this.casaElidaStage.show();
         //org.scenicview.ScenicView.show(this.scene);
+        //CSSFX.start();
     }
 
     private void loadMetadata () {

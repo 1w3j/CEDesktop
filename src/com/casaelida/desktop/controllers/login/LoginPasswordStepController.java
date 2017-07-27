@@ -102,12 +102,12 @@ public class LoginPasswordStepController extends CEController {
         });
         //Password validators
         RequiredFieldValidator passwordRequiredValidator = new RequiredFieldValidator();
-        passwordRequiredValidator.setMessage(Password.Strings.REQUIRED_PASSWORD_MESSAGE);
+        passwordRequiredValidator.setMessage(Password.Strings.ERROR_REQUIRED);
         passwordRequiredValidator.setIcon(Password.WARNING_ICON);
         this.txtPassword.setValidators(passwordRequiredValidator);
         initFocusValidationStyling();
         //Tooltips
-        Tooltip.install(this.btnChangeUser, CEFunctions.createTooltip(Password.Strings.BTN_CHANGE_USER_TOOLTIP));
+        Tooltip.install(this.btnChangeUser, CEFunctions.createTooltip(Password.Strings.TOOLTIP_CHANGE_USER));
         Tooltip.install(this.btnLogin, CEFunctions.createTooltip(Password.Strings.BTN_LOGIN));
     }
 

@@ -86,10 +86,10 @@ public class LoginUserEmailStepController extends CEController {
         JFXDepthManager.setDepth(this.btnNext, 1);
         //Email validators
         RequiredFieldValidator emailRequiredValidator = new RequiredFieldValidator();
-        emailRequiredValidator.setMessage(UserEmail.Strings.REQUIRED_EMAIL_MESSAGE);
+        emailRequiredValidator.setMessage(UserEmail.Strings.ERROR_REQUIRED);
         emailRequiredValidator.setIcon(UserEmail.WARNING_ICON);
         CEValidEmailValidator emailValidValidator = new CEValidEmailValidator();
-        emailValidValidator.setMessage(UserEmail.Strings.INVALID_EMAIL_MESSAGE);
+        emailValidValidator.setMessage(UserEmail.Strings.ERROR_INVALID);
         emailValidValidator.setIcon(UserEmail.WARNING_ICON);
         this.txtUserEmail.setValidators(emailRequiredValidator, emailValidValidator);
         initFocusValidationStyling();
@@ -97,7 +97,7 @@ public class LoginUserEmailStepController extends CEController {
         Tooltip userEmailTooltip = CEFunctions.createTooltip();
         userEmailTooltip.textProperty().bindBidirectional(this.txtUserEmail.textProperty(), new StringConverter<String>() {
             @Override public String toString (String objectProvided) {
-                return objectProvided.isEmpty() ? UserEmail.Strings.USEREMAIL_TOOLTIP_EMPTY : UserEmail.Strings.USEREMAIL_TOOLTIP_NONEMPTY + objectProvided;
+                return objectProvided.isEmpty() ? UserEmail.Strings.TOOLTIP_EMPTY : UserEmail.Strings.TOOLTIP_NONEMPTY + objectProvided;
             }
 
             @Override public String fromString (String stringProvided) {

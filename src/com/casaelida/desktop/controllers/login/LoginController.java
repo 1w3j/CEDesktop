@@ -56,8 +56,8 @@ public class LoginController extends CEController {
     @ViewNode (Login.PANE) private BorderPane loginPane;
     @ViewNode (Login.TITLE_PANE) private HBox loginTitlePane;
     @ViewNode (Login.LOGO_PANE) private HBox loginLogoPane;
-    @ViewNode (Login.LOGO_PANE_CASA) private Text loginLogoPaneCasa;
-    @ViewNode (Login.LOGO_PANE_ELIDA) private Text loginLogoPaneElida;
+    @ViewNode (Login.LOGO_TEXT_CASA) private Text loginLogoPaneCasa;
+    @ViewNode (Login.LOGO_TEXT_ELIDA) private Text loginLogoPaneElida;
     @ViewNode (Login.APP_LINKS_PANE) private HBox loginAppLinksPane;
     @ViewNode (Login.ANDROID_LINK_ICON) private MaterialDesignIconView androidLinkIcon;
     @ViewNode (Login.WEB_LINK_ICON) private Icons525View webLinkIcon;
@@ -114,8 +114,8 @@ public class LoginController extends CEController {
                 return null;
             }
         }));
-        Tooltip.install(this.androidLinkIcon, CEFunctions.createTooltip(Login.Strings.ANDROID_LINK_ICON_TOOLTIP));
-        Tooltip.install(this.webLinkIcon, CEFunctions.createTooltip(Login.Strings.WEB_LINK_ICON_TOOLTIP));
-        Tooltip.install(this.desktopLinkIcon, CEFunctions.createTooltip(Login.Strings.DESKTOP_LINK_ICON_TOOLTIP));
+        Tooltip.install(this.androidLinkIcon, CEFunctions.createTooltip(Login.Strings.ICON_TOOLTIP_ANDROID_LINK));
+        Tooltip.install(this.webLinkIcon, CEFunctions.createTooltip(Login.Strings.ICON_TOOLTIP_WEB_LINK));
+        Tooltip.install(this.desktopLinkIcon, CEFunctions.createTooltip(Login.Strings.ICON_TOOLTIP_DESKTOP_LINK));
     }
 }

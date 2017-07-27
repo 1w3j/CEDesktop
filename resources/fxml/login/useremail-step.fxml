@@ -7,8 +7,8 @@
 <GridPane id="auth-useremail-step-pane" styleClass="auth-step-pane" BorderPane.alignment="CENTER"
           xmlns="http://javafx.com/javafx/8.0.111">
     <VBox id="auth-useremail-step-pane-header">
-        <Label styleClass="auth-pane-header-text" text="%ue-pane-header-login"/>
-        <Label styleClass="auth-pane-subheader-text" text="%ue-pane-subheader-tocontinue"/>
+        <Label styleClass="auth-pane-header-text" text="%ue-pane-header"/>
+        <Label styleClass="auth-pane-subheader-text" text="%ue-pane-subheader"/>
     </VBox>
     <JFXTextField id="txt-useremail" styleClass="auth-input-text" promptText="%ue-txt-useremail-prompt-text"
                   GridPane.columnSpan="2" GridPane.hgrow="ALWAYS"
