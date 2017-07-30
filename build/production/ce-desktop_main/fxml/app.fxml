@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXRippler?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<JFXDrawer id="app-drawer" xmlns="http://javafx.com/javafx/8.0.111" defaultDrawerSize="350" direction="LEFT">
+    <BorderPane id="app-container">
+        <top>
+            <JFXToolbar id="toolbar" VBox.vgrow="ALWAYS">
+                <leftItems>
+                    <JFXRippler styleClass="toolbar-button">
+                        <StackPane id="btn-toolbar-sidemenu-burger">
+                            <MaterialIconView glyphName="MENU" StackPane.alignment="CENTER"/>
+                        </StackPane>
+                    </JFXRippler>
+                    <HBox alignment="CENTER">
+                        <Label id="lbl-toolbar" styleClass="toolbar-text" text="[lblToolbar]" alignment="CENTER" textAlignment="CENTER"/>
+                    </HBox>
+                </leftItems>
+                <rightItems>
+                    <JFXRippler styleClass="toolbar-button">
+                        <StackPane id="btn-toolbar-options-burger">
+                            <MaterialIconView glyphName="MORE_VERT" size="40" textAlignment="CENTER" StackPane.alignment="CENTER"/>
+                        </StackPane>
+                    </JFXRippler>
+                </rightItems>
+            </JFXToolbar>
+        </top>
+        <center>
+            <StackPane id="app-root">
+
+            </StackPane>
+        </center>
+    </BorderPane>
+</JFXDrawer>

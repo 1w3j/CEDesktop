@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Error is thrown when BorderPane is replaced with StackPane -->
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<BorderPane styleClass="sidemenu" xmlns="http://javafx.com/javafx/8.0.131">
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <AnchorPane styleClass="sidemenu-item-container">
+                <JFXButton id="item-exit" styleClass="sidemenu-item" text=" "
+                           AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="0.0">
+                    <graphic>
+                        <GridPane>
+                            <HBox styleClass="single-icon" GridPane.columnIndex="0">
+                                <MaterialIconView glyphName="EXIT_TO_APP"/>
+                            </HBox>
+                            <Label text="%item-exit" GridPane.columnIndex="1"/>
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="15.0"/>
+                                <ColumnConstraints percentWidth="85.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints/>
+                            </rowConstraints>
+                        </GridPane>
+                    </graphic>
+                </JFXButton>
+            </AnchorPane>
+        </VBox>
+    </center>
+</BorderPane>

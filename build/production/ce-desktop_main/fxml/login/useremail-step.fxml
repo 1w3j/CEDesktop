@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<GridPane id="auth-useremail-step-pane" styleClass="auth-step-pane" BorderPane.alignment="CENTER"
+          xmlns="http://javafx.com/javafx/8.0.111">
+    <VBox id="auth-useremail-step-pane-header">
+        <Label styleClass="auth-pane-header-text" text="%ue-pane-header"/>
+        <Label styleClass="auth-pane-subheader-text" text="%ue-pane-subheader"/>
+    </VBox>
+    <JFXTextField id="txt-useremail" styleClass="auth-input-text" promptText="%ue-txt-useremail-prompt-text"
+                  GridPane.columnSpan="2" GridPane.hgrow="ALWAYS"
+                  GridPane.rowIndex="1" GridPane.vgrow="NEVER"/>
+    <JFXButton id="btn-next" styleClass="auth-pane-main-button" text="%ue-btn-next"
+               defaultButton="true" GridPane.columnSpan="2" GridPane.halignment="RIGHT"
+               GridPane.rowIndex="3" GridPane.valignment="CENTER"/>
+
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="53.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="194.66665649414062" minHeight="0.0" percentHeight="17.5"
+                        prefHeight="48.666656494140625" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="401.0" minHeight="10.0" percentHeight="45.0" prefHeight="253.3333740234375"
+                        valignment="CENTER" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="401.0" minHeight="10.0" percentHeight="17.5" prefHeight="120.6666259765625"
+                        valignment="CENTER" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="505.6666564941406" minHeight="0.0" percentHeight="20.0" prefHeight="0.0"
+                        vgrow="SOMETIMES"/>
+    </rowConstraints>
+</GridPane>
