@@ -2,13 +2,13 @@
 ### Example user template template
 ### Example user template
 
+# gradle
+.gradle
+build
 # IntelliJ project files
 .idea
 out
 gen### Java template
-# Compiled class file
-*.class
-
 # Log file
 *.log
 

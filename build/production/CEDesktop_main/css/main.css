@@ -1,6 +1,0 @@
-#toolbar{
-    -fx-background-color: ce-red-hover;
-}
-#toolbar:large-device{
-    -fx-background-color: ce-white;
-}
