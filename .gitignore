@@ -8,7 +8,8 @@ build
 # IntelliJ project files
 .idea
 out
-gen### Java template
+gen
+### Java template
 # Log file
 *.log
 
@@ -19,7 +20,6 @@ gen### Java template
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 *.zip
