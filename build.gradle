@@ -2,9 +2,11 @@ group 'com.casaelida.desktop'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'application'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.8
 mainClassName = "com.casaelida.desktop.CasaElidaDesktopApp"
+archivesBaseName = "Casa Elida Desktop"
 
 repositories {
     mavenCentral()
