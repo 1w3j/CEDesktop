@@ -2,8 +2,12 @@ package com.casaelida.desktop.utils;
 
 import com.jfoenix.concurrency.JFXUtilities;
 import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import io.datafx.controller.ViewConfiguration;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -64,5 +68,39 @@ public final class CEFunctions {
         } else {
             drawer.close();
         }
+    }
+
+    //Initialize Listener for any time the user clicks on the text field (or TAB...)
+    public static void initFocusValidationStyling (TextField textField, boolean startedValidating) {
+        boolean isJFXPasswordField = false;
+        if(textField instanceof JFXPasswordField) isJFXPasswordField = true;
+        boolean finalIsJFXPasswordField = isJFXPasswordField;//make isJFXPasswordField effectively final (?)
+        textField.focusedProperty().addListener((ObservableValue<? extends Boolean> obs, Boolean wasFocused, Boolean isFocusedNow) -> {
+            if (startedValidating) {
+                boolean isValid = false;
+                if (!isFocusedNow) isValid = finalIsJFXPasswordField ? ((JFXPasswordField) textField).validate() : ((JFXTextField) textField).validate();
+                if (!isValid && !wasFocused)
+                    textField.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
+                else {
+                    textField.setStyle("-fx-prompt-text-fill: ce-yellow;-jfx-focus-color: ce-yellow-hover;-jfx-unfocus-color: ce-yellow;");
+                    textField.lookup(".input-line").setStyle("-fx-background-color:ce-yellow;");
+                }
+                if (!isValid && !isFocusedNow)
+                    textField.lookup(".input-line").setStyle("-fx-background-color:ce-white;");
+            }
+        });
+    }
+
+
+    //Used when the user clicks the 'next button'
+    public static void unfocusedValidationStyling (TextField textField, boolean isValid) {
+        if (!isValid && textField.isFocused())
+            textField.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
+        else {
+            textField.setStyle("-fx-prompt-text-fill: ce-yellow;-jfx-focus-color: ce-yellow-hover;-jfx-unfocus-color: ce-yellow;");
+            textField.lookup(".input-line").setStyle("-fx-background-color:ce-yellow;");
+        }
+        if (!isValid && !textField.isFocused())
+            textField.lookup(".input-line").setStyle("-fx-background-color:ce-white;");
     }
 }

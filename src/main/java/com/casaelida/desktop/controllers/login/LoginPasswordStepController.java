@@ -72,7 +72,7 @@ public class LoginPasswordStepController extends CEController {
         //Password validation
         this.startedValidating = true;
         boolean isValid = this.txtPassword.validate();
-        unfocusedValidationStyling(isValid);
+        CEFunctions.unfocusedValidationStyling(this.txtPassword, isValid);
         if (isValid) {
             this.loginPane.setOpacity(0.8d);
             this.passwordStepPane.setDisable(true);
@@ -105,7 +105,7 @@ public class LoginPasswordStepController extends CEController {
         passwordRequiredValidator.setMessage(Password.Strings.ERROR_REQUIRED);
         passwordRequiredValidator.setIcon(Password.WARNING_ICON);
         this.txtPassword.setValidators(passwordRequiredValidator);
-        initFocusValidationStyling();
+        CEFunctions.initFocusValidationStyling(this.txtPassword, this.startedValidating);
         //Tooltips
         Tooltip.install(this.btnChangeUser, CEFunctions.createTooltip(Password.Strings.TOOLTIP_CHANGE_USER));
         Tooltip.install(this.btnLogin, CEFunctions.createTooltip(Password.Strings.BTN_LOGIN));
@@ -117,33 +117,4 @@ public class LoginPasswordStepController extends CEController {
         this.authStepsActionHandler.navigate(Login.Steps.UserEmail.CLASS);
     }
 
-    //Initialize Listener for any time the user clicks on the password field (or TAB...)
-    private void initFocusValidationStyling () {
-        this.txtPassword.focusedProperty().addListener((ObservableValue<? extends Boolean> obs, Boolean wasFocused, Boolean isFocusedNow) -> {
-            if (this.startedValidating) {
-                boolean isValid = false;
-                if (!isFocusedNow) isValid = this.txtPassword.validate();
-                if (!isValid && !wasFocused)
-                    this.txtPassword.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
-                else {
-                    this.txtPassword.setStyle("-fx-prompt-text-fill: ce-yellow;-jfx-focus-color: ce-yellow-hover;-jfx-unfocus-color: ce-yellow;");
-                    this.txtPassword.lookup(".input-line").setStyle("-fx-background-color:ce-yellow;");
-                }
-                if (!isValid && !isFocusedNow)
-                    this.txtPassword.lookup(".input-line").setStyle("-fx-background-color:ce-white;");
-            }
-        });
-    }
-
-    //Used when the user clicks the 'login button'
-    private void unfocusedValidationStyling (boolean isValid) {
-        if (!isValid && this.txtPassword.isFocused())
-            this.txtPassword.setStyle("-fx-prompt-text-fill: ce-white;-jfx-focus-color: ce-white;-jfx-unfocus-color: ce-white;");
-        else {
-            this.txtPassword.setStyle("-fx-prompt-text-fill: ce-yellow;-jfx-focus-color: ce-yellow-hover;-jfx-unfocus-color: ce-yellow;");
-            this.txtPassword.lookup(".input-line").setStyle("-fx-background-color:ce-yellow;");
-        }
-        if (!isValid && !this.txtPassword.isFocused())
-            this.txtPassword.lookup(".input-line").setStyle("-fx-background-color:ce-white;");
-    }
 }
