@@ -9,15 +9,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane id="auth-useremail-step-pane" styleClass="auth-step-pane" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane id="auth-useremail-step-pane" styleClass="auth-step-pane" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141">
     <VBox id="auth-useremail-step-pane-header">
         <Label styleClass="auth-pane-header-text" text="%ue-pane-header" />
         <Label styleClass="auth-pane-subheader-text" text="%ue-pane-subheader" />
     </VBox>
     <JFXTextField id="txt-useremail" promptText="%ue-txt-useremail-prompt-text" styleClass="auth-input-text" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
     <JFXButton id="btn-next" defaultButton="true" styleClass="auth-pane-main-button" text="%ue-btn-next" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-   <JFXTextField id="txt-test" layoutX="10.0" layoutY="166.0" promptText="%ue-txt-useremail-prompt-text" styleClass="auth-input-text" GridPane.rowIndex="2" />
-
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="53.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
