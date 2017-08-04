@@ -108,11 +108,9 @@
 #auth-password-step-pane-header{
     -fx-max-width: 500;
     -fx-pref-width: 500;
-    -fx-pref-height: 89;
 }
 #auth-password-step-pane-header > HBox{
     -fx-alignment: CENTER_LEFT;
-    -fx-pref-height: 96;
     -fx-pref-width: 500;
     -fx-spacing: 8.7;
 }

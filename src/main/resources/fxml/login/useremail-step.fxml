@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane id="auth-useremail-step-pane" styleClass="auth-step-pane" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141">
+<GridPane id="auth-useremail-step-pane" styleClass="auth-step-pane" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
     <VBox id="auth-useremail-step-pane-header">
         <Label styleClass="auth-pane-header-text" text="%ue-pane-header" />
         <Label styleClass="auth-pane-subheader-text" text="%ue-pane-subheader" />
@@ -22,8 +22,8 @@
     </columnConstraints>
     <rowConstraints>
         <RowConstraints maxHeight="194.66665649414062" minHeight="0.0" percentHeight="17.5" prefHeight="48.666656494140625" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="401.0" minHeight="10.0" percentHeight="45.0" prefHeight="253.3333740234375" valignment="CENTER" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="401.0" minHeight="10.0" percentHeight="17.5" prefHeight="120.6666259765625" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="401.0" minHeight="10.0" percentHeight="52.5" prefHeight="253.3333740234375" valignment="CENTER" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="401.0" minHeight="10.0" percentHeight="10.0" prefHeight="120.6666259765625" valignment="CENTER" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="505.6666564941406" minHeight="0.0" percentHeight="20.0" prefHeight="0.0" vgrow="SOMETIMES" />
     </rowConstraints>
 </GridPane>

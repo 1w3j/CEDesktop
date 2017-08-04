@@ -49,7 +49,6 @@ public class LoginUserEmailStepController extends CEController {
     @ViewNode (UserEmail.PANE) private GridPane userEmailStepPane;
     @ViewNode (UserEmail.PANE_HEADER) private VBox userEmailStepPaneHeader;
     @ViewNode (UserEmail.TXT_USEREMAIL) private JFXTextField txtUserEmail;
-    @ViewNode ("txt-test") private JFXTextField txtTest;
     @ViewNode (UserEmail.BTN_NEXT) @ActionTrigger (UserEmail.Flow.VALIDATE) private JFXButton btnNext;
 
     @PostConstruct private void start () {
