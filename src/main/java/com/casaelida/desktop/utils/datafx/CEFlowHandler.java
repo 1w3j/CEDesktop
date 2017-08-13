@@ -6,14 +6,15 @@ import io.datafx.controller.flow.FlowHandler;
 import io.datafx.controller.flow.context.ViewFlowContext;
 
 /**
+ * This class overrides {@link FlowHandler} to change the implementation of <code>registerInFlowContext</code>
+ * and <code>registerInApplicationContext</code>. See {@link CEFlowHandler}.
+ *
+ * @see io.datafx.controller.context.ApplicationContext
+ * @see ViewFlowContext
  * @author iqbal
  * @date 7/9/17
  */
 public class CEFlowHandler extends FlowHandler {
-
-    CEFlowHandler (Flow flow, ViewFlowContext flowContext) {
-        super(flow, flowContext);
-    }
 
     CEFlowHandler (Flow flow, ViewFlowContext flowContext, ViewConfiguration viewConfiguration) {
         super(flow, flowContext, viewConfiguration);

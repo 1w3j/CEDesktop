@@ -39,14 +39,19 @@ public class CasaElidaDesktopApp extends Application {
         CasaElidaDesktopApp.launch(args);
     }
 
+    /**
+     *
+     * @param casaElidaStage
+     * @throws FlowException
+     */
     @Override public void start (Stage casaElidaStage) throws FlowException {
         Locale.setDefault(Locale.forLanguageTag("en"));
         this.casaElidaFlowContext = ApplicationContext.getInstance();
         this.casaElidaFlowContext.register(CasaElida.STAGE, casaElidaStage);
         //Initial and main flow in the application
         CEBundledFlow casaElidaFlow = new CEBundledFlow(App.CLASS, App.Strings.BUNDLE);
-        //ViewFlowContext here not really used
-        FlowHandler casaElidaFlowHandler = casaElidaFlow.createHandler(new ViewFlowContext());
+        //ViewFlowContext here not really used since AppFlowContext covers the whole application's contexts
+        FlowHandler casaElidaFlowHandler = casaElidaFlow.createHandler();
         this.root = casaElidaFlowHandler.start(new CEAnimatedFlowContainer());
         this.casaElidaStage = casaElidaStage;
         this.casaElidaStage.setMinWidth(CasaElida.MIN_WIDTH);
