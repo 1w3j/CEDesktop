@@ -1,7 +1,6 @@
 group 'com.casaelida.desktop'
 version '0.0.0'
 defaultTasks "run"
-
 apply plugin: 'application'
 
 sourceCompatibility = 1.8
@@ -17,5 +16,5 @@ dependencies {
     compile 'io.datafx:core:8.0.1'
     compile 'io.datafx:flow:8.0.1'
     compile 'com.jfoenix:jfoenix:1.6.0'
-    compile 'org.fxmisc.cssfx:cssfx:1.0.0'
+    runtime 'org.fxmisc.cssfx:cssfx:1.0.0'
 }
