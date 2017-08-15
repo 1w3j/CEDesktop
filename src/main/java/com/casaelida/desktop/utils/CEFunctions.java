@@ -11,7 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import org.jetbrains.annotations.Contract;
 
 import javax.swing.Timer;
 import java.util.Collection;

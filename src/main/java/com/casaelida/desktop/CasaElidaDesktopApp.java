@@ -11,7 +11,6 @@ import io.datafx.controller.context.ApplicationContext;
 import io.datafx.controller.context.FXMLApplicationContext;
 import io.datafx.controller.flow.FlowException;
 import io.datafx.controller.flow.FlowHandler;
-import io.datafx.controller.flow.context.ViewFlowContext;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
