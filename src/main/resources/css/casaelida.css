@@ -1,0 +1,461 @@
+@font-face {
+	font-family: Roboto;
+	src: url(/font/roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Roboto Medium";
+	src: url(/font/roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+	font-family: "Roboto Light";
+	src: url(/font/roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+	font-family: "Roboto Bold";
+	src: url(/font/roboto/Roboto-Bold.ttf);
+}
+
+.root {
+	ce-red: #e74c3c;
+	ce-red-hover: #e53f2e;
+	ce-yellow: #f1c40f;
+	ce-yellow-hover: #ffcc00;
+	ce-white: #ecf0f1;
+	ce-black: #333;
+	ce-background: #ddd;
+	ce-text-color: #595959;
+	ce-border-color: #b1b1b1;
+	-fx-font-family: Roboto;
+	-fx-font-weight: normal;
+	-fx-accent: ce-yellow;
+	-fx-background-color: ce-red;
+}
+
+.jfx-button {
+	-fx-text-fill: ce-red;
+	-fx-fill: ce-red;
+	-fx-font-weight: normal;
+	-fx-graphic-text-gap: 15;
+	-fx-content-display: right;
+}
+
+.jfx-button .glyph-icon {
+	-fx-text-fill: ce-red;
+	-fx-fill: ce-red;
+}
+
+.jfx-text-field {
+	-fx-text-fill: ce-white;
+	-jfx-focus-color: ce-yellow-hover;
+	-jfx-unfocus-color: ce-yellow;
+	-fx-prompt-text-fill: ce-yellow;
+}
+
+.jfx-password-field {
+	-fx-text-fill: ce-white;
+	-jfx-focus-color: ce-yellow-hover;
+	-jfx-unfocus-color: ce-yellow;
+	-fx-prompt-text-fill: ce-yellow;
+}
+
+.jfx-rippler {
+	-fx-cursor: hand;
+}
+
+.glyph-icon {
+	-fx-fill: ce-yellow-hover;
+}
+
+.context-menu {
+	-fx-background-color: ce-white;
+	-fx-text-fill: ce-text-color;
+}
+
+.menu-item .label {
+	-fx-font-size: 13pt;
+}
+
+.error-label {
+	-fx-font-size: 10pt;
+	-fx-text-fill: ce-white;
+	-fx-translate-y: -4.5;
+}
+
+.error-icon {
+	-fx-fill: ce-white;
+	-glyph-size: 15;
+	-fx-translate-y: -4;
+}
+
+.error-label .glyph-icon {
+	-fx-fill: ce-white;
+}
+
+.tooltip {
+	-fx-font-size: 10pt;
+}
+
+.jfx-drawer-side-pane, .jfx-scroll-pane .scroll-pane, .jfx-scroll-pane .viewport {
+	-fx-background-color: ce-red;
+}
+
+.scroll-bar {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+	-fx-padding: 0;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+	-fx-background-radius: 0em;
+	-fx-border-radius: 2.35em;
+}
+
+.scroll-bar:horizontal .track-background, .scroll-bar:vertical .track-background {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+	-fx-padding: 0;
+}
+
+.scroll-bar:horizontal .increment-button, .scroll-bar:horizontal .decrement-button {
+	-fx-background-color: transparent;
+	-fx-background-radius: 0em;
+	-fx-padding: 0 0 10 0;
+}
+
+.scroll-bar:vertical .increment-button, .scroll-bar:vertical .decrement-button {
+	-fx-background-color: transparent;
+	-fx-background-radius: 0em;
+	-fx-padding: 0 10 0 0;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+	-fx-shape: " ";
+	-fx-padding: 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+	-fx-background-color: derive(ce-yellow-hover, 30%);
+	-fx-background-insets: 2, 0, 0;
+	-fx-background-radius: 2em;
+}
+
+#app-drawer {
+	-fx-pref-height: 1080;
+	-fx-pref-width: 1920;
+}
+
+#app-drawer #app-container #toolbar .toolbar-button {
+	-jfx-mask-type: CIRCLE;
+	-jfx-rippler-fill: ce-yellow-hover;
+}
+
+#app-drawer #app-container #toolbar .toolbar-button StackPane {
+	-fx-padding: 10;
+}
+
+#app-drawer #app-container #toolbar .toolbar-button StackPane .glyph-icon {
+	-glyph-size: 40;
+	-fx-text-alignment: CENTER;
+}
+
+#app-drawer #app-container #toolbar .toolbar-text {
+	-fx-text-fill: ce-white;
+	-fx-font-size: 20.5pt;
+	-fx-font-weight: bold;
+}
+
+#login-pane-wrapper {
+	-fx-max-height: 700;
+	-fx-max-width: 600;
+}
+
+#login-pane-wrapper #login-pane {
+	-fx-background-color: ce-red;
+	-fx-background-radius: 5;
+	-fx-max-height: 700;
+	-fx-max-width: 600;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane {
+	-fx-font-size: 48pt;
+	-fx-font-weight: bold;
+	-fx-max-width: 500;
+	-fx-pref-width: 500;
+	-fx-pref-height: 34;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane Region {
+	-fx-pref-height: 75;
+	-fx-pref-width: 66;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane #login-logo-pane {
+	-fx-alignment: CENTER_LEFT;
+	-fx-spacing: 10;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane #login-logo-pane Text {
+	-fx-text-alignment: CENTER;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane #login-logo-pane #login-logo-text-casa {
+	-fx-fill: ce-white;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane #login-logo-pane #login-logo-text-elida {
+	-fx-fill: ce-yellow;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane #login-app-links-pane {
+	-fx-alignment: TOP_RIGHT;
+	-fx-spacing: 5;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane #login-app-links-pane .app-link {
+	-fx-cursor: hand;
+	-glyph-size: 25pt;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane #login-app-links-pane > VBox {
+	-fx-alignment: TOP_CENTER;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane #login-app-links-pane > VBox #desktop-link-icon {
+	-fx-cursor: default;
+	-glyph-size: 38pt;
+}
+
+#login-pane-wrapper #login-pane #login-title-pane #login-app-links-pane > VBox .desktop-version-text {
+	-fx-text-fill: ce-white;
+	-fx-font-size: 8.5pt;
+}
+
+#login-pane-wrapper #login-pane #auth-pane {
+	-fx-max-width: 500;
+}
+
+#auth-password-step-pane > HBox {
+	-fx-spacing: 8.7;
+}
+
+#auth-password-step-pane #auth-password-step-pane-header {
+	-fx-max-width: 500;
+	-fx-pref-width: 500;
+}
+
+#auth-password-step-pane #auth-password-step-pane-header > HBox {
+	-fx-alignment: CENTER_LEFT;
+	-fx-pref-width: 500;
+	-fx-spacing: 8.7;
+}
+
+#auth-password-step-pane #auth-password-step-pane-header > HBox Region {
+	-fx-pref-height: 30;
+	-fx-pref-width: 255;
+}
+
+#auth-password-step-pane #auth-password-step-pane-header > HBox .jfx-rippler {
+	-jfx-rippler-fill: ce-yellow-hover;
+}
+
+#auth-password-step-pane #auth-password-step-pane-header > HBox .jfx-rippler #btn-change-user {
+	-fx-padding: 15;
+}
+
+#auth-password-step-pane #auth-password-step-pane-header > HBox .jfx-rippler #btn-change-user .glyph-icon {
+	-glyph-size: 49.5;
+	-fx-text-alignment: CENTER;
+}
+
+#auth-password-step-pane #btn-login {
+	-jfx-button-type: RAISED;
+	-fx-max-width: 250;
+}
+
+#auth-password-step-pane #txt-password {
+	-jfx-label-float: TRUE;
+}
+
+.auth-step-pane {
+	-fx-background-color: ce-red;
+	-fx-alignment: CENTER;
+	-fx-max-height: 440;
+	-fx-max-width: 500;
+	-fx-pref-height: 500;
+	-fx-pref-width: 500;
+}
+
+.auth-step-pane .auth-pane-header-text {
+	-fx-text-fill: ce-white;
+	-fx-font-size: 22.5pt;
+}
+
+.auth-step-pane .auth-pane-subheader-text {
+	-fx-text-fill: ce-white;
+	-fx-font-size: 12.5pt;
+	-fx-fill: ce-white;
+	-fx-cursor: hand;
+	-glyph-size: 35;
+}
+
+.auth-step-pane .auth-pane-main-button {
+	-fx-font-size: 25pt;
+	-fx-background-color: ce-yellow;
+	-fx-fill: ce-red;
+}
+
+.auth-step-pane .auth-input-text {
+	-fx-font-size: 18pt;
+}
+
+#auth-useremail-step-pane #auth-useremail-step-pane-header {
+	-fx-pref-height: 90;
+	-fx-pref-width: 255;
+}
+
+#auth-useremail-step-pane #txt-useremail {
+	-jfx-label-float: TRUE;
+	-fx-pref-height: 40;
+	-fx-pref-width: 175;
+}
+
+#auth-useremail-step-pane #btn-next {
+	-jfx-button-type: RAISED;
+	-fx-max-width: 250;
+}
+
+#toolbar {
+	-fx-background-color: ce-red-hover;
+}
+
+#toolbar:large-device {
+	-fx-background-color: ce-white;
+}
+
+.sidemenu, .sidemenu .jfx-scroll-pane, .sidemenu-pane {
+	-fx-background-color: ce-red;
+	-fx-max-width: 360;
+	-fx-min-width: 360;
+	-fx-pref-width: 360;
+}
+
+.sidemenu .jfx-scroll-pane .main-header {
+	-fx-background-image: url(/images/main/logo-red-md-240x124.png);
+	-fx-background-repeat: NO-REPEAT;
+	-fx-background-position: 85% 15%;
+}
+
+.sidemenu .jfx-scroll-pane .condensed-header {
+	-fx-background-color: transparent;
+	visibility: hidden;
+}
+
+.sidemenu-item {
+	-fx-background-color: ce-red;
+	-fx-fill: ce-white;
+	-fx-text-fill: ce-white;
+	-fx-alignment: CENTER_LEFT;
+	-fx-font-size: 1.5em;
+	-fx-padding: 0.85em 0em;
+	-fx-pref-height: 55;
+	-fx-pref-width: 350;
+}
+
+.sidemenu-item-highlighted {
+	-fx-background-color: ce-yellow;
+	-fx-fill: ce-red;
+	-fx-text-fill: ce-red;
+	-fx-alignment: CENTER_LEFT;
+	-fx-font-size: 1.5em;
+	-fx-padding: 0.85em 0em;
+	-fx-pref-height: 55;
+	-fx-pref-width: 350;
+}
+
+.sidemenu-item .label {
+	-fx-fill: ce-white;
+	-fx-text-fill: ce-white;
+	-fx-padding: 0 0 0 1.25em;
+}
+
+.sidemenu-item-highlighted .label {
+	-fx-fill: ce-red-hover;
+	-fx-text-fill: ce-red-hover;
+	-fx-padding: 0 0 0 1.25em;
+}
+
+.sidemenu-item GridPane, .sidemenu-item-highlighted GridPane {
+	-fx-alignment: CENTER_LEFT;
+	-fx-pref-width: 310;
+	-fx-max-width: 310;
+}
+
+.sidemenu-item GridPane HBox, .sidemenu-item-highlighted HBox {
+	-fx-alignment: BOTTOM_LEFT;
+}
+
+.sidemenu-item GridPane .single-icon .glyph-icon, .sidemenu-item-highlighted GridPane .single-icon .glyph-icon {
+	-glyph-size: 22pt;
+}
+
+.sidemenu-item GridPane .combined-icon .glyph-icon, .sidemenu-item-highlighted GridPane .combined-icon .glyph-icon {
+	-glyph-size: 22pt;
+}
+
+.sidemenu-item GridPane .combined-icon .secondary-icon, .sidemenu-item-highlighted GridPane .combined-icon .secondary-icon {
+	-glyph-size: 12pt;
+}
+
+.sidemenu-item .glyph-icon {
+	-fx-text-fill: ce-yellow;
+	-fx-fill: ce-yellow;
+	-glyph-size: 22pt;
+}
+
+.sidemenu-item-highlighted .glyph-icon {
+	-fx-text-fill: ce-red;
+	-fx-fill: ce-red;
+	-glyph-size: 22pt;
+}
+
+.sidemenu-item .jfx-rippler {
+	-jfx-rippler-fill: ce-yellow;
+}
+
+.sidemenu-item-highlighted .jfx-rippler {
+	-jfx-rippler-fill: ce-red-hover;
+}
+
+.separator {
+	-fx-background-color: ce-yellow;
+	-fx-opacity: 0.55;
+}
+
+.sidemenu-item-container {
+	-fx-max-height: 50;
+}
+
+#main-sidemenu-user-pane {
+	-fx-padding: 45 20 20 20;
+}
+
+.main-sidemenu-user-pane-text {
+	-fx-text-fill: ce-white;
+	-fx-fill: ce-white;
+	-fx-font-size: 1.1em;
+}
+
+#main-sidemenu-user-icon {
+	-glyph-size: 50pt;
+	-fx-fill: ce-background;
+}
+
+#main-sidemenu-user-name {
+	-fx-font-weight: BOLD;
+	-fx-padding: 0 0 2.5 0;
+}

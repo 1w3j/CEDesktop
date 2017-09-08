@@ -1,8 +1,11 @@
+plugins {
+    id 'application'
+    id "name.mazgalov.vaadin.sass.compiler" version "0.1.1"
+}
+defaultTasks "run"
+
 group 'com.casaelida.desktop'
 version '0.0.0'
-defaultTasks "run"
-apply plugin: 'application'
-
 sourceCompatibility = 1.8
 mainClassName = "com.casaelida.desktop.CasaElidaDesktopApp"
 archivesBaseName = "Casa Elida Desktop"
@@ -11,10 +14,15 @@ repositories {
     mavenCentral()
 }
 
+compileSass {
+    scssFile = "$projectDir/src/main/sass/casaelida.scss"
+    cssFile = "$projectDir/src/main/resources/css/casaelida.css"
+}
+
 dependencies {
     compile fileTree(dir: 'lib', include: ['*.jar'])
     compile 'io.datafx:core:8.0.1'
     compile 'io.datafx:flow:8.0.1'
-    compile 'com.jfoenix:jfoenix:1.6.0'
+    compile 'com.jfoenix:jfoenix:1.7.0'
     compile 'org.fxmisc.cssfx:cssfx:1.0.0'
 }

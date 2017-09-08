@@ -273,11 +273,7 @@ public interface CEConstants {
 
         interface Stylesheets {
             String STYLESHEETS_PATH = "/css/";
-            String VARIABLES_STYLESHEET = STYLESHEETS_PATH + "variables.css";
-            String APP_STYLESHEET = STYLESHEETS_PATH + "app.css";
-            String SIDEMENU_STYLESHEET = STYLESHEETS_PATH + "sidemenu.css";
-            String LOGIN_STYLESHEET = STYLESHEETS_PATH + "login.css";
-            String MAIN_STYLESHEET = STYLESHEETS_PATH + "main.css";
+            String CASAELIDA_STYLESHEET = STYLESHEETS_PATH + "casaelida.css";
         }
 
         interface Fonts {

@@ -1,0 +1,43 @@
+.auth-step-pane{
+    -fx-background-color: ce-red;
+    -fx-alignment: CENTER;
+    -fx-max-height: 440;
+    -fx-max-width: 500;
+    -fx-pref-height: 500;
+    -fx-pref-width: 500;
+
+    .auth-pane-header-text{
+        -fx-text-fill: ce-white;
+        -fx-font-size: 22.5pt;
+    }
+    .auth-pane-subheader-text{
+        -fx-text-fill: ce-white;
+        -fx-font-size: 12.5pt;
+        -fx-fill: ce-white;
+        -fx-cursor: hand;
+        -glyph-size: 35;
+    }
+    .auth-pane-main-button{
+        -fx-font-size: 25pt;
+        -fx-background-color: ce-yellow;
+        -fx-fill: ce-red;
+    }
+    .auth-input-text{
+        -fx-font-size: 18pt;
+    }
+}
+#auth-useremail-step-pane{
+    #auth-useremail-step-pane-header{
+        -fx-pref-height: 90;
+        -fx-pref-width: 255;
+    }
+    #txt-useremail{
+        -jfx-label-float: TRUE;
+        -fx-pref-height: 40;
+        -fx-pref-width: 175;
+    }
+    #btn-next{
+        -jfx-button-type: RAISED;
+        -fx-max-width: 250;
+    }
+}

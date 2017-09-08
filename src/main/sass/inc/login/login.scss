@@ -1,0 +1,64 @@
+/*LOGIN-ROOT*/
+#login-pane-wrapper{
+    -fx-max-height: 700;
+    -fx-max-width: 600;
+
+     #login-pane{
+        -fx-background-color: ce-red;
+        -fx-background-radius: 5;
+        -fx-max-height: 700;
+        -fx-max-width: 600;
+
+        #login-title-pane{
+            -fx-font-size: 48pt;
+            -fx-font-weight: bold;
+            -fx-max-width: 500;
+            -fx-pref-width: 500;
+            -fx-pref-height: 34;
+
+            Region{
+                -fx-pref-height: 75;
+                -fx-pref-width: 66;
+            }
+            #login-logo-pane{
+                -fx-alignment: CENTER_LEFT;
+                -fx-spacing: 10;
+
+                Text{
+                    -fx-text-alignment: CENTER;
+                }
+
+                #login-logo-text-casa{
+                    -fx-fill: ce-white;
+                }
+                #login-logo-text-elida{
+                    -fx-fill: ce-yellow;
+                }
+            }
+            #login-app-links-pane{
+                -fx-alignment: TOP_RIGHT;
+                -fx-spacing: 5;
+
+                .app-link{
+                    -fx-cursor: hand;
+                    -glyph-size: 25pt;
+                }
+                & > VBox{
+                    -fx-alignment: TOP_CENTER;
+
+                    #desktop-link-icon{
+                        -fx-cursor: default;
+                        -glyph-size: 38pt;
+                    }
+                    .desktop-version-text{
+                        -fx-text-fill: ce-white;
+                        -fx-font-size: 8.5pt;
+                    }
+                }
+            }
+        }
+        #auth-pane{
+            -fx-max-width: 500;
+        }
+    }
+}

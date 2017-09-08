@@ -1,0 +1,27 @@
+#app-drawer{
+    -fx-pref-height: 1080;
+    -fx-pref-width: 1920;
+
+    #app-container{
+        #toolbar{
+            .toolbar-button{
+                -jfx-mask-type: CIRCLE;
+                -jfx-rippler-fill: ce-yellow-hover;
+
+                StackPane{
+                    -fx-padding: 10;
+
+                    .glyph-icon{
+                        -glyph-size: 40;
+                        -fx-text-alignment: CENTER;
+                    }
+                }
+            }
+            .toolbar-text{
+                -fx-text-fill: ce-white;
+                -fx-font-size: 20.5pt;
+                -fx-font-weight: bold;
+            }
+        }
+    }
+}

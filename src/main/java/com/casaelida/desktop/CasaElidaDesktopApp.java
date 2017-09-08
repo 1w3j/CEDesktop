@@ -17,6 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.fxmisc.cssfx.CSSFX;
+import org.fxmisc.cssfx.api.URIToPathConverter;
 
 import java.util.Locale;
 
@@ -39,9 +40,9 @@ public class CasaElidaDesktopApp extends Application {
     }
 
     /**
-     *
-     * @param casaElidaStage
-     * @throws FlowException
+     * Creates and Run CEDesktop environment
+     * @param casaElidaStage Root {@link Stage} for the CEDesktop application
+     * @throws FlowException Flow API default exception type
      */
     @Override public void start (Stage casaElidaStage) throws FlowException {
         Locale.setDefault(Locale.forLanguageTag("en"));
@@ -52,13 +53,14 @@ public class CasaElidaDesktopApp extends Application {
         //ViewFlowContext here not really used since AppFlowContext covers the whole application's contexts
         FlowHandler casaElidaFlowHandler = casaElidaFlow.createHandler();
         this.root = casaElidaFlowHandler.start(new CEAnimatedFlowContainer());
-        this.casaElidaStage = casaElidaStage;
-        this.casaElidaStage.setMinWidth(CasaElida.MIN_WIDTH);
-        this.casaElidaStage.setMinHeight(CasaElida.MIN_HEIGHT + App.TOOLBAR_HEIGHT);
+        this.casaElidaStage = casaElidaStage; //Make the root stage 'global'
+        this.casaElidaStage.setMinWidth(CasaElida.MIN_WIDTH); //The same as -fx-max-width for auth-step-pane
+        this.casaElidaStage.setMinHeight(CasaElida.MIN_HEIGHT + App.TOOLBAR_HEIGHT); //do not hide logo side of auth-step-pane when resizing
         this.casaElidaStage.setTitle(App.Strings.WINDOW_TITLE);
         this.window = new CEWindowDecorator(casaElidaStage, this.root);
-        this.window.setMaximized(true);
-        this.window.setPrefSize(CasaElida.MIN_WIDTH, CasaElida.MIN_HEIGHT);
+        this.window.setMaximized(true); //Start in maximized mode
+        this.window.setCustomMaximize(true); //Putting this, fixed unwanted initial minimized state of the app
+        this.window.setPrefSize(CasaElida.MIN_WIDTH, CasaElida.MIN_HEIGHT); //When user wants to drags or resize the window, preferred behaviour
         this.scene = new Scene(this.window);
         this.casaElidaStage.setScene(this.scene);
         this.casaElidaFlowContext.register(CasaElida.SCENE, this.scene);
@@ -66,7 +68,12 @@ public class CasaElidaDesktopApp extends Application {
         loadMetadata();
         this.casaElidaStage.show();
         //org.scenicview.ScenicView.show(this.scene);
-        //CSSFX.start();
+        //String resourcesDirPath = System.getProperty("user.dir") + "/src/main/resources";
+        /*CSSFX.addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.APP_STYLESHEET))
+                .addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.LOGIN_STYLESHEET))
+                .addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.MAIN_STYLESHEET))
+                .addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.SIDEMENU_STYLESHEET))
+                .addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.VARIABLES_STYLESHEET)).start(); */
     }
 
     private void loadMetadata () {
@@ -77,11 +84,7 @@ public class CasaElidaDesktopApp extends Application {
         Font.loadFont(Meta.Fonts.ROBOTO_MEDIUM_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_REGULAR_STREAM, 22);
         this.window.getStylesheets().addAll(
-                Meta.Stylesheets.VARIABLES_STYLESHEET,
-                Meta.Stylesheets.APP_STYLESHEET,
-                Meta.Stylesheets.SIDEMENU_STYLESHEET,
-                Meta.Stylesheets.LOGIN_STYLESHEET,
-                Meta.Stylesheets.MAIN_STYLESHEET
+                Meta.Stylesheets.CASAELIDA_STYLESHEET
         );
         this.casaElidaStage.getIcons().addAll(Meta.Icons.ICON256X256,
                 Meta.Icons.ICON128X128,
