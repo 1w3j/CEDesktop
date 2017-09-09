@@ -33,16 +33,6 @@ public class CEWindowDecorator extends JFXDecorator {
         Optional<Node> btnContainerOpt = super.getChildren().stream().filter(child -> child.getStyleClass().contains("jfx-decorator-buttons-container")).findFirst();
         if (btnContainerOpt.isPresent()) {
             final HBox buttonsContainer = (HBox) btnContainerOpt.get();
-            ObservableList<Node> buttons = buttonsContainer.getChildren();
-            int btnMaxIdx = 0;
-            if (fullScreen) btnMaxIdx++;
-            if (min) btnMaxIdx++;
-            if (buttons.size() >= btnMaxIdx) {
-                final JFXButton btnMax = (JFXButton) buttons.get(btnMaxIdx);
-                buttonsContainer.setOnMouseClicked(event -> {
-                    if (event.getClickCount() == 2) btnMax.fire();
-                });
-            }
 
             HBox leftBox = new HBox();
             leftBox.setAlignment(Pos.CENTER_LEFT);

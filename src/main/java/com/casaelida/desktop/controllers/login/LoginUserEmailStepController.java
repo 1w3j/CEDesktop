@@ -20,7 +20,6 @@ import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.FlowActionHandler;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -71,7 +70,7 @@ public class LoginUserEmailStepController extends CEController {
             CEFunctions.runAfterDelay(() -> {
                 this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_NEXT);
                 try {
-                    this.authStepsActionHandler.navigate(LoginPasswordStepController.class);
+                    this.authStepsActionHandler.navigate(Login.Steps.Password.CLASS);
                     this.loginPane.setOpacity(1d);
                 } catch (VetoException | FlowException ex) {
                     UserEmail.LOGGER.log(Level.SEVERE, null, ex);

@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import org.fxmisc.cssfx.CSSFX;
 import org.fxmisc.cssfx.api.URIToPathConverter;
 
+import java.nio.file.Paths;
 import java.util.Locale;
 
 /**
@@ -58,24 +59,25 @@ public class CasaElidaDesktopApp extends Application {
         this.casaElidaStage.setMinHeight(CasaElida.MIN_HEIGHT + App.TOOLBAR_HEIGHT); //do not hide logo side of auth-step-pane when resizing
         this.casaElidaStage.setTitle(App.Strings.WINDOW_TITLE);
         this.window = new CEWindowDecorator(casaElidaStage, this.root);
+        this.window.setPrefSize(CasaElida.MIN_WIDTH, CasaElida.MIN_HEIGHT); //When user wants to drags or resize the window, preferred behaviour
         this.window.setMaximized(true); //Start in maximized mode
         this.window.setCustomMaximize(true); //Putting this, fixed unwanted initial minimized state of the app
-        this.window.setPrefSize(CasaElida.MIN_WIDTH, CasaElida.MIN_HEIGHT); //When user wants to drags or resize the window, preferred behaviour
         this.scene = new Scene(this.window);
         this.casaElidaStage.setScene(this.scene);
         this.casaElidaFlowContext.register(CasaElida.SCENE, this.scene);
         //new JFXResponsiveHandler(this.casaElidaStage, JFXResponsiveHandler.PSEUDO_CLASS_LARGE);
         loadMetadata();
         this.casaElidaStage.show();
+        CSSFX.addConverter( uri -> //CSSFX is still a buggy library, when navigating through flow views, ClassNotFound is raised.
+                Paths.get(System.getProperty("user.dir") + "/src/main/resources" + Meta.Stylesheets.CASAELIDA_STYLESHEET)
+        ).start();
         //org.scenicview.ScenicView.show(this.scene);
-        //String resourcesDirPath = System.getProperty("user.dir") + "/src/main/resources";
-        /*CSSFX.addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.APP_STYLESHEET))
-                .addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.LOGIN_STYLESHEET))
-                .addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.MAIN_STYLESHEET))
-                .addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.SIDEMENU_STYLESHEET))
-                .addConverter(uri -> Paths.get(resourcesDirPath + Meta.Stylesheets.VARIABLES_STYLESHEET)).start(); */
     }
 
+    /**
+     * Loads the Material Design Roboto Font from the resources folder, as well as casaelida.css to
+     * the JFXDecorator window stylesheets list and finally sets default logo icon for the root stage.
+     */
     private void loadMetadata () {
         Font.loadFont(Meta.Fonts.ROBOTO_BLACK_STREAM, 22);
         Font.loadFont(Meta.Fonts.ROBOTO_BOLD_ITALIC_STREAM, 22);
