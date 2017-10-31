@@ -1,4 +1,4 @@
-# CE-Desktop
+# CE-Desktop (prototype version)
 Description: JavaFX Material Design Enterprise Desktop Application
 
 Hit `gradle run` to watch it in action
