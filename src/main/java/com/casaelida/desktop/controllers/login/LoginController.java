@@ -42,10 +42,14 @@ import java.util.logging.Level;
 
 @ViewController (value = "/fxml/login/login.fxml")
 public class LoginController extends CEController {
-    //DataFX Framework
-    //instance is taken from AppController
-    @FXMLViewFlowContext private ViewFlowContext appFlowContext;//taken from AppController
-    //Only LoginController must catch the ActionHandler from AppController since it is the first view it is shown from its "View Flow" (AppController's)
+    /**
+     * Begin: DataFX Framework instances
+     *
+     * - The {@link ViewFlowContext} is taken from {@link com.casaelida.desktop.controllers.AppController}
+     * - Only {@link LoginController} DO must catch an {@link ActionHandler} from {@link com.casaelida.desktop.controllers.AppController}
+     *    since it is the first visible view from {@link com.casaelida.desktop.controllers.AppController}'s {@link io.datafx.controller.flow.FlowView}
+     */
+    @FXMLViewFlowContext private ViewFlowContext appFlowContext;
     @ActionHandler private FlowActionHandler appActionHandler;
     //new flow handler instance for the login flow, allowing the steps navigate between them. It is a class field since the handler should be used on different methods inside this class
     private CEFlowHandler loginFlowHandler;

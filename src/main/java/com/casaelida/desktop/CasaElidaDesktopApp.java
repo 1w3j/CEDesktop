@@ -51,7 +51,7 @@ public class CasaElidaDesktopApp extends Application {
         this.casaElidaFlowContext.register(CasaElida.STAGE, casaElidaStage);
         //Initial and main flow in the application
         CEBundledFlow casaElidaFlow = new CEBundledFlow(App.CLASS, App.Strings.BUNDLE);
-        //ViewFlowContext here not really used since AppFlowContext covers the whole application's contexts
+        //ViewFlowContet here not really used since AppFlowContext covers the whole application's contexts
         FlowHandler casaElidaFlowHandler = casaElidaFlow.createHandler();
         this.root = casaElidaFlowHandler.start(new CEAnimatedFlowContainer());
         this.casaElidaStage = casaElidaStage; //Make the root stage 'global'

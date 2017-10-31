@@ -1,0 +1,137 @@
+/*LOGIN-ROOT*/
+.root{
+    -fx-background-color: ce-red;
+}
+#login-pane-wrapper{
+    -fx-max-height: 700;
+    -fx-max-width: 600;
+}
+#login-pane{
+    -fx-background-color: ce-red;
+    -fx-background-radius: 5;
+    -fx-max-height: 700;
+    -fx-max-width: 600;
+}
+#login-title-pane{
+    -fx-font-size: 48pt;
+    -fx-font-weight: bold;
+    -fx-max-width: 500;
+    -fx-pref-width: 500;
+    -fx-pref-height: 34;
+}
+#login-title-pane Region{
+    -fx-pref-height: 75;
+    -fx-pref-width: 66;
+}
+#login-logo-pane{
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 10;
+}
+#login-logo-pane Text{
+    -fx-text-alignment: CENTER;
+}
+#login-logo-text-casa{
+    -fx-fill: ce-white;
+}
+#login-logo-text-elida{
+    -fx-fill: ce-yellow;
+}
+#login-app-links-pane{
+    -fx-alignment: TOP_RIGHT;
+    -fx-spacing: 5;
+}
+#login-app-links-pane > VBox{
+    -fx-alignment: TOP_CENTER;
+}
+.app-link{
+    -fx-cursor: hand;
+    -glyph-size: 25pt;
+}
+.desktop-version-text{
+    -fx-text-fill: ce-white;
+    -fx-font-size: 8.5pt;
+}
+#desktop-link-icon{
+    -fx-cursor: default;
+    -glyph-size: 38pt;
+}
+/*AUTH-PANE*/
+/*Includes username and password step verification*/
+#auth-pane{
+    -fx-max-width: 500;
+}
+.auth-step-pane{
+    -fx-background-color: ce-red;
+    -fx-alignment: CENTER;
+    -fx-max-height: 440;
+    -fx-max-width: 500;
+    -fx-pref-height: 500;
+    -fx-pref-width: 500;
+}
+.auth-input-text{
+    -fx-font-size: 18pt;
+}
+.auth-pane-header-text{
+    -fx-text-fill: ce-white;
+    -fx-font-size: 22.5pt;
+}
+.auth-pane-subheader-text{
+    -fx-text-fill: ce-white;
+    -fx-font-size: 12.5pt;
+    -fx-fill: ce-white;
+    -fx-cursor: hand;
+    -glyph-size: 35;
+}
+.auth-pane-main-button{
+    -fx-font-size: 25pt;
+    -fx-background-color: ce-yellow;
+    -fx-fill: ce-red;
+}
+/*User Email Step*/
+#auth-useremail-step-pane-header{
+    -fx-pref-height: 90;
+    -fx-pref-width: 255;
+}
+#txt-useremail{
+    -jfx-label-float: TRUE;
+    -fx-pref-height: 40;
+    -fx-pref-width: 175;
+}
+#btn-next{
+    -jfx-button-type: RAISED;
+    -fx-max-width: 250;
+}
+/*Password Step*/
+#auth-password-step-pane > HBox{
+    -fx-spacing: 8.7;
+}
+#auth-password-step-pane-header{
+    -fx-max-width: 500;
+    -fx-pref-width: 500;
+}
+#auth-password-step-pane-header > HBox{
+    -fx-alignment: CENTER_LEFT;
+    -fx-pref-width: 500;
+    -fx-spacing: 8.7;
+}
+#auth-password-step-pane-header > HBox Region{
+    -fx-pref-height: 30;
+    -fx-pref-width: 255;
+}
+#auth-password-step-pane-header > HBox .jfx-rippler{
+    -jfx-rippler-fill: ce-yellow-hover;
+}
+#btn-change-user{
+    -fx-padding: 15;
+}
+#btn-change-user .glyph-icon{
+    -glyph-size: 49.5;
+    -fx-text-alignment: CENTER;
+}
+#btn-login{
+    -jfx-button-type: RAISED;
+    -fx-max-width: 250;
+}
+#txt-password{
+    -jfx-label-float: TRUE;
+}

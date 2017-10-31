@@ -21,11 +21,7 @@ public class CEValidEmailValidator extends ValidatorBase {
         String emailPatternString = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         Pattern emailPattern = Pattern.compile(emailPatternString);
         Matcher emailMatcher = emailPattern.matcher(textField.getText());
-        if (!emailMatcher.matches()) {
-            super.hasErrors.set(true);
-        } else {
-            super.hasErrors.set(false);
-        }
+        super.hasErrors.set(!emailMatcher.matches());
     }
 
 }

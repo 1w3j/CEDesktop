@@ -119,7 +119,7 @@ public final class CEFunctions {
      * IOW, the {@link TextField} prompt, text, and line colors.
      * Similar to Google's new account verification page
      * @param textField {@link TextField} to be manipulated
-     * @param startedValidating boolean indicating if used already clicked the "login button" or pressed ENTER
+     * @param startedValidating boolean indicating if user already clicked the "login button" or triggered ENTER
      */
     public static void initFocusValidationStyling (TextField textField, boolean startedValidating) {
         boolean isJFXPasswordField = false;
@@ -145,7 +145,7 @@ public final class CEFunctions {
      * Used when the user clicks the 'next button'.
      * Because when you click a button, anything else but the button loses focus, this method was created
      * to style the specified {@link TextField} with colors according to the new Google's account verification
-     * page behaviour (similar to and the contrary of <code>initFocusValidationStyling</code>)
+     * page behaviour (almost the contrary of <code>initFocusValidationStyling</code>)
      * @param textField {@link TextField} to be used
      * @param isValid boolean indicating if the {@link TextField} has the right input data or not
      */

@@ -7,7 +7,7 @@ import io.datafx.controller.flow.context.ViewFlowContext;
 import java.util.ResourceBundle;
 
 /**
- * In this class, we override the constructor that takes a {@link io.datafx.controller.ViewConfiguration} as second
+ * Overrides the constructor that takes a {@link io.datafx.controller.ViewConfiguration} as the 2nd
  * parameter in order to eliminate boilerplate code (see {@link CEFunctions}'s <code>newBundledConfig</code> method).
  *
  * Finally, {@link Flow}'s <code>createHandler</code> method was changed to return a {@link CEFlowHandler} object
