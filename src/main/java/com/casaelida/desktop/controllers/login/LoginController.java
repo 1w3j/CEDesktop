@@ -32,7 +32,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import javax.annotation.PostConstruct;
-import java.awt.*;
+import java.awt.Desktop;
 import java.io.IOException;
 import java.util.logging.Level;
 
