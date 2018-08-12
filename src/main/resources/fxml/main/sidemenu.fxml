@@ -7,6 +7,7 @@
 <?import de.jensd.fx.glyphs.octicons.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<!--TODO: Create custom component here e.g. CESideMenuItem reduce code here and replace the many AnchorPane-->
 <!-- Using xmlns:fx (fx:id, etc...) because it seems that @ViewNode does not inject the instance
     of the respective controls when they are inside a 'JFX' parent controller (in this case JFXScrollPane) -->
 <BorderPane styleClass="sidemenu" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1">

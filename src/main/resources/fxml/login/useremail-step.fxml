@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane id="auth-useremail-step-pane" styleClass="auth-step-pane" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane id="auth-useremail-step-pane" styleClass="auth-step-pane" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.141">
     <VBox id="auth-useremail-step-pane-header">
         <Label styleClass="auth-pane-header-text" text="%ue-pane-header" />
         <Label styleClass="auth-pane-subheader-text" text="%ue-pane-subheader" />

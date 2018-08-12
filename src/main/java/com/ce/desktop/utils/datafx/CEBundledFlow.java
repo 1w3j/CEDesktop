@@ -1,6 +1,6 @@
-package com.casaelida.desktop.utils.datafx;
+package com.ce.desktop.utils.datafx;
 
-import com.casaelida.desktop.utils.CEFunctions;
+import com.ce.desktop.utils.CEFunctions;
 import io.datafx.controller.flow.Flow;
 import io.datafx.controller.flow.context.ViewFlowContext;
 
@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
  * @see io.datafx.controller.flow.FlowHandler
  * @see ResourceBundle
  * @see io.datafx.controller.ViewConfiguration
- * @author iqbal
+ * @author 1w3j
  */
 public class CEBundledFlow extends Flow {
 

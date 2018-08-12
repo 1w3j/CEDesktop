@@ -1,4 +1,4 @@
-package com.casaelida.desktop.utils;
+package com.ce.desktop.utils;
 
 import com.jfoenix.validation.base.ValidatorBase;
 import javafx.scene.control.TextInputControl;
@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author iqbal
+ * @author 1w3j
  */
 public class CEValidEmailValidator extends ValidatorBase {
 

@@ -1,7 +1,7 @@
-package com.casaelida.desktop.utils;
+package com.ce.desktop.utils;
 
 /**
- * @author iqbal
+ * @author 1w3j
  * @date 7/9/17
  */
 public abstract class CEController {

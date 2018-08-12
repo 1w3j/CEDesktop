@@ -1,6 +1,5 @@
-package com.casaelida.desktop.utils;
+package com.ce.desktop.utils;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDecorator;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -20,7 +19,7 @@ import javafx.stage.Stage;
 import java.util.Optional;
 
 /**
- * @author iqbal
+ * @author 1w3j
  */
 public class CEWindowDecorator extends JFXDecorator {
 

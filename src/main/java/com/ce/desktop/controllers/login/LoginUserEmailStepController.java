@@ -1,11 +1,9 @@
-package com.casaelida.desktop.controllers.login;
+package com.ce.desktop.controllers.login;
 
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Animations;
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Login;
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Login.Steps.UserEmail;
-import com.casaelida.desktop.utils.CEController;
-import com.casaelida.desktop.utils.CEFunctions;
-import com.casaelida.desktop.utils.CEValidEmailValidator;
+import com.ce.desktop.utils.CEConstants;
+import com.ce.desktop.utils.CEController;
+import com.ce.desktop.utils.CEFunctions;
+import com.ce.desktop.utils.CEValidEmailValidator;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.effects.JFXDepthManager;
@@ -24,13 +22,14 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import javax.annotation.PostConstruct;
 import java.util.logging.Level;
 
 /**
- * @author iqbal
+ * @author 1w3j
  */
 @ViewController (value = "/fxml/login/useremail-step.fxml")//defines a view
 public class LoginUserEmailStepController extends CEController {
@@ -39,26 +38,29 @@ public class LoginUserEmailStepController extends CEController {
     private boolean startedValidating = false;
     //Taken from LoginController through its context
     private BorderPane loginPane;
-    //DataFX Framework
+    //DataFX Frameworkv
     //instance is taken from LoginController
     @FXMLViewFlowContext private ViewFlowContext loginFlowContext;
     //taken from the injection of this view, created to be used anywhere 'in the steps'
     @ActionHandler private FlowActionHandler authStepsActionHandler;
     //Current View Components
-    @ViewNode (UserEmail.PANE) private GridPane userEmailStepPane;
-    @ViewNode (UserEmail.PANE_HEADER) private VBox userEmailStepPaneHeader;
-    @ViewNode (UserEmail.TXT_USEREMAIL) private JFXTextField txtUserEmail;
-    @ViewNode (UserEmail.BTN_NEXT) @ActionTrigger (UserEmail.Flow.VALIDATE) private JFXButton btnNext;
+    @ViewNode (CEConstants.CE.App.Login.Steps.UserEmail.PANE) private GridPane userEmailStepPane;
+    @ViewNode (CEConstants.CE.App.Login.Steps.UserEmail.PANE_HEADER) private VBox userEmailStepPaneHeader;
+    @ViewNode (CEConstants.CE.App.Login.Steps.UserEmail.TXT_USEREMAIL) private JFXTextField txtUserEmail;
+    @ViewNode (CEConstants.CE.App.Login.Steps.UserEmail.BTN_NEXT) @ActionTrigger (CEConstants.CE.App.Login.Steps.UserEmail.Flow.VALIDATE) private JFXButton btnNext;
+
+    private Stage ceStage;
 
     @PostConstruct private void start () {
-        this.loginPane = (BorderPane) this.loginFlowContext.getRegisteredObject(Login.PANE);
+        this.ceStage = (Stage) this.loginFlowContext.getApplicationContext().getRegisteredObject(CEConstants.CE.STAGE);
+        this.loginPane = (BorderPane) this.loginFlowContext.getRegisteredObject(CEConstants.CE.App.Login.PANE);
 
-        this.loginFlowContext.register(Login.Flow.ACTION_HANDLER, this.authStepsActionHandler);
+        this.loginFlowContext.register(CEConstants.CE.App.Login.Flow.ACTION_HANDLER, this.authStepsActionHandler);
 
         initComponents();
     }
 
-    @ActionMethod (UserEmail.Flow.VALIDATE) private void validateUserEmail () {
+    @ActionMethod (CEConstants.CE.App.Login.Steps.UserEmail.Flow.VALIDATE) private void validateUserEmail () {
         //Email validation
         this.startedValidating = true;
         boolean isValid = this.txtUserEmail.validate();
@@ -68,12 +70,12 @@ public class LoginUserEmailStepController extends CEController {
             this.userEmailStepPane.setDisable(true);
             //Simulate Web-Based login data verification
             CEFunctions.runAfterDelay(() -> {
-                this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_NEXT);
+                this.loginFlowContext.getApplicationContext().register(CEConstants.CE.App.Animations.Flow.NEXT_ANIMATION, CEConstants.CE.App.Animations.LOGIN_NEXT);
                 try {
-                    this.authStepsActionHandler.navigate(Login.Steps.Password.CLASS);
+                    this.authStepsActionHandler.navigate(CEConstants.CE.App.Login.Steps.Password.CLASS);
                     this.loginPane.setOpacity(1d);
                 } catch (VetoException | FlowException ex) {
-                    UserEmail.LOGGER.log(Level.SEVERE, null, ex);
+                    CEConstants.CE.App.Login.Steps.UserEmail.LOGGER.log(Level.SEVERE, null, ex);
                 }
             }, 500);
         }
@@ -85,18 +87,18 @@ public class LoginUserEmailStepController extends CEController {
         JFXDepthManager.setDepth(this.btnNext, 1);
         //Email validators
         RequiredFieldValidator emailRequiredValidator = new RequiredFieldValidator();
-        emailRequiredValidator.setMessage(UserEmail.Strings.ERROR_REQUIRED);
-        emailRequiredValidator.setIcon(UserEmail.WARNING_ICON);
+        emailRequiredValidator.setMessage(CEConstants.CE.App.Login.Steps.UserEmail.Strings.ERROR_REQUIRED);
+        emailRequiredValidator.setIcon(CEConstants.CE.App.Login.Steps.UserEmail.WARNING_ICON);
         CEValidEmailValidator emailValidValidator = new CEValidEmailValidator();
-        emailValidValidator.setMessage(UserEmail.Strings.ERROR_INVALID);
-        emailValidValidator.setIcon(UserEmail.WARNING_ICON);
+        emailValidValidator.setMessage(CEConstants.CE.App.Login.Steps.UserEmail.Strings.ERROR_INVALID);
+        emailValidValidator.setIcon(CEConstants.CE.App.Login.Steps.UserEmail.WARNING_ICON);
         this.txtUserEmail.setValidators(emailRequiredValidator, emailValidValidator);
         CEFunctions.initFocusValidationStyling(this.txtUserEmail, this.startedValidating);
         //Tooltips
         Tooltip userEmailTooltip = CEFunctions.createTooltip();
         userEmailTooltip.textProperty().bindBidirectional(this.txtUserEmail.textProperty(), new StringConverter<String>() {
             @Override public String toString (String objectProvided) {
-                return objectProvided.isEmpty() ? UserEmail.Strings.TOOLTIP_EMPTY : UserEmail.Strings.TOOLTIP_NONEMPTY + objectProvided;
+                return objectProvided.isEmpty() ? CEConstants.CE.App.Login.Steps.UserEmail.Strings.TOOLTIP_EMPTY : CEConstants.CE.App.Login.Steps.UserEmail.Strings.TOOLTIP_NONEMPTY + objectProvided;
             }
 
             @Override public String fromString (String stringProvided) {

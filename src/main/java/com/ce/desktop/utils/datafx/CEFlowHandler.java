@@ -1,4 +1,4 @@
-package com.casaelida.desktop.utils.datafx;
+package com.ce.desktop.utils.datafx;
 
 import io.datafx.controller.ViewConfiguration;
 import io.datafx.controller.flow.Flow;
@@ -11,7 +11,7 @@ import io.datafx.controller.flow.context.ViewFlowContext;
  *
  * @see io.datafx.controller.context.ApplicationContext
  * @see ViewFlowContext
- * @author iqbal
+ * @author 1w3j
  * @date 7/9/17
  */
 public class CEFlowHandler extends FlowHandler {

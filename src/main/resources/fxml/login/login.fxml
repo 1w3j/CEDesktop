@@ -17,8 +17,8 @@
                         <Insets top="80.0" />
                     </BorderPane.margin>
                     <HBox id="login-logo-pane">
-                        <Text id="login-logo-text-casa" text="%logo-text-casa"  />
-                        <Text id="login-logo-text-elida" text="%logo-text-elida" />
+                        <Text id="login-logo-text-first" text="%logo-text-first"  />
+                        <Text id="login-logo-text-second" text="%logo-text-second" />
                     </HBox>
                     <Region HBox.hgrow="ALWAYS" />
                     <HBox id="login-app-links-pane">

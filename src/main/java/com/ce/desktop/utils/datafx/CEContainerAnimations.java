@@ -1,6 +1,6 @@
-package com.casaelida.desktop.utils.datafx;
+package com.ce.desktop.utils.datafx;
 
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
+import com.ce.desktop.utils.CEConstants.CE.App;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.util.Duration;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * @author iqbal
+ * @author 1w3j
  */
 public enum CEContainerAnimations {
     FADE((c) -> new ArrayList<>(

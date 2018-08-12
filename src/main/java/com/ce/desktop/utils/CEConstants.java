@@ -1,13 +1,13 @@
-package com.casaelida.desktop.utils;
+package com.ce.desktop.utils;
 
-import com.casaelida.desktop.CasaElidaDesktopApp;
-import com.casaelida.desktop.controllers.AppController;
-import com.casaelida.desktop.controllers.login.LoginController;
-import com.casaelida.desktop.controllers.login.LoginPasswordStepController;
-import com.casaelida.desktop.controllers.login.LoginSideMenuController;
-import com.casaelida.desktop.controllers.login.LoginUserEmailStepController;
-import com.casaelida.desktop.controllers.main.MainController;
-import com.casaelida.desktop.controllers.main.MainSideMenuController;
+import com.ce.desktop.CEDesktopApp;
+import com.ce.desktop.controllers.AppController;
+import com.ce.desktop.controllers.login.LoginController;
+import com.ce.desktop.controllers.login.LoginPasswordStepController;
+import com.ce.desktop.controllers.login.LoginSideMenuController;
+import com.ce.desktop.controllers.login.LoginUserEmailStepController;
+import com.ce.desktop.controllers.main.MainController;
+import com.ce.desktop.controllers.main.MainSideMenuController;
 import de.jensd.fx.glyphs.materialicons.MaterialIcon;
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import io.datafx.core.concurrent.ObservableExecutor;
@@ -22,15 +22,15 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 /**
- * @author iqbal
+ * @author 1w3j
  */
 public interface CEConstants {
-    interface CasaElida {
+    interface CE {
         ObservableExecutor POOL = ObservableExecutor.getDefaultInstance();
-        Class<?> CLASS = CasaElidaDesktopApp.class;
+        Class<?> CLASS = CEDesktopApp.class;
         Logger LOGGER = Logger.getLogger(CLASS.getName());
-        String STAGE = "CASAELIDA_STAGE";
-        String SCENE = "CASAELIDA_SCENE";
+        String STAGE = "CE_STAGE";
+        String SCENE = "CE_SCENE";
         Double MIN_WIDTH = 600d;
         Double MIN_HEIGHT = 700d;
 
@@ -81,8 +81,8 @@ public interface CEConstants {
                 String PANE = "login-pane";
                 String TITLE_PANE = "login-title-pane";
                 String LOGO_PANE = "login-logo-pane";
-                String LOGO_TEXT_CASA = "logo-text-casa";
-                String LOGO_TEXT_ELIDA = "logo-text-elida";
+                String LOGO_TEXT_FIRST = "logo-text-first";
+                String LOGO_TEXT_SECOND = "logo-text-second";
                 String APP_LINKS_PANE = "login-app-links-pane";
                 String ANDROID_LINK_ICON = "android-link-icon";
                 String WEB_LINK_ICON = "web-link-icon";
@@ -101,8 +101,8 @@ public interface CEConstants {
                     String ICON_TOOLTIP_ANDROID_LINK = BUNDLE.getString("icon-tooltip-android-link");
                     String ICON_TOOLTIP_WEB_LINK = BUNDLE.getString("icon-tooltip-web-link");
                     String ICON_TOOLTIP_DESKTOP_LINK = BUNDLE.getString("icon-tooltip-desktop-link");
-                    String LOGO_TEXT_CASA = BUNDLE.getString("logo-text-casa");
-                    String LOGO_TEXT_ELIDA = BUNDLE.getString("logo-text-elida");
+                    String LOGO_TEXT_FIRST = BUNDLE.getString("logo-text-first");
+                    String LOGO_TEXT_SECOND = BUNDLE.getString("logo-text-second");
                     String DESKTOP_VERSION_TEXT_FIRST = BUNDLE.getString("desktop-version-text-first");
                     String DESKTOP_VERSION_TEXT_SECOND = BUNDLE.getString("desktop-version-text-second");
                 }
@@ -239,7 +239,7 @@ public interface CEConstants {
     interface Database {
         String HOST = "localhost";
         int PORT = 3306;
-        String NAME = "casaelida";
+        String NAME = "ce";
         String CHARSET = "utf8mb4";
         String USER = "root";
         String PASSWORD = "12345678";
@@ -256,7 +256,7 @@ public interface CEConstants {
         }
 
         interface Links {
-            URI WEBAPP_URI = URI.create("http://iqbal98.netne.net");
+            URI WEBAPP_URI = URI.create("https://example.com");
         }
 
         interface Colors {
@@ -273,7 +273,7 @@ public interface CEConstants {
 
         interface Stylesheets {
             String STYLESHEETS_PATH = "/css/";
-            String CASAELIDA_STYLESHEET = STYLESHEETS_PATH + "casaelida.css";
+            String CE_STYLESHEET = STYLESHEETS_PATH + "ce.css";
         }
 
         interface Fonts {
@@ -284,12 +284,12 @@ public interface CEConstants {
             String ROBOTO_LIGHT = FONTS_PATH + "Roboto-Light.ttf";
             String ROBOTO_MEDIUM = FONTS_PATH + "Roboto-Medium.ttf";
             String ROBOTO_REGULAR = FONTS_PATH + "Roboto-Regular.ttf";
-            InputStream ROBOTO_BOLD_STREAM = CasaElida.App.CLASS.getResourceAsStream(ROBOTO_BOLD);
-            InputStream ROBOTO_BLACK_STREAM = CasaElida.App.CLASS.getResourceAsStream(ROBOTO_BLACK);
-            InputStream ROBOTO_BOLD_ITALIC_STREAM = CasaElida.App.CLASS.getResourceAsStream(ROBOTO_BOLD_ITALIC);
-            InputStream ROBOTO_LIGHT_STREAM = CasaElida.App.CLASS.getResourceAsStream(ROBOTO_LIGHT);
-            InputStream ROBOTO_MEDIUM_STREAM = CasaElida.App.CLASS.getResourceAsStream(ROBOTO_MEDIUM);
-            InputStream ROBOTO_REGULAR_STREAM = CasaElida.App.CLASS.getResourceAsStream(ROBOTO_REGULAR);
+            InputStream ROBOTO_BOLD_STREAM = CE.App.CLASS.getResourceAsStream(ROBOTO_BOLD);
+            InputStream ROBOTO_BLACK_STREAM = CE.App.CLASS.getResourceAsStream(ROBOTO_BLACK);
+            InputStream ROBOTO_BOLD_ITALIC_STREAM = CE.App.CLASS.getResourceAsStream(ROBOTO_BOLD_ITALIC);
+            InputStream ROBOTO_LIGHT_STREAM = CE.App.CLASS.getResourceAsStream(ROBOTO_LIGHT);
+            InputStream ROBOTO_MEDIUM_STREAM = CE.App.CLASS.getResourceAsStream(ROBOTO_MEDIUM);
+            InputStream ROBOTO_REGULAR_STREAM = CE.App.CLASS.getResourceAsStream(ROBOTO_REGULAR);
         }
     }
 }

@@ -203,11 +203,11 @@
 	-fx-text-alignment: CENTER;
 }
 
-#login-pane-wrapper #login-pane #login-title-pane #login-logo-pane #login-logo-text-casa {
+#login-pane-wrapper #login-pane #login-title-pane #login-logo-pane #login-logo-text-first {
 	-fx-fill: ce-white;
 }
 
-#login-pane-wrapper #login-pane #login-title-pane #login-logo-pane #login-logo-text-elida {
+#login-pane-wrapper #login-pane #login-title-pane #login-logo-pane #login-logo-text-second {
 	-fx-fill: ce-yellow;
 }
 

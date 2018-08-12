@@ -1,6 +1,6 @@
-package com.casaelida.desktop.utils.datafx;
+package com.ce.desktop.utils.datafx;
 
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
+import com.ce.desktop.utils.CEConstants.CE.App;
 import io.datafx.controller.context.ViewContext;
 import io.datafx.controller.flow.FlowContainer;
 import io.datafx.controller.flow.container.AnimatedFlowContainer;
@@ -19,9 +19,9 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * @author iqbal
+ * @author 1w3j
  * <p>
- * A {@link FlowContainer} that supports animation for the view change of the Casa Elida Desktop App.
+ * A {@link FlowContainer} that supports animation for the view change of the Desktop App.
  */
 public class CEAnimatedFlowContainer extends AnimatedFlowContainer implements FlowContainer<StackPane> {
 

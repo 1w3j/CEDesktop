@@ -1,12 +1,8 @@
-package com.casaelida.desktop.controllers.login;
+package com.ce.desktop.controllers.login;
 
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App;
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Animations;
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Login;
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Login.Steps.Password;
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Main;
-import com.casaelida.desktop.utils.CEController;
-import com.casaelida.desktop.utils.CEFunctions;
+import com.ce.desktop.utils.CEController;
+import com.ce.desktop.utils.CEFunctions;
+import com.ce.desktop.utils.CEConstants;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.effects.JFXDepthManager;
@@ -20,7 +16,6 @@ import io.datafx.controller.flow.context.FXMLViewFlowContext;
 import io.datafx.controller.flow.context.FlowActionHandler;
 import io.datafx.controller.flow.context.ViewFlowContext;
 import io.datafx.controller.util.VetoException;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.BorderPane;
@@ -32,7 +27,7 @@ import javax.annotation.PostConstruct;
 import java.util.logging.Level;
 
 /**
- * @author iqbal
+ * @author 1w3j
  */
 @ViewController ("/fxml/login/password-step.fxml")
 public class LoginPasswordStepController extends CEController {
@@ -46,28 +41,28 @@ public class LoginPasswordStepController extends CEController {
     @FXMLViewFlowContext private ViewFlowContext loginFlowContext;
     //taken from LoginController through loginFlowContext
     private FlowActionHandler authStepsActionHandler;
-    //taken from CasaElidaDesktopApp throught Application Context
+    //taken from CEDesktopApp throught Application Context
     private FlowActionHandler appActionHandler;
     //Current View Components
-    @ViewNode (Password.PANE) private GridPane passwordStepPane;
-    @ViewNode (Password.PANE_HEADER) private VBox passwordStepPaneHeader;
-    @ViewNode (Password.LBL_USEREMAIL) private Label lblUserEmail;
-    @ViewNode (Password.BTN_CHANGE_USER) private StackPane btnChangeUser;
-    @ViewNode (Password.BTN_LOGIN) @ActionTrigger (Password.Flow.VALIDATE) private JFXButton btnLogin;
-    @ViewNode (Password.TXT_PASSWORD) private JFXPasswordField txtPassword;
-    @ViewNode (Password.LBL_USERNAME) private Label lblUserName;
+    @ViewNode (CEConstants.CE.App.Login.Steps.Password.PANE) private GridPane passwordStepPane;
+    @ViewNode (CEConstants.CE.App.Login.Steps.Password.PANE_HEADER) private VBox passwordStepPaneHeader;
+    @ViewNode (CEConstants.CE.App.Login.Steps.Password.LBL_USEREMAIL) private Label lblUserEmail;
+    @ViewNode (CEConstants.CE.App.Login.Steps.Password.BTN_CHANGE_USER) private StackPane btnChangeUser;
+    @ViewNode (CEConstants.CE.App.Login.Steps.Password.BTN_LOGIN) @ActionTrigger (CEConstants.CE.App.Login.Steps.Password.Flow.VALIDATE) private JFXButton btnLogin;
+    @ViewNode (CEConstants.CE.App.Login.Steps.Password.TXT_PASSWORD) private JFXPasswordField txtPassword;
+    @ViewNode (CEConstants.CE.App.Login.Steps.Password.LBL_USERNAME) private Label lblUserName;
 
     @PostConstruct private void start () {
         //instance was created in LoginUserEmailStepController since it is the first View that appears in the Login's Flow (better called Auth's Flow) and it is used to navigate to MainController
-        this.authStepsActionHandler = (FlowActionHandler) this.loginFlowContext.getRegisteredObject(Login.Flow.ACTION_HANDLER);
+        this.authStepsActionHandler = (FlowActionHandler) this.loginFlowContext.getRegisteredObject(CEConstants.CE.App.Login.Flow.ACTION_HANDLER);
         //instance was created in AppController and it is used to navigate to MainController
-        this.appActionHandler = (FlowActionHandler) this.loginFlowContext.getApplicationContext().getRegisteredObject(App.Flow.ACTION_HANDLER);
-        this.loginPane = (BorderPane) this.loginFlowContext.getRegisteredObject(App.Login.PANE);
+        this.appActionHandler = (FlowActionHandler) this.loginFlowContext.getApplicationContext().getRegisteredObject(CEConstants.CE.App.Flow.ACTION_HANDLER);
+        this.loginPane = (BorderPane) this.loginFlowContext.getRegisteredObject(CEConstants.CE.App.Login.PANE);
 
         initComponents();
     }
 
-    @ActionMethod (Password.Flow.VALIDATE)
+    @ActionMethod (CEConstants.CE.App.Login.Steps.Password.Flow.VALIDATE)
     private void validateUserPassword () {
         //Password validation
         this.startedValidating = true;
@@ -78,12 +73,12 @@ public class LoginPasswordStepController extends CEController {
             this.passwordStepPane.setDisable(true);
             //Simulate Web-Based login data verification
             CEFunctions.runAfterDelay(() -> {
-                this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.MAIN_START);
+                this.loginFlowContext.getApplicationContext().register(CEConstants.CE.App.Animations.Flow.NEXT_ANIMATION, CEConstants.CE.App.Animations.MAIN_START);
                 try {
-                    this.appActionHandler.navigate(Main.CLASS);
+                    this.appActionHandler.navigate(CEConstants.CE.App.Main.CLASS);
                     this.loginPane.setOpacity(1d);
                 } catch (VetoException | FlowException ex) {
-                    Password.LOGGER.log(Level.SEVERE, null, ex);
+                    CEConstants.CE.App.Login.Steps.Password.LOGGER.log(Level.SEVERE, null, ex);
                 }
             }, 500);
         }
@@ -97,24 +92,24 @@ public class LoginPasswordStepController extends CEController {
             try {
                 changeUser();
             } catch (FlowException | VetoException ex) {
-                Password.LOGGER.log(Level.SEVERE, null, ex);
+                CEConstants.CE.App.Login.Steps.Password.LOGGER.log(Level.SEVERE, null, ex);
             }
         });
         //Password validators
         RequiredFieldValidator passwordRequiredValidator = new RequiredFieldValidator();
-        passwordRequiredValidator.setMessage(Password.Strings.ERROR_REQUIRED);
-        passwordRequiredValidator.setIcon(Password.WARNING_ICON);
+        passwordRequiredValidator.setMessage(CEConstants.CE.App.Login.Steps.Password.Strings.ERROR_REQUIRED);
+        passwordRequiredValidator.setIcon(CEConstants.CE.App.Login.Steps.Password.WARNING_ICON);
         this.txtPassword.setValidators(passwordRequiredValidator);
         CEFunctions.initFocusValidationStyling(this.txtPassword, this.startedValidating);
         //Tooltips
-        Tooltip.install(this.btnChangeUser, CEFunctions.createTooltip(Password.Strings.TOOLTIP_CHANGE_USER));
-        Tooltip.install(this.btnLogin, CEFunctions.createTooltip(Password.Strings.BTN_LOGIN));
+        Tooltip.install(this.btnChangeUser, CEFunctions.createTooltip(CEConstants.CE.App.Login.Steps.Password.Strings.TOOLTIP_CHANGE_USER));
+        Tooltip.install(this.btnLogin, CEFunctions.createTooltip(CEConstants.CE.App.Login.Steps.Password.Strings.BTN_LOGIN));
     }
 
     //User clicks the arrow down button
     private void changeUser () throws FlowException, VetoException {
-        this.loginFlowContext.getApplicationContext().register(Animations.Flow.NEXT_ANIMATION, Animations.LOGIN_BACK);
-        this.authStepsActionHandler.navigate(Login.Steps.UserEmail.CLASS);
+        this.loginFlowContext.getApplicationContext().register(CEConstants.CE.App.Animations.Flow.NEXT_ANIMATION, CEConstants.CE.App.Animations.LOGIN_BACK);
+        this.authStepsActionHandler.navigate(CEConstants.CE.App.Login.Steps.UserEmail.CLASS);
     }
 
 }

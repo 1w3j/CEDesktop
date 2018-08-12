@@ -1,7 +1,7 @@
-package com.casaelida.desktop.controllers.login;
+package com.ce.desktop.controllers.login;
 
-import com.casaelida.desktop.utils.CEConstants.CasaElida.App.Login;
-import com.casaelida.desktop.utils.CEController;
+import com.ce.desktop.utils.CEController;
+import com.ce.desktop.utils.CEConstants;
 import com.jfoenix.controls.JFXButton;
 import io.datafx.controller.ViewController;
 import io.datafx.controller.ViewNode;
@@ -12,12 +12,12 @@ import javafx.application.Platform;
 import javax.annotation.PostConstruct;
 
 /**
- * @author iqbal
+ * @author 1w3j
  * @date 7/9/17
  */
 @ViewController (value = "/fxml/login/sidemenu.fxml")
 public class LoginSideMenuController extends CEController {
-    @ViewNode (Login.SideMenu.ITEM_EXIT) @ActionTrigger (Login.SideMenu.Flow.EXIT) private JFXButton itemExit;
+    @ViewNode (CEConstants.CE.App.Login.SideMenu.ITEM_EXIT) @ActionTrigger (CEConstants.CE.App.Login.SideMenu.Flow.EXIT) private JFXButton itemExit;
 
     @PostConstruct private void start () {
         initComponents();
@@ -27,7 +27,7 @@ public class LoginSideMenuController extends CEController {
 
     }
 
-    @ActionMethod (Login.SideMenu.Flow.EXIT) private void exit () {
+    @ActionMethod (CEConstants.CE.App.Login.SideMenu.Flow.EXIT) private void exit () {
         Platform.exit();
     }
 }

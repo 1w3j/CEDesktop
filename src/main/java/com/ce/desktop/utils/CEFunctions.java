@@ -1,4 +1,4 @@
-package com.casaelida.desktop.utils;
+package com.ce.desktop.utils;
 
 import com.jfoenix.concurrency.JFXUtilities;
 import com.jfoenix.controls.JFXDrawer;
@@ -17,7 +17,7 @@ import java.util.Collection;
 import java.util.ResourceBundle;
 
 /**
- * @author iqbal
+ * @author 1w3j
  */
 public final class CEFunctions {
 
@@ -86,32 +86,26 @@ public final class CEFunctions {
     }
 
     /**
+     * Makes the specified drawer to open if closed, and close if opened.
+     * @param drawer the drawer to be used
+     */
+    public static void toggleDrawer (JFXDrawer drawer) {
+        if (drawer.isClosed() || drawer.isClosing()) {
+            drawer.open();
+        } else {
+            drawer.close();
+        }
+    }
+
+    /**
      * Initializes the Application's drawer with the default size and a open/close
      * toggle functionality set on the specified {@link Node}.
      * @param drawer the drawer to be used
      * @param sidemenuButton the button which is used to toggle opening and closing of the drawer's side menu
      */
     public static void initDrawer (JFXDrawer drawer, Node sidemenuButton) {
-        drawer.setDefaultDrawerSize(CEConstants.CasaElida.App.SIDEMENU_SIZE);
-        sidemenuButton.setOnMouseClicked(e -> {
-            if (drawer.isHidden() || drawer.isHiding()) {
-                drawer.open();
-            } else {
-                drawer.close();
-            }
-        });
-    }
-
-    /**
-     * Makes the specified drawer to open if closed, and close if opened.
-     * @param drawer the drawer to be used
-     */
-    public static void toggleDrawer (JFXDrawer drawer) {
-        if (drawer.isHidden() || drawer.isHiding()) {
-            drawer.open();
-        } else {
-            drawer.close();
-        }
+        drawer.setDefaultDrawerSize(CEConstants.CE.App.SIDEMENU_SIZE);
+        sidemenuButton.setOnMouseClicked(e -> toggleDrawer(drawer));
     }
 
     /**
